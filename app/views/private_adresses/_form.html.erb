@@ -1,0 +1,27 @@
+<%= form_with(model: private_adress, local: true) do |form| %>
+  <% if private_adress.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(private_adress.errors.count, "error") %> prohibited this private_adress from being saved:</h2>
+
+      <ul>
+      <% private_adress.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :street_name %>
+    <%= form.text_field :street_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :other_information %>
+    <%= form.text_field :other_information %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
