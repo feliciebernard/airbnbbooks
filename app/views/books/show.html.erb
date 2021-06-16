@@ -1,48 +1,46 @@
 <p id="notice"><%= notice %></p>
+<% empty = '-' %>
+<br>
+<h3><%= @book.title %></h3>
 
 <p>
   <strong>Isbn:</strong>
-  <%= @book.isbn %>
-</p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @book.title %>
+  <%= (@book.isbn != '' ? @book.isbn : empty) %>
 </p>
 
 <p>
   <strong>Authors:</strong>
-  <%= @book.authors %>
+  <%= (@book.authors != '' ? @book.authors : empty) %>
 </p>
 
 <p>
   <strong>Publisher:</strong>
-  <%= @book.publisher %>
+  <%= (@book.publisher != '' ? @book.publisher : empty) %>
 </p>
 
 <p>
   <strong>Published date:</strong>
-  <%= @book.published_date %>
+  <%= (@book.published_date != '' ? @book.published_date : empty) %>
 </p>
 
 <p>
   <strong>Language:</strong>
-  <%= @book.language %>
+  <%= (@book.language != '' ? @book.language : empty) %>
 </p>
 
 <p>
   <strong>Categories:</strong>
-  <%= @book.categories %>
+  <%= (@book.categories != '' ? @book.categories : empty) %>
 </p>
 
 <p>
   <strong>Description:</strong>
-  <%= @book.description %>
+  <%= (@book.description != '' ? @book.description : empty) %>
 </p>
 
 <p>
   <strong>Image link:</strong>
-  <%= @book.image_link %>
+  <%= (@book.image_link != '' ? @book.image_link : empty) %>
 </p>
 
 <%= link_to 'Edit', edit_book_path(@book) %> |

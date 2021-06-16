@@ -1,5 +1,64 @@
-<h1>New Book</h1>
+<h1>Ajouter un livre</h1>
+<h4>Compléter les informations avec l'ISBN</h4>
 
-<%= render 'form', book: @book %>
-
-<%= link_to 'Back', books_path %>
+<%= form_for :isbn_fill, url: books_path do |f| %>
+  <% if @query_errors != nil and @query_errors.any? %>
+    <% @query_errors.each do |message| %>
+      <div class="alert alert-danger"><%= message %></div>
+    <% end %>
+  <% end %>
+  <p>
+    <%= f.label :isbn, 'ISBN' %>
+    <%= f.number_field :isbn, :class => 'form-control' %>
+  </p>
+  <p>
+    <%= f.submit 'Remplir le formulaire', :class => 'btn btn-primary' %>
+  </p>
+<% end %>
+<h3>Vérifier les informations</h3>
+<%= form_for @book do |f| %>
+  <% if @book.errors.any? %>
+    <% @book.errors.full_messages.each do |message| %>
+      <div class="alert alert-danger"><%= message %></div>
+    <% end %>
+  <% end %>
+  <p>
+    <%= f.label :isbn, 'ISBN' %>
+    <%= f.number_field :isbn, :class => 'form-control', :value => @isbn %>
+  </p>
+  <p>
+    <%= f.label :title, 'Titre' %>
+    <%= f.text_field :title, :class => 'form-control', :value => @title %>
+  </p>
+  <p>
+    <%= f.label :authors, 'Autheur.e.s' %>
+    <%= f.text_field :authors, :class => 'form-control', :value => @authors %>
+  </p>
+  <p>
+    <%= f.label :publisher, 'Editions' %>
+    <%= f.text_field :publisher, :class => 'form-control', :value => @publisher %>
+  </p>
+  <p>
+    <%= f.label :published_date, 'Date de publication' %>
+    <%= f.number_field :published_date, :class => 'form-control', :value => @published_date %>
+  </p>
+  <p>
+    <%= f.label :language, 'Langue' %>
+    <%= f.text_field :language, :class => 'form-control', :value => @language %>
+  </p>
+  <p>
+    <%= f.label :categories, 'Catégorie.s' %>
+    <%= f.text_field :categories, :class => 'form-control', :value => @categories %>
+  </p>
+  <p>
+    <%= f.label :description, 'Résumé' %>
+    <%= f.text_field :description, :class => 'form-control', :value => @description %>
+  </p>
+  <p>
+    <%= f.label :image_link, 'Lien vers l\'image' %>
+    <%= f.text_field :image_link, :class => 'form-control', :value => @image_link %>
+  </p>
+  <p>
+    <%= f.submit 'Ajouter le livre à ma bibliothèque', :class => 'btn btn-primary' %>
+  </p>
+<% end %>
