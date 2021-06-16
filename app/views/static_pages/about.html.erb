@@ -1,2 +1,46 @@
-<h1>StaticPages#about</h1>
-<p>Find me in app/views/static_pages/about.html.erb</p>
+  <div class="titlepage">
+  <div class="row">
+    <%=image_tag "HEADTITLE.png", class:"headtitle"%>
+    </div>
+    <div class="row">
+    <%=link_to image_tag("ARROW.png"), root_path(anchor: 'concept'),class:"arrow transformation" %>
+    </div>
+  </div>
+  <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+<%= render "layouts/navbar"%>
+
+  <br /> <br /> <br /> <br /><br /> <br />
+  <div class="row">
+    <div class="five columns"></div>
+  <button class="button-primary about-btn"><%=link_to "s'identifier", new_user_session_path, style:"color:#073131;text-decoration:none;"%></button>
+  <button class="button-success"><%=link_to "s'inscrire",  new_user_registration_path, style:"color:#073131;text-decoration:none;"%></button>
+  <div class="seven columns"></div>
+</div>
+  <section>
+    <div class="row">
+      <div class="three columns"></div>
+      <div class="one column"><%=image_tag "man-reading.svg", class:"man-reading"%></div>
+      <div class="one column"></div>
+      <div class="five columns"><h4 class="text-success">Une nouvelle plateforme d’échange</h4>
+        <p class="about text-dark">Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+        Ut enim ad minim veniam, quis nostrud exercitation 
+        ullamco laboris nisi ut aliquip ex ea commodo consequat.
+         Duis aute irure dolor in reprehenderit in voluptate velit 
+        esse cillum dolore eu fugiat nulla pariatur.</p></div>
+        <div class="two columns"></div>
+  </div>
+
+  <div class="row">
+    <div class="three columns"></div>
+    <div class="five columns"><h4 class="text-info about2">Partagez et découvrez de nouvelles lectures</h4>
+      <p class="about2 text-dark">Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+      Ut enim ad minim veniam, quis nostrud exercitation 
+      ullamco laboris nisi ut aliquip ex ea commodo consequat.
+       Duis aute irure dolor in reprehenderit in voluptate velit 
+      esse cillum dolore eu fugiat nulla pariatur.</p></div>
+    <div class="two column"><%=image_tag "woman-reading.svg", class:"woman-reading"%></div>
+</div>  <br />  <br />  <br /></section>
+
+<%=render 'layouts/footer' %>

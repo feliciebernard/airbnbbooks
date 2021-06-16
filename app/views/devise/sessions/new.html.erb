@@ -1,26 +1,33 @@
-<h2>Log in</h2>
-
+<%= render "layouts/navbar"%>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="row">
+         <div class="three column"></div>
+        <div class="six columns">
+          <h2 class="u-text-center text-info">S'IDENTIFIER</h2>
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.label "Entrez votre adresse email",class:"text-info" %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"u-full-width placeholder",placeholder:"ADRESSE EMAIL" %>
   </div>
 
   <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
+    <%= f.label "Entrez votre mot de passe" ,class:"text-info"%>
+    <% if @minimum_password_length %>
+    <em class="text-info">(<%= @minimum_password_length %> caractères minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "current-password", class:"u-full-width placeholder",placeholder:"MOT DE PASSE"%>
   </div>
 
   <% if devise_mapping.rememberable? %>
     <div class="field">
       <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+      <%= f.label "se souvenir de moi" %>
     </div>
   <% end %>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
+ <div class="actions">
+    <%= f.submit "s'identifier", class:"button-primary u-full-width"%>
   </div>
 <% end %>
-
-<%= render "devise/shared/links" %>
+<br /><br />
+</div>
+<%= render "layouts/footer"%>

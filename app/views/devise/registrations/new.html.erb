@@ -1,29 +1,32 @@
-<h2>Sign up</h2>
-
+<%= render "layouts/navbar"%>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
-
+  <div class="row">
+         <div class="three column"></div>
+        <div class="six columns">
+          <h2 class="u-text-center text-info">S'INSCRIRE</h2>
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.label "Entrez votre adresse email",class:"text-info" %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"u-full-width placeholder",placeholder:"ADRESSE EMAIL" %>
   </div>
 
   <div class="field">
-    <%= f.label :password %>
+    <%= f.label "Entrez votre mot de passe" ,class:"text-info"%>
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <em class="text-info">(<%= @minimum_password_length %> caractères minimum)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+    <%= f.password_field :password, autocomplete: "new-password", class:"u-full-width placeholder",placeholder:"MOT DE PASSE"%>
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <%= f.label "Confirmer votre mot de passe",class:"text-info" %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder:"MOT DE PASSE", class:"u-full-width placeholder" %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "S'INSCRIRE", class:"button-primary u-full-width"%>
   </div>
 <% end %>
+</div>
 
-<%= render "devise/shared/links" %>
+<%= render "layouts/footer"%>
