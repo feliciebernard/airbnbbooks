@@ -4,6 +4,12 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  after_create :welcome_send
+
+  def welcome_send
+    UserMailer.welcome_email(self).deliver_now
+  end
+
   has_many :lenders, foreign_key: 'lender_id', class_name: "Loan"
   has_many :borrowers, foreign_key: 'borrower_id', class_name: "Loan"
 
