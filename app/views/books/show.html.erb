@@ -4,44 +4,44 @@
 <h3><%= @book.title %></h3>
 
 <p>
-  <strong>Isbn:</strong>
+  <strong>ISBN :</strong>
   <%= (@book.isbn != '' ? @book.isbn : empty) %>
 </p>
 
 <p>
-  <strong>Authors:</strong>
+  <strong>Auteur.e.s :</strong>
   <%= (@book.authors != '' ? @book.authors : empty) %>
 </p>
 
 <p>
-  <strong>Publisher:</strong>
+  <strong>Editions :</strong>
   <%= (@book.publisher != '' ? @book.publisher : empty) %>
 </p>
 
 <p>
-  <strong>Published date:</strong>
+  <strong>Date de publication:</strong>
   <%= (@book.published_date != '' ? @book.published_date : empty) %>
 </p>
 
 <p>
-  <strong>Language:</strong>
+  <strong>Langue :</strong>
   <%= (@book.language != '' ? @book.language : empty) %>
 </p>
 
 <p>
-  <strong>Categories:</strong>
+  <strong>Catégorie.s :</strong>
   <%= (@book.categories != '' ? @book.categories : empty) %>
 </p>
 
 <p>
-  <strong>Description:</strong>
+  <strong>Résumé :</strong>
   <%= (@book.description != '' ? @book.description : empty) %>
 </p>
 
 <p>
-  <strong>Image link:</strong>
+  <strong>Lien vers l'image :</strong>
   <%= (@book.image_link != '' ? @book.image_link : empty) %>
 </p>
 
-<%= link_to 'Edit', edit_book_path(@book) %> |
-<%= link_to 'Back', books_path %>
+<%= link_to 'Editer', edit_book_path(@book) %> |
+<%= link_to 'Retour vers les livres', books_path %>
