@@ -7,8 +7,11 @@
         <div class="one column dropdown">
           <a href="#"><%= image_tag "hamburger.svg", class:"hamburger"%></a>
             <div class="dropdown-content">
-              <ul><li><a href="#" class="link">Accueil</a></li>
-              <li><a href="#" class="link">A Propos</a></li>
+              <ul><li><%if user_signed_in?%>
+              <%=link_to "Accueil", own_books_path, class:"link"%>
+              <%else%>
+              <%=link_to "Accueil", root_path, class:"link"%>
+              <%end%></li>
             <li><a href="#" class="link">Contact</a></li>
               </ul>
           </div>
