@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  get 'static_pages/about'
+
+  root 'static_pages#about'
+
   get 'static_pages/team'
   get 'static_pages/privacypolicy'
   resources :private_adresses
