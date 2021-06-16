@@ -3,7 +3,7 @@ class BooksController < ApplicationController
 
   # GET /books or /books.json
   def index
-    @books = Book.all
+    @books = Book.all.reverse
   end
 
   # GET /books/1 or /books/1.json
@@ -12,6 +12,20 @@ class BooksController < ApplicationController
 
   # GET /books/new
   def new
+    @isbn = params[:isbn]
+    @title = params[:title]
+    @authors = params[:authors]
+    @publisher = params[:publisher]
+    @published_date = params[:published_date]
+    @language = params[:language]
+    @categories = params[:categories]
+    @description = params[:description]
+    @image_link = params[:image_link]
+    
+
+    @query_errors = []
+    @query_errors << 'Mince, ton livre est si rare que nous n\'avons pas pu le trouver !' if params[:successful] == 'false'
+    @query_errors << 'Merci d\'indiquer l\'ISBN (le numéro du code barre est généralement situé derrière le livre !)' if params[:is_empty] != nil
     @book = Book.new
   end
 
@@ -21,15 +35,45 @@ class BooksController < ApplicationController
 
   # POST /books or /books.json
   def create
-    @book = Book.new(book_params)
+    if params[:isbn_fill] then
+      if params[:isbn_fill][:isbn] == '' then
+        redirect_to action: 'new',
+        successful: true,
+        is_empty: true
+        return
+      end
 
-    respond_to do |format|
-      if @book.save
-        format.html { redirect_to @book, notice: "Book was successfully created." }
-        format.json { render :show, status: :created, location: @book }
+      books = GoogleBooks.search('isbn:' << params[:isbn_fill][:isbn])
+      book = books.first
+      
+      if book == nil then
+        redirect_to action: 'new',
+        successful: false
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @book.errors, status: :unprocessable_entity }
+        redirect_to action: 'new',
+        successful: true,
+        isbn: params[:isbn_fill][:isbn],
+        title: book.title,
+        authors: book.authors,
+        publisher: book.publisher,
+        published_date: book.published_date,
+        language: book.language,
+        categories: book.categories,
+        description: book.description,
+        image_link: book.image_link
+
+      end
+    else
+      if params[:book][:shelf] != nil
+        params[:book][:shelf] = params[:book][:shelf].upcase
+      end
+
+      @book = Book.new(book_params)
+
+      if @book.save then
+        redirect_to @book
+      else
+        render 'new', no_reset: true
       end
     end
   end
@@ -66,4 +110,4 @@ class BooksController < ApplicationController
     def book_params
       params.require(:book).permit(:isbn, :title, :authors, :publisher, :published_date, :language, :categories, :description, :image_link)
     end
-end
+  end
