@@ -82,3 +82,6 @@ gem 'faker'
 
 # beautiful tables
 gem 'table_print' 
+
+# beautiful mails
+gem 'premailer-rails'
