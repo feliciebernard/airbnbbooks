@@ -1390,3 +1390,58 @@ margin-bottom: 100px;
   75%  {bottom:25px; top:25px;}
   100% {bottom:0px; top:0px;}
 }
+
+.user-profile {
+  max-width: 300px;
+  min-height: 1500px;
+  background: #82C0CC;
+  margin-left: 20%;
+}
+
+.avatar {
+  height: 150px;
+  max-width: 150px;
+  background-color:#16697A;
+  margin: auto;
+}
+.username {
+  text-align: center;
+}
+
+.user-description {
+  text-align: justify;
+}
+
+.first-button {
+  margin-top: 10px;
+}
+
+.book-img {
+  width:20%;
+}
+
+.book-name {
+  text-align: center;
+}
+
+.book-container {
+  margin-top:50px;
+  width:100%;
+}
+
+
+.card-item {
+ width: 500px;
+}
+.book-img-list {
+  width:10%;
+  margin-right:5%;
+}
+.card-list {
+  border:none;
+  box-shadow: none;
+  padding-right:20%;
+}
+.book-description {
+  padding-left: 15%;
+}
