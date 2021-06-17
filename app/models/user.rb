@@ -6,9 +6,6 @@ class User < ApplicationRecord
 
   after_create :welcome_send
 
-  def welcome_send
-    UserMailer.welcome_email(self).deliver_now
-  end
 
   has_many :lenders, foreign_key: 'lender_id', class_name: "Loan"
   has_many :borrowers, foreign_key: 'borrower_id', class_name: "Loan"
@@ -27,7 +24,26 @@ class User < ApplicationRecord
 
   #password 8 chars minimum
   validates :biography, length: { in: 20..200 }
-  
 
+  def welcome_send
+    UserMailer.welcome_email(self).deliver_now
+  end
+
+  #méthode qui pour lui renvoie la liste de ces livre prétés
+  def loan_books
+    loan_books = nil
+    self.own_books.each do |my_book|
+      loan_books += my_book if my_book.loan.status == true
+    end
+  end
+
+  #méthode qui renvoie la liste de ces livres dispo a l'emprunt
+  
+  def books_available
+    available_books = nil
+    self.own_books.each do |my_book|
+      available_books += my_book if my_book.is_available?
+    end
+  end
 
 end
