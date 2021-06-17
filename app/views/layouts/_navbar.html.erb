@@ -1,6 +1,6 @@
   <!-- NAVBAR LAYOUT -->
   <header>
-    <div class="container-fluid navbar" id="concept">
+    <div class="u-full-width hero navbar" id="concept">
       <div class="row">
         <div class="five columns"><%=image_tag "polygons.png", class:"polygon-navbar"%></div>
         <div class="six columns"><a href="#"><%= image_tag "LOGO.svg", class:"logo"%></a></div>
@@ -13,11 +13,14 @@
               <%=link_to "Accueil", root_path, class:"link"%>
               <%end%></li>
             <li><a href="#" class="link">Contact</a></li>
+            <% if user_signed_in? %>
+            <%=link_to "Deconnexion", destroy_user_session_path, :method => :delete, class:"link"%>
+            <% else%>
+            <%=link_to "Connexion", new_user_session_path, class:"link"%>
+            <%end%>
               </ul>
           </div>
         </div>
         </div>
-      </div>
-    </div>
   </header>
 
