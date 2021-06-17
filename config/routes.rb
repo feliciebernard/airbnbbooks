@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :contacts, only: [:create, :new]
   root 'static_pages#about'
 
   get 'static_pages/team'
