@@ -65,7 +65,7 @@ def create_own_books(nb_own_books)
     user = User.all.sample
     book = Book.all.sample
 
-    own_book = OwnBook.create(review: review, appreciation: appreciation, available: available, user: user, book: book)
+    own_book = OwnBook.create(review: review, appreciation: appreciation, user: user, book: book)
     puts "--------------- OwnBook n°#{idx_ownbook} ----------------\n\n"
     status_creation(own_book, 'own_book', idx_ownbook)
   end
@@ -79,7 +79,7 @@ def create_loans(nb_loans)
     lender = User.all.sample
     borrower = User.all.sample
 
-    loan = Loan.create(status: status, duration: duration, own_book: own_book, lender: lender, borrower: borrower)
+    loan = Loan.create(status: status, own_book: own_book, lender: lender, borrower: borrower)
     puts "--------------- Loan n°#{idx_loan} ----------------\n\n"
     status_creation(loan, 'loan', idx_loan)
 
