@@ -75,8 +75,7 @@ class BooksController < ApplicationController
 
       if @book.save then
         @own_book = OwnBook.create(user: current_user, book: @book)
-        puts @own_book.errors.full_messages
-        redirect_to @book
+        redirect_to @own_book
       else
         render 'new', no_reset: true
       end
