@@ -1,5 +1,6 @@
 class PrivateAdressesController < ApplicationController
   before_action :set_private_adress, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
 
   # GET /private_adresses or /private_adresses.json
   def index

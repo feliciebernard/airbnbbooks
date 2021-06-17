@@ -1,9 +1,12 @@
 class OwnBooksController < ApplicationController
   before_action :set_own_book, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
+
 
   # GET /own_books or /own_books.json
   def index
     @own_books = OwnBook.all
+    @user = current_user
   end
 
   # GET /own_books/1 or /own_books/1.json
