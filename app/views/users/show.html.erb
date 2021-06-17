@@ -1,3 +1,7 @@
 <p id="notice"><%= notice %></p>
+<%if @user.id === current_user.id%>
 <%= render "userprofile"%>
+<%else%>
+<%=render "otheruserprofile"%>
+<%end%>
 <%= render "own_books/currentuserbooks"%>
