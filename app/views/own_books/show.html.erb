@@ -10,5 +10,7 @@
   <%= @own_book.appreciation %>
 </p>
 
+
 <%= link_to 'Edit', edit_own_book_path(@own_book) %> |
 <%= link_to 'Back', own_books_path %>
+<%= link_to 'Le supprimer de ma bibliothèque', own_book, method: :delete, data: { confirm: 'Are you sure?' } %></td>

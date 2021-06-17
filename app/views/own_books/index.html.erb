@@ -22,9 +22,9 @@
         <td><%= own_book.user.name %></td>
 
         <td><%= link_to 'Voir la fiche du livre', own_book %></td>
-        <%if user_signed_in? == own_book.user.id %>
-        <td><%= link_to 'Editer mon livre', edit_own_book_path(own_book) %></td>
-        <td><%= link_to 'Le supprimer de ma bibliothèque', own_book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%if current_user == own_book.user %>
+          <td><%= link_to 'Editer mon livre', edit_own_book_path(own_book) %></td>
+          <td><%= link_to 'Le supprimer de ma bibliothèque', own_book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
       </tr>
     <% end %>
