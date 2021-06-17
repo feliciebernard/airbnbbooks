@@ -3,7 +3,7 @@ class OwnBook < ApplicationRecord
   belongs_to :book
 
 
-  validates :appreciation, format: { with: /[0-5]/ }
+ # validates :appreciation, format: { with: /[0-5]/ }, in: update
 
 
 end

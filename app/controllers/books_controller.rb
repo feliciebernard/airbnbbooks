@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
   before_action :set_book, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
 
   # GET /books or /books.json
   def index
@@ -8,6 +9,7 @@ class BooksController < ApplicationController
 
   # GET /books/1 or /books/1.json
   def show
+    @own_book = OwnBook.find_by(book: @book)
   end
 
   # GET /books/new
@@ -61,8 +63,8 @@ class BooksController < ApplicationController
         categories: book.categories,
         description: book.description,
         image_link: book.image_link
-
       end
+
     else
       if params[:book][:shelf] != nil
         params[:book][:shelf] = params[:book][:shelf].upcase
@@ -70,8 +72,10 @@ class BooksController < ApplicationController
 
       @book = Book.new(book_params)
 
+
       if @book.save then
-        #redirect_to own_books_path
+        @own_book = OwnBook.create(user: current_user, book: @book)
+        puts @own_book.errors.full_messages
         redirect_to @book
       else
         render 'new', no_reset: true

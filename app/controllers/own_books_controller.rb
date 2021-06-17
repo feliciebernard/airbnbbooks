@@ -13,11 +13,11 @@ class OwnBooksController < ApplicationController
   # GET /own_books/new
   def new
     @own_book = OwnBook.new
-
   end
 
   # GET /own_books/1/edit
   def edit
+    @own_book = set_own_book
   end
 
   # POST /own_books or /own_books.json
@@ -66,6 +66,6 @@ class OwnBooksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def own_book_params
-      params.require(:own_book).permit(:review, :appreciation, :book, :user)
+      params.require(:own_book).permit(:review, :appreciation)
     end
-end
+  end

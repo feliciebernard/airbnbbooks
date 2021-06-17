@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>Titre</th>
       <th>Avis du livre</th>
       <th>Note</th>
       <th>Nom du prêteur</th>
@@ -15,12 +16,13 @@
   <tbody>
     <% @own_books.each do |own_book| %>
       <tr>
+        <td><%= own_book.book.title %></td>
         <td><%= own_book.review %></td>
         <td><%= own_book.appreciation %></td>
         <td><%= own_book.user.name %></td>
 
         <td><%= link_to 'Voir la fiche du livre', own_book %></td>
-        <%if current_user %>
+        <%if user_signed_in? == own_book.user.id %>
         <td><%= link_to 'Editer mon livre', edit_own_book_path(own_book) %></td>
         <td><%= link_to 'Le supprimer de ma bibliothèque', own_book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
