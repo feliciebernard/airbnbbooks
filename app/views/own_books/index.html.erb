@@ -5,9 +5,9 @@
 <table>
   <thead>
     <tr>
-      <th>Review</th>
-      <th>Appreciation</th>
-      <th>Available</th>
+      <th>Avis du livre</th>
+      <th>Note</th>
+      <th>Nom du prêteur</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -17,9 +17,13 @@
       <tr>
         <td><%= own_book.review %></td>
         <td><%= own_book.appreciation %></td>
-        <td><%= link_to 'Show', own_book %></td>
-        <td><%= link_to 'Edit', edit_own_book_path(own_book) %></td>
-        <td><%= link_to 'Destroy', own_book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= own_book.user.name %></td>
+
+        <td><%= link_to 'Voir la fiche du livre', own_book %></td>
+        <%if current_user %>
+        <td><%= link_to 'Editer mon livre', edit_own_book_path(own_book) %></td>
+        <td><%= link_to 'Le supprimer de ma bibliothèque', own_book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
@@ -27,4 +31,4 @@
 
 <br>
 
-<%= link_to 'New Own Book', new_own_book_path %>
+<%= link_to 'Ajouter un livre à ma bibliothèque', new_book_path %>

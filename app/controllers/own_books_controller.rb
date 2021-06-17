@@ -13,8 +13,6 @@ class OwnBooksController < ApplicationController
   # GET /own_books/new
   def new
     @own_book = OwnBook.new
-    @own_book.user = current_user
-    @own_book.book = Book.find(id: params[:id])
 
   end
 
@@ -68,6 +66,6 @@ class OwnBooksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def own_book_params
-      params.require(:own_book).permit(:review, :appreciation, :book)
+      params.require(:own_book).permit(:review, :appreciation, :book, :user)
     end
 end
