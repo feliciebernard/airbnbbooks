@@ -76,7 +76,7 @@ class BooksController < ApplicationController
       if @book.save then
         @own_book = OwnBook.create(user: current_user, book: @book)
         puts @own_book.errors.full_messages
-        redirect_to @book
+        redirect_to @own_book
       else
         render 'new', no_reset: true
       end
@@ -86,9 +86,10 @@ class BooksController < ApplicationController
   # PATCH/PUT /books/1 or /books/1.json
   def update
     respond_to do |format|
+      @own_book = @book.own_books.order("created_at DESC").first
       if @book.update(book_params)
-        format.html { redirect_to @book, notice: "Book was successfully updated." }
-        format.json { render :show, status: :ok, location: @book }
+        format.html { redirect_to @own_book, notice: "Book was successfully updated." }
+        format.json { render :show, status: :ok, location: @own_book }
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @book.errors, status: :unprocessable_entity }
@@ -115,4 +116,4 @@ class BooksController < ApplicationController
     def book_params
       params.require(:book).permit(:isbn, :title, :authors, :publisher, :published_date, :language, :categories, :description, :image_link, :own_book)
     end
-  end
+end

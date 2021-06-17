@@ -1,5 +1,45 @@
 <p id="notice"><%= notice %></p>
 
+<h3><%= @book.title %></h3>
+
+<p>
+  <strong>ISBN :</strong>
+  <%= (@book.isbn != '' ? @book.isbn : empty) %>
+</p>
+
+<p>
+  <strong>Auteur.e.s :</strong>
+  <%= (@book.authors != '' ? @book.authors : empty) %>
+</p>
+
+<p>
+  <strong>Editions :</strong>
+  <%= (@book.publisher != '' ? @book.publisher : empty) %>
+</p>
+
+<p>
+  <strong>Date de publication:</strong>
+  <%= (@book.published_date != '' ? @book.published_date : empty) %>
+</p>
+
+<p>
+  <strong>Langue :</strong>
+  <%= (@book.language != '' ? @book.language : empty) %>
+</p>
+
+<p>
+  <strong>Catégorie.s :</strong>
+  <%= (@book.categories != '' ? @book.categories : empty) %>
+</p>
+
+<p>
+  <strong>Résumé :</strong>
+  <%= (@book.description != '' ? @book.description : empty) %>
+</p>
+
+<p>
+  <strong>Lien vers l'image :</strong>
+</p>
 <p>
   <strong>Review:</strong>
   <%= @own_book.review %>
@@ -11,6 +51,7 @@
 </p>
 
 
-<%= link_to 'Edit', edit_own_book_path(@own_book) %> |
+<%= link_to 'Editer mon avis', edit_own_book_path(@own_book) %> |
+<%= link_to 'Editer les données du livres', edit_book_path(@own_book.book) %> |
 <%= link_to 'Back', own_books_path %>
 <%= link_to 'Le supprimer de ma bibliothèque', @own_book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
