@@ -11,8 +11,6 @@ class OwnBooksController < ApplicationController
 
   # GET /own_books/1 or /own_books/1.json
   def show
-    puts @own_book
-    @book = @own_book.book
   end
 
   # GET /own_books/new
@@ -22,7 +20,7 @@ class OwnBooksController < ApplicationController
 
   # GET /own_books/1/edit
   def edit
-    @own_book = set_own_book()
+    @own_book = set_own_book
   end
 
   # POST /own_books or /own_books.json
