@@ -64,6 +64,6 @@ class LoansController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def loan_params
-      params.require(:loan).permit(:status, :duration)
+      params.require(:loan).permit(:status)
     end
 end

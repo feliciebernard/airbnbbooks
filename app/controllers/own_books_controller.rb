@@ -64,6 +64,6 @@ class OwnBooksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def own_book_params
-      params.require(:own_book).permit(:review, :appreciation, :available)
+      params.require(:own_book).permit(:review, :appreciation)
     end
 end
