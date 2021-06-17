@@ -17,4 +17,17 @@ class User < ApplicationRecord
   has_many :books, through: :own_books
 
   has_one :private_adress
+
+  validates :name, 
+    presence: true,
+    length: { in: 3..100 },
+    format: { with: /[[:alpha:]]-[[:alpha:]]/,
+              message: "le nom doit contenir seulement des caractères 
+              alphabétiques (aA) avec en option un tiret pour séparer un double nom" }
+
+  #password 8 chars minimum
+  validates :biography, length: { in: 20..200 }
+  
+
+
 end
