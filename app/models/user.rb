@@ -15,14 +15,6 @@ class User < ApplicationRecord
 
   has_one :private_adress
 
-  validates :name, 
-    presence: true,
-    length: { in: 3..100 },
-    format: { with: /[[:alpha:]]-[[:alpha:]]/, message: "le nom doit contenir seulement des caractères alphabétiques (aA) avec en option un tiret pour séparer un double nom" }
-
-  #password 8 chars minimum change on the devise 
-
-  validates :biography, length: { in: 20..200 }
 
   def welcome_send
     UserMailer.welcome_email(self).deliver_now

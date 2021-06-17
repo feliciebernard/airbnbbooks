@@ -71,6 +71,7 @@ class BooksController < ApplicationController
       @book = Book.new(book_params)
 
       if @book.save then
+        #redirect_to own_books_path
         redirect_to @book
       else
         render 'new', no_reset: true
@@ -108,6 +109,6 @@ class BooksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def book_params
-      params.require(:book).permit(:isbn, :title, :authors, :publisher, :published_date, :language, :categories, :description, :image_link)
+      params.require(:book).permit(:isbn, :title, :authors, :publisher, :published_date, :language, :categories, :description, :image_link, :own_book)
     end
   end
