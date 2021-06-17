@@ -1,0 +1,18 @@
+ <div class="book-container">
+  <div class="row">
+    <div class="three columns" >
+      <div class="card user-profile">
+      
+        <div class="avatar"></div>
+
+        <div class="buttons">
+          <%= form_tag user_avatars_path(@user), multipart: true do %>
+          <%= file_field_tag :avatar, class:"first-button u-full-width button" %>
+          <%= submit_tag "mettre à jour", class:"first-button u-full-width "%>
+          <%end%>
+          <button class="first-button button-danger u-full-width">Confirmer</button>
+          <button class="first-button button-success u-full-width">Editer le profil</button></div>
+        <h6 class="username">Nom Prenom / Pseudo</h6>
+        <p class="user-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
+      </div>
+    </div>

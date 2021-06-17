@@ -1,0 +1,21 @@
+    <div class="book-list">
+      <!-- If Else Rails starts here -->
+      <% @own_books.each do |own_book|%>
+   <div class="nine columns" >
+      <div class="card card-list">
+        <img src="images/book1.jpg" class="book-img-list u-pull-left">
+        <h6><%=own_book.book.title %></h6>
+        <p>Author</p>
+        <p>ISBN</p>
+        <p class="book-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
+        <button>Détails</button>
+        <button class="button-primary">Critique</button>
+        <button class="button-success">Emprunter</button>
+      </div>
+    </div>
+  
+  <%end%>
+  <!-- If Else ends here -->
+</div>
+</div> <!-- Row end-->
+</div> <!-- Container end-->
