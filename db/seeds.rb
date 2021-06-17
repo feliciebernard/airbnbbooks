@@ -62,7 +62,6 @@ def create_own_books(nb_own_books)
 
     review = Faker::Lorem.sentences(number: rand(2..5))
     appreciation = rand(0..5)
-    available = true
     user = User.all.sample
     book = Book.all.sample
 
@@ -76,7 +75,6 @@ def create_loans(nb_loans)
   nb_loans.times do |idx_loan|
 
     status = true 
-    duration = rand(1..100)
     own_book = OwnBook.all.sample
     lender = User.all.sample
     borrower = User.all.sample
