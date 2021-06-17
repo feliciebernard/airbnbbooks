@@ -11,6 +11,6 @@ class UserMailer < ApplicationMailer
     @url_login = 'https://where-is-my-book.herokuapp.com/users/sign_in'
 
     # c'est cet appel à mail() qui permet d'envoyer l’e-mail en définissant destinataire et sujet.
-    mail(to: @user.email, subject: 'Bienvenue chez nous !')
+    mail(to: @user.email, subject: 'Bienvenue dans ce nouveau monde qui s\'offre à vous...')
   end
 end
