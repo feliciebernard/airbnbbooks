@@ -47,7 +47,7 @@ def create_users(nb_users)
 
     name = Faker::Name.female_first_name
     email = Faker::Internet.free_email
-    password = Faker::Internet.password(min_length: 6, max_length: 15)
+    password = Faker::Internet.password(min_length: 8, max_length: 15)
     biography = Faker::Lorem.sentences(number: rand(1..3))
 
     user = User.create(name: name, email: email, password: password, biography: biography)
