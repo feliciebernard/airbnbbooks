@@ -2,9 +2,11 @@
   <div class="row">
     <div class="three columns" >
       <div class="card user-profile">
-      
+        <%if @user.avatar.attached?%>
         <%= image_tag @user.avatar, class:"avatar" %>
-
+        <%else%>
+        <div class="avatar"></div>
+        <%end%>
         <div class="buttons">
           <%= form_tag user_avatars_path(@user), multipart: true do %>
           <%= file_field_tag :avatar, class:"first-button u-full-width button" %>

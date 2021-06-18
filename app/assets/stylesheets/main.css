@@ -11,8 +11,8 @@ body {
   width: 100%;
   background-color: #489FB5;
   height: 135px;
-  margin-top: -10px;
   margin-left: -8px;
+  margin-bottom: 5%;
 }
 
 .logo {
@@ -77,6 +77,8 @@ input.u-full-width {
 footer {
   background-color: #489FB5;
   height: 135px;
+  width: 100%;
+  margin-top:5%;
 }
 
 .logo-footer {
