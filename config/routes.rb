@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   get 'static_pages/team'
   get 'static_pages/privacypolicy'
+  get '/own_books/:id', to: 'own_books#set_available', as: 'switch_availability'
   resources :private_adresses
   resources :cities
   resources :loans
