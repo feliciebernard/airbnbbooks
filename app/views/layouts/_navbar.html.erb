@@ -3,7 +3,7 @@
     <div class="u-full-width hero navbar" id="concept">
       <div class="row">
         <div class="five columns"><%=image_tag "polygons.png", class:"polygon-navbar"%></div>
-        <div class="six columns"><%=link_to image_tag("LOGO.svg"), root_path, class:"logo a-footer", style:"height38px; "%></div>
+        <div class="six columns logo"><%=link_to image_tag("LOGO.svg"), root_path, class:"logo a-footer", style:"height38px; "%></div>
         <div class="one column dropdown">
         <%if user_signed_in?%>
           <a href="#"><%= image_tag "hamburger.svg", class:"hamburger"%></a>
