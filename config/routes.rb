@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
 
   resources :contacts, only: [:create, :new]
-  root 'static_pages#about'
+  authenticated :user do
+    root 'own_books#index', as: :authenticated_root
+  end
+  root "static_pages#about"
 
   get 'static_pages/team'
   get 'static_pages/privacypolicy'
