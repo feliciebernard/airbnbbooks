@@ -1,5 +1,9 @@
 <body>
-  <div class="container">
+    <!--Section heading-->
+    <h2 class="u-text-center">Contactez-nous !</h2>
+    <!--Section description-->
+    <h6 class="u-text-center">Une question ? Une interrogation ? Une suggestion ? La parole est à vous !</h6>
+
   <%= form_for(@contact) do |f| %>
   <% if @contact.errors.any? %>
   <div id="error_explanation">
@@ -12,66 +16,30 @@
     </ul>
   </div>
   <% end %>
+    <div class="container contact-form">
+  <div class="row">
+  <div class="six columns">
+  
+                  <%= f.label :name, "Nom", class:"input text-dark" %><br />
+                  <%= f.text_field :name, class:"u-full-width" %></div>
+       
+<div class="six columns">
+          
+                  <%= f.label :email, "Email", class:"input text-dark" %><br />
+                  <%= f.text_field :email, class:"u-full-width" %>
+     </div>
+               <%= f.label :object,"Objet", class:"input text-dark" %><br />
+               <%= f.text_field :object, class:"u-full-width" %>
 
-    <div class="row">
-
-      <!--Grid column-->
-      <div class="col-md-9 mb-md-0 mb-5">
-        <form id="contact-form" name="contact-form">
-
-          <!--Grid row-->
-          <div class="row">
-
-            <!--Grid column-->
-            <div class="col-md-6">
-              <div class="md-form mb-0">
-                <div class="form-group">
-                  <%= f.label :name, "Nom" %><br />
-                  <%= f.text_field :name, class:"form-control" %>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-6">
-              <div class="md-form mb-0">
-                <div class="form-group">
-                  <%= f.label :email, "Email" %><br />
-                  <%= f.text_field :email, class:"form-control" %>
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-          <div class="row">
-            <div class="col-md-12">
-              <br>
-              <div class="md-form mb-0">
-               <%= f.label :object,"Objet" %><br />
-               <%= f.text_field :object, class:"form-control" %>
-             </div>
-           </div>
-         </div>
-
-         <div class="row">
-
+    
           <!--Grid column-->
-          <div class="col-md-12">
-
-            <div class="md-form">
-              <br>
-              <%= f.label :message, "Message" %><br />
-              <%= f.text_area :message, class:"form-control", rows:'3' %>
-            </div>
-          </div>
-        </div>
+          
+              <%= f.label :message, "Message", class:"input text-dark" %><br />
+              <%= f.text_area :message, class:"u-full-width", rows:'3' %>
       </form>
-
-      <div class="text-center text-md-left">
-
         <div class="actions">
           <br>
-          <%= f.submit "Envoyer", class:"btn btn-primary" %>
+          <%= f.submit "Envoyer", class:"button-primary u-full-width" %>
         </div>
         <% end %>
         <div class="status"></div>
