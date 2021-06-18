@@ -24,7 +24,7 @@
         <td><%= link_to own_book.user.name, user_path(current_user) %></td>
 
         <td><%= link_to 'Voir la fiche du livre', own_book %></td>
-        <% if !own_book.loans.first.nil? && own_book.loans.order("updated_at DESC").first.status == true %>
+        <% if own_book.available %>
           <td>  <%= mail_to own_book.user.email, "Emprunter le livre" %> </td>
         <% else %>
           <td> Pas disponible</td>
