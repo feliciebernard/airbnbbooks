@@ -13,6 +13,8 @@ cloudinary:
   api_secret: <%= ENV['CLOUDINARY_SECRET_ACCESS_KEY'] %>
   secure: true
   cdn_subdomain: true
+  enhance_image_tag: true
+  static_image_support: true
   
 # Use rails credentials:edit to set the AWS secrets (as aws:access_key_id|secret_access_key)
 # amazon:
