@@ -28,12 +28,11 @@ class BooksController < ApplicationController
 
   # POST /books or /books.json
   def create
-    puts "\n" * 50
-    puts "params[:isbn_fill] = #{params[:isbn_fill]}"
     if params[:isbn_fill] then
       if params[:isbn_fill][:isbn] == '' then
         redirect_to action: 'new',
         is_empty: true
+        successful: true
         return
       end
 
