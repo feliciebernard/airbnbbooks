@@ -1,25 +1,23 @@
-<div class="row">
-         <div class="three column"></div>
-        <div class="six columns">
-          <h2 class="u-text-center text-info">Ajouter un Bouquin</h2>
-
+<h2 class="u-text-center text-info text-upp">Ajouter un Bouquin</h2>
 <%= form_for :isbn_fill, url: books_path do |f| %>
   <% if @query_errors != nil and @query_errors.any? %>
     <% @query_errors.each do |message| %>
       <div class="alert alert-danger"><%= message %></div>
     <% end %>
   <% end %>
+  
+  <div class="row">
+    <div class="one-third columns">
   <div class="field">
-  <p>
-    <%= f.label :isbn, 'ISBN' %>
-    <%= f.number_field :isbn, :class => 'form-control' %>
-  </p>
-  <p>
-    <%= f.submit 'Remplir le formulaire', :class => 'btn btn-primary' %>
-  </p>
+    <%= f.label :isbn, 'ISBN', class:"text-dark"%>
+    <%= f.number_field :isbn, :class => 'u-full-width', placeholder:"XXX-X-XXX-XXXXX-X" %>
   </div>
+
+    <%= f.submit 'Remplir le formulaire', :class => "button-primary u-full-width" %>
+ <h5 class="text-succes u-text-center">Merci de bien vouloir verifier vos informations !</h5>
 <% end %>
-<h3>Vérifier les informations</h3>
+</div>
+<div class="two-third columns">
 <%= form_for @book do |f| %>
   <% @book.errors.full_messages.each do |message| %>
     <div class="alert alert-danger"><%= message %></div>
@@ -32,4 +30,7 @@
     <%= render 'form', :f => f %>
   <% end %>
 <% end %>
-        </div>
+</div>
+</div>
+
+     

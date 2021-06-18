@@ -112,11 +112,7 @@ color: #489FB5;
 
 .headtitle {
   display: block;
-  margin-top: 10%;
-}
-
-.arrow {
-  margin-top: 20%;
+ 
 }
 p.rights {
   text-align: center;
@@ -126,15 +122,6 @@ p.rights {
   display: block;
   margin: auto;
   width:100px;
-}
-
-.button-primary {
-  margin-top: 20px;
-  margin-bottom: 100px;
-}
-.button-success {
-  margin-top: 50px;
-  margin-bottom: 100px;
 }
 
 .about2 {
@@ -160,4 +147,67 @@ p.rights {
   50%  {bottom:25px; top:25px;}
   75%  {bottom:25px; top:25px;}
   100% {bottom:0px; top:0px;}
+}
+
+.user-profile {
+  max-width: 300px;
+  min-height: 1500px;
+  background: #82C0CC;
+  margin-left: 20%;
+  margin-top: 10%;
+}
+
+.avatar {
+  height: 150px;
+  max-width: 150px;
+  background-color:#16697A;
+}
+.username {
+  text-align: center;
+}
+
+.user-description {
+  text-align: justify;
+}
+
+.first-button {
+  margin-top: 10px;
+}
+
+.book-img {
+  width:20%;
+}
+
+.book-name {
+  text-align: center;
+}
+
+.book-container {
+  margin-top:50px;
+  width:100%;
+}
+
+
+.card-item {
+ width: 500px;
+}
+.book-img-list {
+  width:10%;
+  margin-right:5%;
+}
+.card-list {
+  border:none;
+  box-shadow: none;
+  padding-right:20%;
+}
+.book-description {
+  padding-left: 15%;
+}
+
+.text-upp {
+  text-transform: uppercase;
+}
+
+.subtitle {
+  margin-top: 200px;
 }
