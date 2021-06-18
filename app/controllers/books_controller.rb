@@ -75,8 +75,7 @@ class BooksController < ApplicationController
 
       if @book.save then
         @own_book = OwnBook.create(user: current_user, book: @book)
-        puts @own_book.errors.full_messages
-        redirect_to @book
+        redirect_to @own_book
       else
         render 'new', no_reset: true
       end
@@ -87,7 +86,8 @@ class BooksController < ApplicationController
   def update
     respond_to do |format|
       if @book.update(book_params)
-        format.html { redirect_to @book, notice: "Book was successfully updated." }
+        @own_book = @book.own_books.find_by(user: current_user)
+        format.html { redirect_to @own_book, notice: "Book was successfully updated." }
         format.json { render :show, status: :ok, location: @book }
       else
         format.html { render :edit, status: :unprocessable_entity }
