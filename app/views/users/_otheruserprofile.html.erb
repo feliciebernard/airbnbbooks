@@ -2,7 +2,11 @@
   <div class="row">
     <div class="three columns" >
       <div class="card user-profile">
+      <%if @user.avatar.attached?%>
+      <% image_tag @user.avatar, class:"avatar"%>
+      <%else%>
         <div class="avatar"></div>
+        <%end%>
         <div class="buttons">
         <button class="first-button button-success u-full-width">Contacter</button></div>
         <h6 class="username">Nom Prenom / Pseudo</h6>
