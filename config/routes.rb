@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   authenticated :user do
     root 'own_books#index', as: :authenticated_root
   end
-  root "static_pages#about"
+  root "static_pages#index"
 
   get 'static_pages/team'
   get 'static_pages/privacypolicy'
