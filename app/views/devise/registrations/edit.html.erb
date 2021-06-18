@@ -12,18 +12,6 @@
 <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
 <% end %>
 
-<div>
- <%= f.label :name %>
- <%= f.text_field :name, autofocus: true %>
-</div>
-<br />
-
-<div>
- <%= f.label :biography %><br />
- <%= f.text_field :biography, autofocus: true %>
-</div>
-<br />
-
 <div class="field">
   <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
   <%= f.password_field :password, autocomplete: "new-password" %>
