@@ -6,10 +6,15 @@
       <% @own_books.each do |own_book|%>
    <div class="nine columns" >
       <div class="card card-list">
-        <%= image_tag "book1.jpg" ,class:"book-img-list u-pull-left"%>
+      <% if own_book.book.image_link != nil %>
+         <%= image_tag "book1.jpg", class:"book-img-list"%>
+        <%else%>
+        <%= image_tag "book1.jpg", class:"book-img-list"%>
+        <%end%>
         <h6><%=own_book.book.title %></h6>
         <p><%=own_book.book.authors%></p>
-        Note : <%= own_book.appreciation %>/5
+        Note : <%= own_book.appreciation %>/5<br />
+        Critique :
        <p><%=own_book.review%></p>
         <%= link_to "Fiche du Livre", own_book, class:"button"%>
           <% if own_book.available %>
@@ -21,6 +26,10 @@
             <%= link_to 'Editer mon livre', edit_own_book_path(own_book), class:"button button-primary" %>
           <%= link_to 'supprimer', own_book, method: :delete, data: { confirm: 'Are you sure?' }, class:"button button-danger" %>
         <%end %>
+        <%if current_user.id != own_book.user_id %>
+        <%= link_to "Prêteur", user_path(own_book.user_id), class:"button button-primary"%>
+        <%else%>
+        <%end%>
       </div>
     </div>
   

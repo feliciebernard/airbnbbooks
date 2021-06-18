@@ -20,9 +20,9 @@ body {
 }
 
 
-.logo {
+.logo .a-footer {
   min-height: 38px;
-  width: 25%;
+  width: 5%;
   margin-top: 5%;
 }
 
@@ -56,8 +56,8 @@ li {
   text-align: center;
 
 }
-a.link {
-  text-decoration: none;
+a.link:hover {
+  background-color: transparent;
   color: #EDE7E3;
 }
 
