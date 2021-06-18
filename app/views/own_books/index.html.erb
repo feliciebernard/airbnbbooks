@@ -17,17 +17,17 @@
 
   <tbody>
     <% @own_books.each do |own_book| %>
-      <tr>
+      <tr data-link="<%= own_book_path(own_book.id)%>">
         <td><%= own_book.book.title %></td>
         <td><%= own_book.review %></td>
         <td><%= own_book.appreciation %></td>
         <td><%= link_to own_book.user.name, user_path(current_user) %></td>
 
         <td><%= link_to 'Voir la fiche du livre', own_book %></td>
-        <% if !own_book.loans.first.nil? %>
-          <td><%= own_book.loans.order("updated_at DESC").first.status == true ? "oui" : "non"%></td>
+        <% if !own_book.loans.first.nil? && own_book.loans.order("updated_at DESC").first.status == true %>
+          <td>  <%= mail_to own_book.user.email, "Emprunter le livre" %> </td>
         <% else %>
-          <td>oui</td>
+          <td> Pas disponible</td>
         <% end %>
         <%if current_user == own_book.user %>
           <td><%= link_to 'Editer mon livre', edit_own_book_path(own_book) %></td>

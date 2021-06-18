@@ -37,6 +37,7 @@ class LoansController < ApplicationController
 
   # PATCH/PUT /loans/1 or /loans/1.json
   def update
+    
     respond_to do |format|
       if @loan.update(loan_params)
         format.html { redirect_to @loan, notice: "Loan was successfully updated." }
@@ -65,6 +66,6 @@ class LoansController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def loan_params
-      params.require(:loan).permit(:status)
+      params.require(:loan)
     end
 end
