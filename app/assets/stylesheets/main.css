@@ -15,6 +15,11 @@ body {
   margin-bottom: 5%;
 }
 
+.arrow:hover {
+  background-color: transparent;
+}
+
+
 .logo {
   min-height: 38px;
   width: 25%;
@@ -212,4 +217,21 @@ p.rights {
 
 .subtitle {
   margin-top: 200px;
+}
+
+.a-footer {
+  text-decoration: none;
+  
+}
+
+.a-footer:hover {
+  background-color: transparent;
+  color: #EDE7E3;
+}
+
+.a-footer:active {
+  color: #EDE7E3;
+}
+.a-footer:visited {
+  color: #EDE7E3;
 }

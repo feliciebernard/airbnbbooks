@@ -7,7 +7,7 @@
     </div>
     <div class="row">
     
-    <%=link_to image_tag("ARROW.png"), root_path(anchor: 'concept'),class:"arrow transformation" %>
+    <%=link_to image_tag("ARROW.png"), root_path(anchor: 'concept'), class:"arrow transformation" %>
     
     </div>
   <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
@@ -16,8 +16,8 @@
   <br /> <br /> <br /> <br /><br /> <br />
   <div class="row">
     <div class="five columns"></div>
-  <button class="button-primary about-btn"><%=link_to "s'identifier", new_user_session_path, style:"color:#073131;text-decoration:none;"%></button>
-  <button class="button-success"><%=link_to "s'inscrire",  new_user_registration_path, style:"color:#073131;text-decoration:none;"%></button>
+  <%=link_to "s'identifier", new_user_session_path, class:"button button-primary"%>
+  <%=link_to "s'inscrire",  new_user_registration_path, class:"button button-success"%>
   <div class="seven columns"></div>
 </div>
   <section>

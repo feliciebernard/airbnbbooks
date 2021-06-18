@@ -21,10 +21,10 @@
     <%= f.label "Confirmer votre mot de passe",class:"text-info" %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder:"MOT DE PASSE", class:"u-full-width placeholder" %>
   </div>
-
   <div class="actions">
     <%= f.submit "S'INSCRIRE", class:"button-primary u-full-width"%>
   </div>
+  <%= link_to "s'identifier", new_user_session_path, class:"button u-pull-right button-success" %>
 <% end %>
 </div>
 </div>
