@@ -55,8 +55,8 @@ Rosalie AGUILLON
 
 ## 7. Liens
 
-Parcours Utilisateurs : https://www.figma.com/file/ld6LsdFpMOetNNe1Me1n7V/Parcours-utilisateur-Where-is-my-book?node-id=0%3A1
-Wireframe : https://www.figma.com/file/U05DrNqhepEi7ySf0Nls2O/WIREFRAME-WHEREISMYBOOK
-Trello : https://trello.com/b/yUHoJM1f/where-is-my-book
-Maquette : https://www.figma.com/file/N2MVeJU8oyrKS8Q1vu1Pax/WHEREISMYBOOK-TEMPLATE?node-id=5%3A4
-Et le fameux Heroku : http://where-is-my-book.herokuapp.com/
+- Parcours Utilisateurs : https://www.figma.com/file/ld6LsdFpMOetNNe1Me1n7V/Parcours-utilisateur-Where-is-my-book?node-id=0%3A1
+- Wireframe : https://www.figma.com/file/U05DrNqhepEi7ySf0Nls2O/WIREFRAME-WHEREISMYBOOK
+- Trello : https://trello.com/b/yUHoJM1f/where-is-my-book
+- Maquette : https://www.figma.com/file/N2MVeJU8oyrKS8Q1vu1Pax/WHEREISMYBOOK-TEMPLATE?node-id=5%3A4
+- Et le fameux Heroku : http://where-is-my-book.herokuapp.com/
