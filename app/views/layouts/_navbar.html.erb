@@ -8,11 +8,11 @@
           <a href="#"><%= image_tag "hamburger.svg", class:"hamburger"%></a>
             <div class="dropdown-content">
               <ul><li><%if user_signed_in?%>
-              <%=link_to "Accueil", own_books_path, class:"link"%>
+              <%=link_to "Accueil", user_path(current_user.id), class:"link"%>
               <%else%>
               <%=link_to "Accueil", root_path, class:"link"%>
               <%end%></li>
-            <li><a href="#" class="link">Contact</a></li>
+            <li><%= link_to "Contact", new_contact_path, class:"link"%></li>
             <% if user_signed_in? %>
             <%=link_to "Deconnexion", destroy_user_session_path, :method => :delete, class:"link"%>
             <% else%>
@@ -20,6 +20,7 @@
             <%end%>
               </ul>
           </div>
+        </div>
         </div>
         </div>
   </header>

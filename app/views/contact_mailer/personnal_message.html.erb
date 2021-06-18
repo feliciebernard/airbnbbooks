@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head></head>
+<body class="bg-light">
+  <br>
+  <div class="container">
+    <div class="card border-primary mb-3" style="max-width: 60rem;">
+      <div class="card-body">
+        <h4 class="card-title">Copie de votre message envoyé</h4> <br>
+        <p class="card-text"><strong>Nom</strong> <%= @contact.name%></p>
+        <p class="card-text"><strong>Adresse mail</strong> <%= @contact.email%></p>
+        <p class="card-text"><strong>Objet</strong> <%= @contact.object%></p>
+        <p class="card-text"><strong>Message</strong> <%= @contact.message%></p>
+        <p class="card-text">Nous tâcherons de vous répondre au plus vite !</p>
+        <p class="card-text">À bientôt sur <a href="https://where-is-my-book.herokuapp.com">where-is-my-book.com</a> !</p>
+       <img src="" alt="logo WhereIsMyBook" class="w-25">
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+
+
+

@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-
+  has_one_attached :avatar
   after_create :welcome_send
 
 
@@ -14,6 +14,7 @@ class User < ApplicationRecord
   has_many :books, through: :own_books
 
   has_one :private_adress
+
 
 
   def welcome_send
