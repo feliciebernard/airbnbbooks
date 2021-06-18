@@ -1,0 +1,99 @@
+<body>
+  <div class="container">
+  <%= form_for(@contact) do |f| %>
+  <% if @contact.errors.any? %>
+  <div id="error_explanation">
+    <h3><%= pluralize(@contact.errors.count, "error") %> prohibited this contact from being saved:</h3>
+
+    <ul>
+      <% @contact.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+    <div class="row">
+
+      <!--Grid column-->
+      <div class="col-md-9 mb-md-0 mb-5">
+        <form id="contact-form" name="contact-form">
+
+          <!--Grid row-->
+          <div class="row">
+
+            <!--Grid column-->
+            <div class="col-md-6">
+              <div class="md-form mb-0">
+                <div class="form-group">
+                  <%= f.label :name, "Nom" %><br />
+                  <%= f.text_field :name, class:"form-control" %>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="md-form mb-0">
+                <div class="form-group">
+                  <%= f.label :email, "Email" %><br />
+                  <%= f.text_field :email, class:"form-control" %>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <br>
+              <div class="md-form mb-0">
+               <%= f.label :object,"Objet" %><br />
+               <%= f.text_field :object, class:"form-control" %>
+             </div>
+           </div>
+         </div>
+
+         <div class="row">
+
+          <!--Grid column-->
+          <div class="col-md-12">
+
+            <div class="md-form">
+              <br>
+              <%= f.label :message, "Message" %><br />
+              <%= f.text_area :message, class:"form-control", rows:'3' %>
+            </div>
+          </div>
+        </div>
+      </form>
+
+      <div class="text-center text-md-left">
+
+        <div class="actions">
+          <br>
+          <%= f.submit "Envoyer", class:"btn btn-primary" %>
+        </div>
+        <% end %>
+        <div class="status"></div>
+      </div>
+    </div>
+
+    <div class="col-md-3 text-center">
+      <ul class="list-unstyled mb-0">
+        <li><i class="fas fa-map-marker-alt fa-2x"></i>
+          <p>Where is my book, CH 118 218, Bookland</p>
+        </li>
+
+        <li><i class="fas fa-phone mt-4 fa-2x"></i>
+          <p>+33 6 98 17 03 61</p>
+        </li>
+
+        <li><i class="fas fa-envelope mt-4 fa-2x"></i>
+          <p>where-is-my-book@yopmail.com</p>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+</body>

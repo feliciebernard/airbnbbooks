@@ -12,7 +12,7 @@
               <%else%>
               <%=link_to "Accueil", root_path, class:"link"%>
               <%end%></li>
-            <li><a href="#" class="link">Contact</a></li>
+            <li><%= link_to "Contact", new_contact_path, class:"link"%></li>
             <% if user_signed_in? %>
             <%=link_to "Deconnexion", destroy_user_session_path, :method => :delete, class:"link"%>
             <% else%>
