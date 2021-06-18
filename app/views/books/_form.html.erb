@@ -15,52 +15,52 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :isbn %>
-    <%= form.text_field :isbn %>
+    <%= form.label :isbn, class:"text-dark text-upp" %>
+    <%= form.text_field :isbn, class:"u-full-width" %>
   </div>
 
   <div class="field">
-    <%= form.label :title %>
+    <%= form.label "titre", class:"text-dark text-upp" %>
     <%= form.text_field :title, autofocus: true, class: "u-full-width placeholder"%>
   </div>
 
   <div class="field">
-    <%= form.label :authors %>
+    <%= form.label "auteur", class:"text-dark text-upp" %>
     <%= form.text_field :authors, autofocus: true, class: "u-full-width placeholder"%>
   </div>
 
   <div class="field">
-    <%= form.label :publisher %>
+    <%= form.label "editeur", class:"text-dark text-upp" %>
     <%= form.text_field :publisher, autofocus: true, class: "u-full-width placeholder"%>
   </div>
 
   <div class="field">
-    <%= form.label :published_date %>
+    <%= form.label "date de publication", class:"text-dark text-upp" %>
     <%= form.number_field :published_date, autofocus: true, class: "u-full-width placeholder"%>
   </div>
 
   <div class="field">
-    <%= form.label :language %>
+    <%= form.label "langue", class:"text-dark text-upp" %>
     <%= form.text_field :language, autofocus: true, class: "u-full-width placeholder"%>
   </div>
 
   <div class="field">
-    <%= form.label :categories %>
+    <%= form.label "catégories", class:"text-dark text-upp" %>
     <%= form.text_field :categories, autofocus: true, class: "u-full-width placeholder"%>
   </div>
 
   <div class="field">
-    <%= form.label :description %>
+    <%= form.label "description",  class:"text-dark text-upp"%>
     <%= form.text_area :description, autofocus: true, class: "u-full-width placeholder"%>
   </div>
 
   <div class="field">
-    <%= form.label :image_link %>
-    <%= form.text_field :image_link %>
+    <%= form.label "lien vers l'image de couverture", class:"text-dark text-upp" %>
+    <%= form.text_field :image_link, placeholder: "Renseignez un URL", class:"u-full-width text-upp" %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class:"u-full-width button-primary" %>
   </div>
 <% end %>
 </div>
