@@ -17,17 +17,17 @@
         Critique :
        <p><%=own_book.review%></p>
         <%= link_to "Fiche du Livre", own_book, class:"button"%>
-          <% if own_book.available %>
-        <%= mail_to own_book.user.email, "Emprunter", class:"button button-success"%>
-        <%else %>
-          <button type="button" disabled class="button-success">Non Disponible</button>
-        <%end %>
          <%if current_user == own_book.user %>
             <%= link_to 'Editer mon livre', edit_own_book_path(own_book), class:"button button-primary" %>
           <%= link_to 'supprimer', own_book, method: :delete, data: { confirm: 'Are you sure?' }, class:"button button-danger" %>
         <%end %>
         <%if current_user.id != own_book.user_id %>
         <%= link_to "Prêteur", user_path(own_book.user_id), class:"button button-primary"%>
+         <% if own_book.available %>
+        <%= mail_to own_book.user.email, "Emprunter", class:"button button-success"%>
+        <%else %>
+          <button type="button" disabled class="button-success">Non Disponible</button>
+        <%end %>
         <%else%>
         <%end%>
       </div>
