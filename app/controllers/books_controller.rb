@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-  before_action :set_book, only: %i[ show edit update destroy ]
+  before_action :set_book, only: %i[ edit update destroy ]
   before_action :authenticate_user!
 
   # GET /books or /books.json
@@ -7,10 +7,6 @@ class BooksController < ApplicationController
     @books = Book.all.reverse
   end
 
-  # GET /books/1 or /books/1.json
-  def show
-    @own_book = OwnBook.find_by(book: @book)
-  end
 
   # GET /books/new
   def new
