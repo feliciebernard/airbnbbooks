@@ -26,10 +26,10 @@
   <% end %>
   <% if params[:successful] == false %>
     <fieldset disabled>
-      <%= render 'fields', :f => f %>
+      <%= render 'form', :f => f %>
     </fieldset>
   <% else %>
-    <%= render 'fields', :f => f %>
+    <%= render 'form', :f => f %>
   <% end %>
 <% end %>
         </div>
