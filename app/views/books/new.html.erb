@@ -1,36 +1,44 @@
-<h2 class="u-text-center text-info text-upp">Ajouter un Bouquin</h2>
-<%= form_for :isbn_fill, url: books_path do |f| %>
+<h2 class="u-text-center text-info text-upp">Ajouter un bouquin</h2>
+<div class="row">
+ <div class="three column"><%= link_to 'Retour vers ma bibliothèque', user_path(current_user.id) %></div>
+ <div class="six columns">
+
+  <%= form_for :isbn_fill, url: books_path do |f| %>
   <% if @query_errors != nil and @query_errors.any? %>
-    <% @query_errors.each do |message| %>
-      <div class="alert alert-danger"><%= message %></div>
-    <% end %>
+  <% @query_errors.each do |message| %>
+  <div class="alert alert-danger"><%= message %></div>
   <% end %>
-  
-  <div class="row">
-    <div class="one-third columns">
+  <% end %>
+
   <div class="field">
+
+
     <%= f.label :isbn, 'ISBN', class:"text-dark"%>
     <%= f.number_field :isbn, :class => 'u-full-width', placeholder:"XXX-X-XXX-XXXXX-X" %>
   </div>
 
-    <%= f.submit 'Remplir le formulaire', :class => "button-primary u-full-width" %>
- <h5 class="text-succes u-text-center">Merci de bien vouloir verifier vos informations !</h5>
-<% end %>
+  <%= f.submit 'Remplir le formulaire', :class => "button-primary u-full-width" %>
+  <h5 class="text-succes u-text-center">Et hop, plus qu'à compléter !</h5>
+  <% end %>
 </div>
-<div class="two-third columns">
-<%= form_for @book do |f| %>
-  <% @book.errors.full_messages.each do |message| %>
-    <div class="alert alert-danger"><%= message %></div>
+</div>
+<%= form_with(model: @book, local: true) do |form| %>
+<% if @book.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(book.errors.count, "error") %> prohibited this book from being saved:</h2>
+
   <% end %>
   <% if params[:successful] == false %>
-    <fieldset disabled>
-      <%= render 'fields', :f => f %>
-    </fieldset>
+  <fieldset disabled>
+    <%= render 'formnew', :form => form %>
+  </fieldset>
   <% else %>
-    <%= render 'fields', :f => f %>
+  <%= render 'formnew', :form => form %>
   <% end %>
-<% end %>
+  <% end %>
+
+  <%= link_to 'Retour vers ma bibliothèque', user_path(current_user.id) %>
 </div>
 </div>
 
-     
+
