@@ -2,11 +2,6 @@ class BooksController < ApplicationController
   before_action :set_book, only: %i[ edit update destroy ]
   before_action :authenticate_user!
 
-  # GET /books or /books.json
-  def index
-    @books = Book.all.reverse
-  end
-
 
   # GET /books/new
   def new
@@ -19,9 +14,9 @@ class BooksController < ApplicationController
     @categories = params[:categories]
     @description = params[:description]
     @image_link = params[:image_link]
-    
 
     @query_errors = []
+    puts "params[:successful] = #{params[:successful]}"
     @query_errors << 'Mince, ton livre est si rare que nous n\'avons pas pu le trouver !' if params[:successful] == 'false'
     @query_errors << 'Merci d\'indiquer l\'ISBN (le numéro du code barre est généralement situé derrière le livre !)' if params[:is_empty] != nil
     @book = Book.new
@@ -33,10 +28,11 @@ class BooksController < ApplicationController
 
   # POST /books or /books.json
   def create
+    puts "\n" * 50
+    puts "params[:isbn_fill] = #{params[:isbn_fill]}"
     if params[:isbn_fill] then
       if params[:isbn_fill][:isbn] == '' then
         redirect_to action: 'new',
-        successful: true,
         is_empty: true
         return
       end
@@ -71,7 +67,6 @@ class BooksController < ApplicationController
 
       if @book.save then
         @own_book = OwnBook.create(user: current_user, book: @book)
-        puts @own_book.errors.full_messages
         redirect_to @own_book
       else
         render 'new', no_reset: true

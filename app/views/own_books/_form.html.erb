@@ -1,3 +1,7 @@
+<div class="row">
+       <div class="three column"></div>
+      <div class="six columns">
+          <h2 class="u-text-center text-info">Donner votre avis</h2>
 <%= form_with(model: own_book, local: true) do |form| %>
   <% if own_book.errors.any? %>
     <div id="error_explanation">
@@ -13,15 +17,16 @@
 
   <div class="field">
     <%= form.label :review %>
-    <%= form.text_area :review %>
+    <%= form.text_area :review, autofocus: true, class: "u-full-width placeholder"%>
   </div>
 
   <div class="field">
     <%= form.label :appreciation %>
-    <%= form.number_field :appreciation %>
+    <%= form.number_field :appreciation, autofocus: true, class: "u-full-width placeholder" %>
   </div>
 
   <div class="actions">
     <%= form.submit %>
   </div>
 <% end %>
+      </div>
