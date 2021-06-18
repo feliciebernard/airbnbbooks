@@ -56,5 +56,5 @@
 
 <%= link_to 'Editer mon avis', edit_own_book_path(@own_book) %> |
 <%= link_to 'Editer les données du livres', edit_book_path(@own_book.book) %> |
-<%= link_to 'Back', own_books_path %>
+<%= mail_to @own_book.user.email, "Emprunter le livre #{@own_book.book.title}" %>
 <%= link_to 'Le supprimer de ma bibliothèque', @own_book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
