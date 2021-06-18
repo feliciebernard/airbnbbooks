@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   resources :own_books
   resources :books
   devise_for :users
-  resources :users
+  resources :users do
+    resources :avatars, only: [:create]
+  end
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
