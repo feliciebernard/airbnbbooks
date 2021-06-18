@@ -31,8 +31,8 @@ class BooksController < ApplicationController
     if params[:isbn_fill] then
       if params[:isbn_fill][:isbn] == '' then
         redirect_to action: 'new',
-        is_empty: true,
-        successful: true
+        successful: true,
+        is_empty: true
         return
       end
 
