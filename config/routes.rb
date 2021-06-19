@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   resources :loans
   resources :own_books
   resources :books
-  devise_for :users
+  devise_for :users, controllers: { registrations: "users/registrations"  }
   resources :users do
     resources :avatars, only: [:create]
   end
