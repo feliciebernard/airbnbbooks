@@ -13,7 +13,7 @@
           <%= submit_tag "confirmer", class:"first-button button-danger u-full-width "%>
           <%end%>
           <%=link_to "Ajouter un livre", new_book_path, class:"button button-primary u-full-width"%>
-          <%=link_to "Editer le profil", edit_user_path, class:"button button-success u-full-width"%></div>
+          <%=link_to "Editer le profil", edit_user_registration_path, class:"button button-success u-full-width"%></div>
         <h6 class="username"><%=@user.name%></h6>
         <p class="user-description"><%= @user.biography %></p>
         <p><%=@user.private_address(@user.id)</p>
