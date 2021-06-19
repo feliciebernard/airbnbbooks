@@ -1,5 +1,5 @@
 class OwnBooksController < ApplicationController
-  before_action :set_own_book, only: %i[ show edit update destroy set_available]
+  before_action :set_own_book, only: %i[show edit update destroy set_available ask_to_borrow_book]
   before_action :authenticate_user!
 
 
@@ -64,9 +64,14 @@ class OwnBooksController < ApplicationController
     end
   end
   def set_available
-    puts "\n" * 50
     @own_book.available == true ? @own_book.update(available: false) : @own_book.update(available: true)
     redirect_to user_path(current_user.id)
+  end
+  def ask_to_borrow_book
+    puts "\n" * 50
+    puts "HELLO WORLD"
+    UserMailer.ask_owner_to_borrow_his_book(@own_book, current_user).deliver_now
+    redirect_to root_path
   end
 
   private
@@ -77,6 +82,6 @@ class OwnBooksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def own_book_params
-      params.require(:own_book).permit(:review, :appreciation, :available, :user, :book)
+      params.require(:own_book).permit(:user, :own_book)
     end
   end
