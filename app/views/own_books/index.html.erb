@@ -1,38 +1,35 @@
 <p id="notice"><%= notice %></p>
 
 <%= link_to 'Ajouter un livre à ma bibliothèque', new_book_path, class:"button button-success" %>
-    <div class="book-list">
-      <!-- If Else Rails starts here -->
-      <% @own_books.each do |own_book|%>
-   <div class="nine columns" >
+<div class="book-list">
+  <!-- If Else Rails starts here -->
+  <% @own_books.each do |own_book|%>
+    <div class="nine columns" >
       <div class="card card-list">
-      <% if own_book.book.image_link != nil %>
-         <%= image_tag own_book.book.image_link, class:"book-img-list"%>
+        <% if own_book.book.image_link != nil %>
+          <%= image_tag "book1.jpg", class:"book-img-list"%>
         <%else%>
-        <%= image_tag "https://res.cloudinary.com/dcmcouvju/image/upload/v1624045770/nocover2_o33zpf.jpg", class:"book-img-list"%>
+          <%= image_tag "https://res.cloudinary.com/dcmcouvju/image/upload/v1624045770/nocover2_o33zpf.jpg", class:"book-img-list"%>
         <%end%>
-        <h6><%=own_book.book.title %></h6>
-        <p><%=own_book.book.authors%></p>
-        Note : <%= own_book.appreciation %>/5<br />
-        Critique :
-       <p><%=own_book.review%></p>
-        <%= link_to "Fiche du Livre", own_book, class:"button"%>
-         <%if current_user == own_book.user %>
-            <%= link_to 'Editer mon livre', edit_own_book_path(own_book), class:"button button-primary" %>
-          <%= link_to 'supprimer', own_book, method: :delete, data: { confirm: 'Are you sure?' }, class:"button button-danger" %>
-        <%end %>
-        <%if current_user.id != own_book.user_id %>
+      <h6><%=own_book.book.title %></h6>
+      <p><%=own_book.book.authors%></p>
+      Note : <%= own_book.appreciation %>/5<br />
+      Critique :
+      <p><%=own_book.review%></p>
+      <%= link_to "Fiche du Livre", own_book, class:"button"%>
+      <%if current_user == own_book.user %>
+        <%= link_to 'Editer mon livre', edit_own_book_path(own_book), class:"button button-primary" %>
+        <%= link_to 'supprimer', own_book, method: :delete, data: { confirm: 'Are you sure?' }, class:"button button-danger" %>
+      <%end %>
+      <%if current_user != own_book.user %>
         <%= link_to "Prêteur", user_path(own_book.user_id), class:"button button-primary"%>
-         <% if own_book.available %>
-        <%= mail_to own_book.user.email, "Emprunter", class:"button button-success"%>
-        <%else %>
-          <button type="button" disabled class="button-success">Non Disponible</button>
-        <%end %>
-        <%else%>
-        <%end%>
+        <%= link_to "Emprunter", ask_to_borrow_book_path(own_book.id), class:"button button-primary"%>
+      <% else %>
+        <button type="button" disabled class="button-success">Non Disponible</button>
+      <% end %>
       </div>
     </div>
-  
+
   <%end%>
   <!-- If Else ends here -->
 </div>

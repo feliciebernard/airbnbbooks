@@ -1,5 +1,5 @@
 class OwnBooksController < ApplicationController
-  before_action :set_own_book, only: %i[ show edit update destroy ]
+  before_action :set_own_book, only: %i[show edit update destroy set_available ask_to_borrow_book]
   before_action :authenticate_user!
 
 
@@ -43,6 +43,7 @@ class OwnBooksController < ApplicationController
 
   # PATCH/PUT /own_books/1 or /own_books/1.json
   def update
+    puts "\n" * 50
     respond_to do |format|
       if @own_book.update(own_book_params)
         format.html { redirect_to @own_book, notice: "Own book was successfully updated." }
@@ -62,6 +63,16 @@ class OwnBooksController < ApplicationController
       format.json { head :no_content }
     end
   end
+  def set_available
+    @own_book.available == true ? @own_book.update(available: false) : @own_book.update(available: true)
+    redirect_to user_path(current_user.id)
+  end
+  def ask_to_borrow_book
+    puts "\n" * 50
+    puts "HELLO WORLD"
+    UserMailer.ask_owner_to_borrow_his_book(@own_book, current_user).deliver_now
+    redirect_to root_path
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -71,6 +82,6 @@ class OwnBooksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def own_book_params
-      params.require(:own_book).permit(:review, :appreciation)
+      params.require(:own_book).permit(:user, :own_book)
     end
   end
