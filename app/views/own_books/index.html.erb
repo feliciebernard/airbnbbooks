@@ -19,13 +19,10 @@
       <%= link_to "Fiche du Livre", own_book, class:"button"%>
       <%if current_user == own_book.user %>
         <%= link_to 'Editer mon livre', edit_own_book_path(own_book), class:"button button-primary" %>
-        <%= link_to 'supprimer', own_book, method: :delete, data: { confirm: 'Are you sure?' }, class:"button button-danger" %>
-      <%end %>
-      <%if current_user != own_book.user %>
+        <%= link_to "Rendre indisponible", switch_availability_path(own_book.id), class: "button button-danger" %>
+      <% else %>
         <%= link_to "Prêteur", user_path(own_book.user_id), class:"button button-primary"%>
         <%= link_to "Emprunter", ask_to_borrow_book_path(own_book.id), class:"button button-primary"%>
-      <% else %>
-        <button type="button" disabled class="button-success">Non Disponible</button>
       <% end %>
       </div>
     </div>

@@ -12,12 +12,17 @@
         <p><%= own_book.book.authors%></p>
         <p><%= own_book.book.isbn%></p>
         <p><%= own_book.book.description%></p>
-        <%= link_to "Fiche du livre", own_book_path(own_book.id), class:"button"%>
-        <%= mail_to own_book.user.email, "Emprunter" ,class:"button button-success"%>
-        <% if own_book.available %>
-          <%= link_to "Rendre indisponible", switch_availability_path(own_book.id), class: "button button-danger" %>
+        <%= link_to "Fiche du livre", own_book_path(own_book.id), class:"button" %>
+        <% if current_user != own_book.user %>
+          <%= mail_to own_book.user.email, "Emprunter" ,class:"button button-success"%>
         <% else %>
-          <%= link_to "Rendre disponible", switch_availability_path(own_book.id), class: "button button-danger" %>
+
+          <%= link_to 'supprimer', own_book, method: :delete, data: { confirm: 'Are you sure?' }, class:"button button-danger" %>
+          <% if own_book.available %>
+            <%= link_to "Rendre indisponible", switch_availability_path(own_book.id), class: "button button-danger" %>
+          <% else %>
+            <%= link_to "Rendre disponible", switch_availability_path(own_book.id), class: "button button-danger" %>
+          <% end %>
         <% end %>
 
       </div>

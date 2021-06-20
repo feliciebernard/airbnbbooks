@@ -5,7 +5,7 @@ class OwnBooksController < ApplicationController
 
   # GET /own_books or /own_books.json
   def index
-    @own_books = OwnBook.all
+    @own_books = OwnBook.all.filter { |own_book| own_book.available }
     @user = current_user
   end
 
@@ -65,8 +65,10 @@ class OwnBooksController < ApplicationController
   end
   def set_available
     @own_book.available == true ? @own_book.update(available: false) : @own_book.update(available: true)
-    redirect_to user_path(current_user.id)
+    redirect_back(fallback_location: root_path)
   end
+
+
   def ask_to_borrow_book
     puts "\n" * 50
     puts "HELLO WORLD"
