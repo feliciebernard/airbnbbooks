@@ -74,9 +74,11 @@ class BooksController < ApplicationController
 
 
       if @book.save then
-        @own_book = OwnBook.create(user: current_user, book: @book)
-        redirect_to @own_book
+        @own_book = OwnBook.create(user: current_user, book: @book, available: true)
+        redirect_to root_path
       else
+        puts "\n" * 50 
+        puts "HELLO LELELEL"
         render 'new', no_reset: true
       end
     end

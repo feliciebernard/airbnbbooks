@@ -9,16 +9,18 @@ Rails.application.routes.draw do
   get 'static_pages/team'
   get 'static_pages/privacypolicy'
   get '/own_books/:id', to: 'own_books#set_available', as: 'switch_availability'
-  get '/own_books/aaaaaa/:id', to: 'own_books#ask_to_borrow_book', as: 'ask_to_borrow_book'
   resources :private_adresses
   resources :cities
-  resources :loans
-  resources :own_books
+
+  resources :own_books do
+    resources :loans, only: [:create]
+  end
+  resources :loans, expect: [:create]
+
   resources :books
   devise_for :users, controllers: { registrations: "users/registrations"  }
   resources :users do
     resources :avatars, only: [:create]
   end
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

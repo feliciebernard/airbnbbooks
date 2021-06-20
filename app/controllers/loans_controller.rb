@@ -1,5 +1,6 @@
 class LoansController < ApplicationController
   before_action :set_loan, only: %i[ show edit update destroy ]
+  before_action :find_own_book, only: %i[create]
   before_action :authenticate_user!
 
   # GET /loans or /loans.json
@@ -22,14 +23,17 @@ class LoansController < ApplicationController
 
   # POST /loans or /loans.json
   def create
-    @loan = Loan.new(loan_params)
+    @loan = Loan.new(borrower: current_user, lender: @own_book.user, own_book: @own_book)
+
+   UserMailer.ask_owner_to_borrow_his_book(@own_book, current_user).deliver_now
+
 
     respond_to do |format|
       if @loan.save
-        format.html { redirect_to @loan, notice: "Loan was successfully created." }
+        format.html { redirect_to root_path, notice: "La demande d'emprunt a été envoyé au propriétaire du livre." }
         format.json { render :show, status: :created, location: @loan }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.html { render root_path, status: :unprocessable_entity }
         format.json { render json: @loan.errors, status: :unprocessable_entity }
       end
     end
@@ -64,8 +68,12 @@ class LoansController < ApplicationController
       @loan = Loan.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
-    def loan_params
-      params.require(:loan)
+    def find_own_book
+      @own_book = OwnBook.find(params[:own_book_id])
     end
+
+    # Only allow a list of trusted parameters through.
+#    def loan_params
+#      params.require(:loan)
+#    end
 end

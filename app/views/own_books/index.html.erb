@@ -22,7 +22,7 @@
         <%= link_to "Rendre indisponible", switch_availability_path(own_book.id), class: "button button-danger" %>
       <% else %>
         <%= link_to "Prêteur", user_path(own_book.user_id), class:"button button-primary"%>
-        <%= link_to "Emprunter", ask_to_borrow_book_path(own_book.id), class:"button button-primary"%>
+        <%= link_to "Emprunter", own_book_loans_path(own_book.id), method: :create, class:"button button-primary"%>
       <% end %>
       </div>
     </div>

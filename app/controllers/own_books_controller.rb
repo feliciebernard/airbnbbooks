@@ -5,7 +5,8 @@ class OwnBooksController < ApplicationController
 
   # GET /own_books or /own_books.json
   def index
-    @own_books = OwnBook.all.filter { |own_book| own_book.available }
+
+    @own_books = OwnBook.all.order('created_at DESC').filter { |own_book| own_book.available }
     @user = current_user
   end
 
@@ -58,23 +59,15 @@ class OwnBooksController < ApplicationController
   # DELETE /own_books/1 or /own_books/1.json
   def destroy
     @own_book.destroy
-    respond_to do |format|
-      format.html { redirect_to own_books_url, notice: "Own book was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    redirect_back(fallback_location: root_path)
   end
+
   def set_available
     @own_book.available == true ? @own_book.update(available: false) : @own_book.update(available: true)
     redirect_back(fallback_location: root_path)
   end
 
 
-  def ask_to_borrow_book
-    puts "\n" * 50
-    puts "HELLO WORLD"
-    UserMailer.ask_owner_to_borrow_his_book(@own_book, current_user).deliver_now
-    redirect_to root_path
-  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
