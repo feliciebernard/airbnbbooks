@@ -23,6 +23,7 @@ class LoansController < ApplicationController
 
   # POST /loans or /loans.json
   def create
+    @own_book.update(available: false)
     @loan = Loan.new(borrower: current_user, lender: @own_book.user, own_book: @own_book)
 
    UserMailer.ask_owner_to_borrow_his_book(@own_book, current_user).deliver_now
