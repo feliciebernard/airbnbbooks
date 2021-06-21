@@ -3,6 +3,11 @@
      
    <div class="nine columns" >
       <div class="card card-list">
+      <%if current_user.id != @user.id%>
+      <h2 class="text-upp u-text-center">La Bibliothéque de <%= @user.name%>
+      <%else%>
+      <h2 class="text-upp u-text-center">Votre bibliothéque</h2>
+      <%end%>
        <% @own_books.each do |own_book| %>
             <% if own_book.book.image_link != nil %>
          <%= image_tag own_book.book.image_link, class:"book-img-list u-pull-left"%>
@@ -11,7 +16,7 @@
         <%end%>
         <h6><%=own_book.book.title %></h6>
         <p><%= own_book.book.authors%></p>
-        <p><%= own_book.book.isbn%></p>
+        <p><%= own_book.book.isbn%></p> 
         <p><%= own_book.book.description%></p>
         <%= link_to "Fiche du livre", own_book_path(own_book.id), class:"button" %>
         <% if current_user != @user %>
@@ -31,8 +36,9 @@
             <% if own_book.loaned? %>
               <p> Préter à <%= link_to "#{own_book.borrowed_by}", user_path(own_book.user.id) %> </p> 
             <% end %>
+            
           <% end %>
-
+ <hr>
         <% end %>
 
   <br /><br /><br />
