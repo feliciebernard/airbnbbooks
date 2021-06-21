@@ -2,11 +2,7 @@ html {
   scroll-behavior: smooth;
 }
 
-body {
-  background-color: #EDE7E3;
-  font-family: Futura, Futura Now Headline, Futura Now Script, sans-serif;
-  
-}
+
 .navbar {
   width: 100%;
   background-color: #489FB5;
@@ -186,10 +182,7 @@ p.rights {
 .card-item {
  width: 500px;
 }
-.book-img-list {
-  width:10%;
-  margin-right:5%;
-}
+
 .card-list {
   border:none;
   box-shadow: none;
