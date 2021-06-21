@@ -227,3 +227,8 @@ p.rights {
 .a-footer:visited {
   color: #EDE7E3;
 }
+
+.logo-mail {
+  display: block;
+  width:100px;
+}
