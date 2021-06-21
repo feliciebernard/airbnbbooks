@@ -1,5 +1,5 @@
 class OwnBooksController < ApplicationController
-  before_action :set_own_book, only: %i[show edit update destroy set_available ask_to_borrow_book]
+  before_action :set_own_book, only: %i[show edit update destroy ]
   before_action :authenticate_user!
 
 
@@ -63,6 +63,7 @@ class OwnBooksController < ApplicationController
   end
 
   def set_available
+    @own_book = OwnBook.find(params[:own_book_id])
     @own_book.available == true ? @own_book.update(available: false) : @own_book.update(available: true)
     redirect_back(fallback_location: root_path)
   end
@@ -80,6 +81,6 @@ class OwnBooksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def own_book_params
-      params.require(:own_book).permit(:user, :own_book)
+      params.require(:own_book).permit(:user)
     end
   end
