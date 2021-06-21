@@ -494,9 +494,9 @@ h1 {
 }
 
 h2 {
+  font-family: Futura Now Headlines;
   font-size: 3.0rem;
   line-height: 1.25;
-  letter-spacing: -0.1rem;
 }
 
 h3 {
@@ -1444,4 +1444,16 @@ margin-bottom: 100px;
 }
 .book-description {
   padding-left: 15%;
+}
+
+ul.contact-list {
+  display: flex;
+  justify-content: center;
+  justify-content: space-around;
+  color: #073131
+}
+i.icon-contact{
+  font-size: 40px;
+  padding-bottom: 5%;
+
 }
