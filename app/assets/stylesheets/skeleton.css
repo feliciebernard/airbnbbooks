@@ -51,8 +51,8 @@
   justify-content: center;
   align-items: center;
   transition: .2s;
-  
-  &:hover {
+}
+  .cardteam:hover {
     transform: translateY(-5px);
   }
 
@@ -65,20 +65,16 @@
     width: 100%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-      
-      &:hover {
+  }
+    .actions:hover {
         color: white;
         box-shadow: 0 0 24px rgba(black, .2);
       }
       
-      &:active {
+    .actions:active {
         transform: scale(0.95);
         box-shadow: 0 0 16px rgba(black, .3);
       }
-    }
-    
-  }
-}
 
 
 a:visited {

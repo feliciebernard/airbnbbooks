@@ -1,5 +1,5 @@
     <!--Section heading-->
-    <h2 class="u-text-center">Contactez-nous !</h2>
+    <h2 class="u-text-center text-upp">Contactez-nous !</h2>
     <!--Section description-->
     <h6 class="u-text-center">Une question ? Une interrogation ? Une suggestion ? La parole est à vous !</h6>
 
@@ -19,21 +19,21 @@
   <div class="row">
   <div class="four columns">
   
-                  <%= f.label :name, "Nom", class:"input text-dark" %><br />
+                  <%= f.label :name, "Nom", class:"input text-dark text-upp" %><br />
                   <%= f.text_field :name, class:"u-full-width" %></div>
        
     <div class="eight columns">
           
-                  <%= f.label :email, "Email", class:"input text-dark" %><br />
+                  <%= f.label :email, "Email", class:"input text-dark text-upp" %><br />
                   <%= f.text_field :email, class:"u-full-width" %>
               </div>
-               <%= f.label :object,"Objet", class:"input text-dark" %><br />
+               <%= f.label :object,"Objet", class:"input text-dark text-upp" %><br />
                <%= f.text_field :object, class:"u-full-width" %>
 
     
           <!--Grid column-->
           
-              <%= f.label :message, "Message", class:"input text-dark" %><br />
+              <%= f.label :message, "Message", class:"input text-dark text-upp" %><br />
               <%= f.text_area :message, class:"u-full-width", rows:'3' %>
       </form>
         <div class="actions">
@@ -45,21 +45,20 @@
       </div>
     </div>
 
-    <div class="col-md-3 text-center">
-      <ul class="list-unstyled mb-0">
-        <li><i class="fas fa-map-marker-alt fa-2x"></i>
+    <div>
+      <ul class="contact-list">
+        <li><i class="fas fa-map-marker-alt icon-contact"></i>
           <p>Where is my book, CH 118 218, Bookland</p>
         </li>
 
-        <li><i class="fas fa-phone mt-4 fa-2x"></i>
+        <li><i class="fas fa-phone icon-contact"></i>
           <p>+33 6 98 17 03 61</p>
         </li>
 
-        <li><i class="fas fa-envelope mt-4 fa-2x"></i>
+        <li><i class="fas fa-envelope icon-contact"></i>
           <p>where-is-my-book@yopmail.com</p>
         </li>
       </ul>
     </div>
-
   </div>
 </div>
