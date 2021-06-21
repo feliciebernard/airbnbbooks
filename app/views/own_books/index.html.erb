@@ -8,7 +8,7 @@
     <div class="nine columns" >
       <div class="card card-list">
         <% if own_book.book.image_link != nil %>
-          <%= image_tag "book1.jpg", class:"book-img-list"%>
+          <%= image_tag own_book.book.image_link, class:"book-img-list"%>
         <%else%>
           <%= image_tag "https://res.cloudinary.com/dcmcouvju/image/upload/v1624045770/nocover2_o33zpf.jpg", class:"book-img-list"%>
         <%end%>
