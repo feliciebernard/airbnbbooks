@@ -1,7 +1,7 @@
     <!--Section heading-->
     <h2 class="u-text-center text-upp">Contactez-nous !</h2>
     <!--Section description-->
-    <h6 class="u-text-center">Une question ? Une interrogation ? Une suggestion ? La parole est à vous !</h6>
+    
 
   <%= form_for(@contact) do |f| %>
   <% if @contact.errors.any? %>
@@ -16,6 +16,9 @@
   </div>
   <% end %>
     <div class="container contact-form">
+    <hr>
+    <h6 class="u-text-center">Une question ? Une interrogation ? Une suggestion ? La parole est à vous !</h6>
+    <br />
   <div class="row">
   <div class="four columns">
   

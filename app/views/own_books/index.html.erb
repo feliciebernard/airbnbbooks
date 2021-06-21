@@ -2,13 +2,15 @@
 
 <%= link_to 'Ajouter un livre à ma bibliothèque', new_book_path, class:"button button-success" %>
 <div class="book-container">
+<h2 class="text-upp u-text-center">Tous les livres</h2>
+<hr>
 <div class="row">
   <!-- If Else Rails starts here -->
   <% @own_books.each do |own_book|%>
     <div class="nine columns" >
       <div class="card card-list">
         <% if own_book.book.image_link != nil %>
-          <%= image_tag own_book.book.image_link, class:"book-img-list"%>
+          <%= link_to image_tag(own_book.book.image_link), own_book, class:"book-img-list"%>
         <%else%>
           <%= image_tag "https://res.cloudinary.com/dcmcouvju/image/upload/v1624045770/nocover2_o33zpf.jpg", class:"book-img-list"%>
         <%end%>
@@ -29,6 +31,7 @@
         <%= link_to "Prêteur", user_path(own_book.user_id), class:"button button-primary"%>
         <%= link_to "Emprunter", own_book_loans_path(own_book.id), method: :create, class:"button button-success"%>
       <% end %>
+      <hr>
       </div>
     </div>
 
