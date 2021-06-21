@@ -14,10 +14,10 @@
         <%else%>
           <%= image_tag "https://res.cloudinary.com/dcmcouvju/image/upload/v1624045770/nocover2_o33zpf.jpg", class:"book-img-list"%>
         <%end%>
-      <h6><%=own_book.book.title %></h6>
+      <h6 class="text-upp text-dark"><%=own_book.book.title %></h6>
       <p><%=own_book.book.authors%></p>
-      Note : <%= own_book.appreciation %>/5<br />
-      Critique :
+      <p class="text-upp text-dark">Note : <%= own_book.appreciation %>/5</p>
+      <p>Critique :</p> 
       <p><%=own_book.review%></p>
       <%= link_to "Fiche du Livre", own_book, class:"button"%>
       <%if current_user == own_book.user %>
