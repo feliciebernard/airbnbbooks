@@ -61,7 +61,7 @@ class LoansController < ApplicationController
   # DELETE /loans/1 or /loans/1.json
   def destroy
     puts "\n" * 50
-    puts "HELLO = #{params}"
+    puts "HELLO BLABLA= #{params}"
     @loan.own_book.update(available: true)
     @loan.destroy
 
@@ -74,6 +74,8 @@ class LoansController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_loan
+      puts "\n" * 50
+      puts "HELLO = #{params}"
       @loan = Loan.find(params[:id])
     end
 

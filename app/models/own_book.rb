@@ -19,6 +19,7 @@ class OwnBook < ApplicationRecord
   def loaned?
     loans.find_by(is_accepted: true, is_past: false).nil? == false
   end
+
   def borrowed_by
     loans.find_by(is_accepted: true, is_past: false).borrower.name
   end
