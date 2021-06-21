@@ -13,6 +13,7 @@ class OwnBooksController < ApplicationController
   # GET /own_books/1 or /own_books/1.json
   def show
    @book = @own_book.book
+
   end
 
   # GET /own_books/new
@@ -22,8 +23,9 @@ class OwnBooksController < ApplicationController
 
   # GET /own_books/1/edit
   def edit
-    @own_book
-    @book = @own_book.book
+    @own_book.update()
+    @book = @own_book.update(own_book_params)
+
   end
 
   # POST /own_books or /own_books.json
@@ -58,8 +60,9 @@ class OwnBooksController < ApplicationController
 
   # DELETE /own_books/1 or /own_books/1.json
   def destroy
+    @user = @own_book.user 
     @own_book.destroy
-    redirect_back(fallback_location: root_path)
+    redirect_to @user
   end
 
   def set_available
@@ -81,6 +84,6 @@ class OwnBooksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def own_book_params
-      params.require(:own_book).permit(:user)
+      params.require(:own_book).permit(:review, :appreciation)
     end
   end
