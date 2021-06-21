@@ -1,7 +1,8 @@
 <p id="notice"><%= notice %></p>
 
 <%= link_to 'Ajouter un livre à ma bibliothèque', new_book_path, class:"button button-success" %>
-<div class="book-list">
+<div class="book-container">
+<div class="row">
   <!-- If Else Rails starts here -->
   <% @own_books.each do |own_book|%>
     <div class="nine columns" >
@@ -28,8 +29,6 @@
     </div>
 
   <%end%>
+  </div>
   <!-- If Else ends here -->
-</div>
 </div> <!-- Row end--><!-- Container end-->
-
-
