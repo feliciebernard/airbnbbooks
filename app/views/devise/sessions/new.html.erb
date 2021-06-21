@@ -3,24 +3,24 @@
   <div class="row">
          <div class="three column"></div>
         <div class="six columns">
-          <h2 class="u-text-center text-info">S'IDENTIFIER</h2>
+          <h2 class="u-text-center text-info text-upp">S'identifier</h2>
   <div class="field">
-    <%= f.label "Entrez votre adresse email",class:"text-info" %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"u-full-width placeholder",placeholder:"ADRESSE EMAIL" %>
+    <%= f.label "Entrez votre adresse email",class:"text-dark text-upp" %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"u-full-width placeholder",placeholder:"Adresse Email" %>
   </div>
 
   <div class="field">
-    <%= f.label "Entrez votre mot de passe" ,class:"text-info"%>
+    <%= f.label "Entrez votre mot de passe" ,class:"text-dark text-upp"%>
     <% if @minimum_password_length %>
-    <em class="text-info">(<%= @minimum_password_length %> caractères minimum)</em>
+    <em class="text-dark">(<%= @minimum_password_length %> caractères minimum)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "current-password", class:"u-full-width placeholder",placeholder:"MOT DE PASSE"%>
+    <%= f.password_field :password, autocomplete: "current-password", class:"u-full-width placeholder",placeholder:"Mot de Passe"%>
   </div>
 
   <% if devise_mapping.rememberable? %>
     <div class="field">
       <%= f.check_box :remember_me %>
-      <%= f.label "se souvenir de moi" %>
+      <%= f.label "se souvenir de moi", class:"text-dark text-upp" %>
     </div>
   <% end %>
 
