@@ -2,67 +2,72 @@
 
 <% empty = '-'%>
 
-<h3><%= @book.title %></h3>
+<h2 class="text-upp u-text-center"><%= @book.title %></h2>
 
+<div class="row">
+<div class="container">
+<hr>
+<div class="six columns">
+<%= image_tag @book.image_link%>
 <p>
-  <strong>ISBN :</strong>
+  <strong class="text-dark text-upp">ISBN :</strong>
   <%= (@book.isbn != '' ? @book.isbn : empty) %>
 </p>
-
 <p>
-  <strong>Auteur.e.s :</strong>
+  <strong class="text-dark text-upp">Auteur.e.s :</strong>
   <%= (@book.authors != '' ? @book.authors : empty) %>
 </p>
 
 <p>
-  <strong>Editions :</strong>
+  <strong class="text-dark text-upp">Editions :</strong>
   <%= (@book.publisher != '' ? @book.publisher : empty) %>
 </p>
-
+</div>
 <p>
-  <strong>Date de publication:</strong>
+  <strong class="text-dark text-upp">Date de publication:</strong>
   <%= (@book.published_date != '' ? @book.published_date : empty) %>
 </p>
 
 <p>
-  <strong>Langue :</strong>
+  <strong class="text-dark text-upp">Langue :</strong>
   <%= (@book.language != '' ? @book.language : empty) %>
 </p>
 
 <p>
-  <strong>Catégorie.s :</strong>
+  <strong class="text-dark text-upp">Catégorie.s :</strong>
   <%= (@book.categories != '' ? @book.categories : empty) %>
 </p>
 
 <p>
-  <strong>Résumé :</strong>
+  <strong class="text-dark text-upp">Résumé :</strong>
   <%= (@book.description != '' ? @book.description : empty) %>
 </p>
-
 <p>
-  <strong>Lien vers l'image :</strong>
-</p>
-<p>
-  <strong>Review:</strong>
+  <strong class="text-dark text-upp">Critique :</strong>
   <%= @own_book.review %>
 </p>
 
 <p>
-  <strong>Appreciation:</strong>
-  <%= @own_book.appreciation %>
+  <strong class="text-dark text-upp">Note :</strong>
+  <%= @own_book.appreciation %>/5
 </p>
 
 <p>
-  <strong>Propriétaire du livre :</strong>
+  <strong class="text-dark text-upp">Propriétaire du livre :</strong>
   <%= @own_book.user.name%>
 </p>
 
+</div>
 
-<%= link_to 'Back', root_path %> | 
+</div>
+
+<div class="container">
+<%= link_to 'retour', own_books_path, class:"button" %>
 <% if current_user != @own_book.user %>
   <%= link_to "Emprunter le livre", own_book_loans_path(@own_book.id), method: :create, class:"button button-primary"%>
 <% else %>
-  <%= link_to 'Editer mon avis', edit_own_book_path(@own_book) %> |
-  <%= link_to 'Editer les données du livres', edit_book_path(@own_book.book) %> |
-  <%= link_to 'Le supprimer de ma bibliothèque', @own_book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  <%= link_to 'donner mon avis', edit_own_book_path(@own_book), class:"button button-primary" %>
+  <%= link_to 'Editer les données du livre', edit_book_path(@own_book.book), class:"button button-success" %>
+  <%= link_to 'supprimer le livre', @own_book, method: :delete, data: { confirm: 'Are you sure?' }, class:"button button-danger" %>
 <% end %>
+</div>

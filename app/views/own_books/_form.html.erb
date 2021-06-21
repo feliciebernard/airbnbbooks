@@ -1,7 +1,8 @@
 <div class="row">
        <div class="three column"></div>
       <div class="six columns">
-          <h2 class="u-text-center text-info">Donner votre avis</h2>
+          <h2 class="u-text-center text-info text-upp">Donnez votre avis</h2>
+          <hr>
 <%= form_with(model: own_book, local: true) do |form| %>
   <% if own_book.errors.any? %>
     <div id="error_explanation">
@@ -16,17 +17,30 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :review %>
+    <%= form.label "Critique", class:"text-dark text-upp" %>
     <%= form.text_area :review, autofocus: true, class: "u-full-width placeholder"%>
   </div>
 
-  <div class="field">
-    <%= form.label :appreciation %>
-    <%= form.number_field :appreciation, autofocus: true, class: "u-full-width placeholder" %>
+<fieldset>
+  <div class="field inline">
+    <%= form.label "Note", class:"text-dark text-upp u-full-width" %>
+     <%= form.radio_button :appreciation, '0'  %>
+    <%= form.label :appreciation, value:"0"%>
+    <%= form.radio_button :appreciation, '1'  %>
+    <%= form.label :appreciation, value:"1"%>
+    <%= form.radio_button :appreciation, '2' %>
+    <%= form.label :appreciation, value:"2"%>    
+    <%= form.radio_button :appreciation, '3' %>
+    <%= form.label :appreciation, value:"3"%>
+    <%= form.radio_button :appreciation, '4' %>
+    <%= form.label :appreciation, value:"4"%>
+    <%= form.radio_button :appreciation, '5' %>
+    <%= form.label :appreciaition, value:"5"%>
   </div>
-
+</fieldset>
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "soumettre mon avis", class:"button button-primary u-full-width" %>
   </div>
 <% end %>
+      </div>
       </div>

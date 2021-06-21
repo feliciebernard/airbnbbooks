@@ -62,6 +62,28 @@
   text-align: center;
 }
 
+fieldset {
+  overflow: hidden
+}
+
+.inline {
+  float: left;
+  clear: none;
+}
+
+label {
+  float: left;
+  clear: none;
+  display: block;
+  padding: 0px 1em 0px 8px;
+}
+
+input[type=radio],
+input.radio {
+  float: left;
+  clear: none;
+  margin: 2px 0 0 2px;
+}
 
 a:visited {
   text-decoration: none;
@@ -591,7 +613,7 @@ h1 {
 }
 
 h2 {
-  font-family: Futura Now Headlines;
+  font-family: Futura Now Headline;
   font-size: 3.0rem;
   line-height: 1.25;
 }
@@ -1284,7 +1306,7 @@ hr {
   margin-top: 3rem;
   margin-bottom: 3.5rem;
   border-width: 0;
-  border-top: 1px solid #E1E1E1;
+  border-top: 1px solid #16697A;
 }
 
 /* Clearing */
