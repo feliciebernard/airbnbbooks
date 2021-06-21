@@ -1,12 +1,13 @@
-    <div class="book-list">
+    <div class="book-container">
       <!-- If Else Rails starts here -->
-      <% @own_books.each do |own_book| %>
+     
    <div class="nine columns" >
       <div class="card card-list">
-        <% if own_book.book.image_link != nil %>
-         <%= image_tag own_book.book.image_link, class:"book-img-list"%>
+       <% @own_books.each do |own_book| %>
+            <% if own_book.book.image_link != nil %>
+         <%= image_tag own_book.book.image_link, class:"book-img-list u-pull-left"%>
         <%else%>
-        <%= image_tag "https://res.cloudinary.com/dcmcouvju/image/upload/v1624045770/nocover2_o33zpf.jpg", class:"book-img-list"%>
+        <%= image_tag "https://res.cloudinary.com/dcmcouvju/image/upload/v1624045770/nocover2_o33zpf.jpg", class:"book-img-list u-pull-left"%>
         <%end%>
         <h6><%=own_book.book.title %></h6>
         <p><%= own_book.book.authors%></p>
@@ -32,13 +33,17 @@
 
         <% end %>
 
+  <br /><br /><br />
 
-
-      </div>
+      
 
   
   <%end%>
+
   <!-- If Else ends here -->
+
 </div>
+
 </div> <!-- Row end-->
 </div> <!-- Container end-->
+</div>
