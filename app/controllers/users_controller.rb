@@ -10,7 +10,12 @@ class UsersController < ApplicationController
   # GET /users/1 or /users/1.json
   def show
     @user = User.find(params[:id])
-    @own_books = @user.own_books
+    if @user != current_user
+      @own_books = OwnBook.all.order('created_at DESC').filter { |own_book| own_book.available }
+
+    else
+      @own_books = @user.own_books
+    end
   end
 
   # GET /users/new
@@ -59,6 +64,21 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+#  def books_in_loan_request
+#    @books_in_loan_request = []
+#    @user.borrowers.each { |loan| @borrowed_books << loan.own_book if loan.is_past == false && loan.accepted == false }
+#  end
+#
+#  def borrowed_books
+#    @borrowed_books = []
+#    @user.borrowers.each { |loan| @borrowed_books << loan.own_book if loan.is_past == false && loan.accepted }
+#  end
+#
+#  def loaned_books
+#    @loaned_books = []
+#    @user.lenders.each { |loan| @loaned_books << loan.own_book if loan.is_past == false && loan.accepted }
+#  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

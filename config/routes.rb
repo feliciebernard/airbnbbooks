@@ -13,9 +13,9 @@ Rails.application.routes.draw do
   resources :cities
 
   resources :own_books do
-    resources :loans, only: [:create]
+    resources :loans, only: [:create, :destroy]
   end
-  resources :loans, expect: [:create]
+  resources :loans, except: [:create, :destroy]
 
   resources :books
   devise_for :users, controllers: { registrations: "users/registrations"  }

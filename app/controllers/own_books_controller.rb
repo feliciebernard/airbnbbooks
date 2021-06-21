@@ -66,6 +66,9 @@ class OwnBooksController < ApplicationController
     @own_book.available == true ? @own_book.update(available: false) : @own_book.update(available: true)
     redirect_back(fallback_location: root_path)
   end
+  def own_books_in_loan_request
+    Loans.find_by()
+  end
 
 
 
