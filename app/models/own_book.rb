@@ -13,7 +13,7 @@ class OwnBook < ApplicationRecord
   end
 
   def loan_request
-    loans.find_by(is_accepted: false)
+    loans.order("created_at DESC").find_by(is_accepted: false)
   end
 
   def loaned?
@@ -21,7 +21,7 @@ class OwnBook < ApplicationRecord
   end
 
   def borrowed_by
-    loans.find_by(is_accepted: true, is_past: false).borrower.name
+    loans.find_by(is_accepted: true, is_past: false).borrower
   end
 
 
