@@ -1,11 +1,12 @@
 class OwnBooksController < ApplicationController
-  before_action :set_own_book, only: %i[ show edit update destroy ]
+  before_action :set_own_book, only: %i[show edit update destroy ]
   before_action :authenticate_user!
 
 
   # GET /own_books or /own_books.json
   def index
-    @own_books = OwnBook.all
+
+    @own_books = OwnBook.all.order('created_at DESC').filter { |own_book| own_book.available }
     @user = current_user
   end
 
@@ -43,6 +44,7 @@ class OwnBooksController < ApplicationController
 
   # PATCH/PUT /own_books/1 or /own_books/1.json
   def update
+    puts "\n" * 50
     respond_to do |format|
       if @own_book.update(own_book_params)
         format.html { redirect_to @own_book, notice: "Own book was successfully updated." }
@@ -57,11 +59,19 @@ class OwnBooksController < ApplicationController
   # DELETE /own_books/1 or /own_books/1.json
   def destroy
     @own_book.destroy
-    respond_to do |format|
-      format.html { redirect_to own_books_url, notice: "Own book was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    redirect_back(fallback_location: root_path)
   end
+
+  def set_available
+    @own_book = OwnBook.find(params[:own_book_id])
+    @own_book.available == true ? @own_book.update(available: false) : @own_book.update(available: true)
+    redirect_back(fallback_location: root_path)
+  end
+  def own_books_in_loan_request
+    Loans.find_by()
+  end
+
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -71,6 +81,6 @@ class OwnBooksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def own_book_params
-      params.require(:own_book).permit(:review, :appreciation)
+      params.require(:own_book).permit(:user)
     end
   end

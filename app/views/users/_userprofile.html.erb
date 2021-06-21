@@ -2,17 +2,20 @@
   <div class="row">
     <div class="three columns" >
       <div class="card user-profile">
-      
-        <%= image_tag @user.avatar, class:"avatar" %>
-
+      <%if @user.avatar.attached?%>
+      <%= image_tag @user.avatar, class:"avatar"%>
+      <%else%>
+        <div class="avatar"></div>
+        <%end%>
         <div class="buttons">
           <%= form_tag user_avatars_path(@user), multipart: true do %>
           <%= file_field_tag :avatar, class:"first-button u-full-width button" %>
           <%= submit_tag "confirmer", class:"first-button button-danger u-full-width "%>
           <%end%>
           <%=link_to "Ajouter un livre", new_book_path, class:"button button-primary u-full-width"%>
-          <%=link_to "Editer le profil", edit_user_registration_path, class:"button button-success u-full-width"%></div>
-        <h6 class="username"><%=@user.name</h6>
-        <p class="user-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
+          <%=link_to "Editer le profil", edit_user_path, class:"button button-success u-full-width"%></div>
+        <h6 class="username"><%=@user.name%></h6>
+        <p class="user-description"><%= @user.biography %></p>
+        <p><%=@user.private_address(@user.id)</p>
       </div>
     </div>

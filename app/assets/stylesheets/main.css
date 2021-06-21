@@ -11,14 +11,12 @@ body {
   width: 100%;
   background-color: #489FB5;
   height: 135px;
-  margin-top: -10px;
   margin-left: -8px;
+  margin-bottom: 5%;
 }
 
-.logo {
-  min-height: 38px;
-  width: 25%;
-  margin-top: 5%;
+.arrow:hover {
+  background-color: transparent;
 }
 
 .hamburger {
@@ -51,8 +49,8 @@ li {
   text-align: center;
 
 }
-a.link {
-  text-decoration: none;
+a.link:hover {
+  background-color: transparent;
   color: #EDE7E3;
 }
 
@@ -60,11 +58,6 @@ a.link {
   display: block;
 }
 
-
-h2 {
-  font-family: Futura Now Headline;
-  color:#16697A
-}
 
 input.placeholder {
   font-family: Futura Now Headline;
@@ -77,6 +70,8 @@ input.u-full-width {
 footer {
   background-color: #489FB5;
   height: 135px;
+  width: 100%;
+  margin-top:5%;
 }
 
 .logo-footer {
@@ -112,11 +107,7 @@ color: #489FB5;
 
 .headtitle {
   display: block;
-  margin-top: 10%;
-}
-
-.arrow {
-  margin-top: 20%;
+ 
 }
 p.rights {
   text-align: center;
@@ -126,15 +117,6 @@ p.rights {
   display: block;
   margin: auto;
   width:100px;
-}
-
-.button-primary {
-  margin-top: 20px;
-  margin-bottom: 100px;
-}
-.button-success {
-  margin-top: 50px;
-  margin-bottom: 100px;
 }
 
 .about2 {
@@ -160,4 +142,89 @@ p.rights {
   50%  {bottom:25px; top:25px;}
   75%  {bottom:25px; top:25px;}
   100% {bottom:0px; top:0px;}
+}
+
+.user-profile {
+  max-width: 300px;
+  min-height: 1500px;
+  background: #82C0CC;
+  margin-left: 20%;
+  margin-top: 10%;
+}
+
+.avatar {
+  height: 150px;
+  max-width: 150px;
+  background-color:#16697A;
+}
+.username {
+  text-align: center;
+}
+
+.user-description {
+  text-align: justify;
+}
+
+.first-button {
+  margin-top: 10px;
+}
+
+.book-img {
+  width:20%;
+}
+
+.book-name {
+  text-align: center;
+}
+
+.book-container {
+  margin-top:50px;
+  width:100%;
+}
+
+
+.card-item {
+ width: 500px;
+}
+.book-img-list {
+  width:10%;
+  margin-right:5%;
+}
+.card-list {
+  border:none;
+  box-shadow: none;
+  padding-right:20%;
+}
+.book-description {
+  padding-left: 15%;
+}
+
+.text-upp {
+  text-transform: uppercase;
+}
+
+.subtitle {
+  margin-top: 200px;
+}
+
+.a-footer {
+  text-decoration: none;
+  
+}
+
+.a-footer:hover {
+  background-color: transparent;
+  color: #EDE7E3;
+}
+
+.a-footer:active {
+  color: #EDE7E3;
+}
+.a-footer:visited {
+  color: #EDE7E3;
+}
+
+.logo-mail {
+  display: block;
+  width:100px;
 }

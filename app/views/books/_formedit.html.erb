@@ -1,0 +1,53 @@
+<div class="row">
+  <div class="three column"></div>
+  <div class="six columns">
+    <div class="field">
+      <%= form.label :isbn, class:"text-dark text-upp" %>
+      <%= form.text_field :isbn, class:"u-full-width" %>
+    </div>
+
+    <div class="field">
+      <%= form.label "titre", class:"text-dark text-upp" %>
+      <%= form.text_field :title, autofocus: true, class: "u-full-width placeholder"%>
+    </div>
+
+    <div class="field">
+      <%= form.label "auteur", class:"text-dark text-upp" %>
+      <%= form.text_field :authors, autofocus: true, class: "u-full-width placeholder"%>
+    </div>
+
+    <div class="field">
+      <%= form.label "editeur", class:"text-dark text-upp" %>
+      <%= form.text_field :publisher, autofocus: true, class: "u-full-width placeholder"%>
+    </div>
+
+    <div class="field">
+      <%= form.label "date de publication", class:"text-dark text-upp" %>
+      <%= form.number_field :published_date, autofocus: true, class: "u-full-width placeholder"%>
+    </div>
+
+    <div class="field">
+      <%= form.label "langue", class:"text-dark text-upp" %>
+      <%= form.text_field :language, autofocus: true, class: "u-full-width placeholder"%>
+    </div>
+
+    <div class="field">
+      <%= form.label "catégories", class:"text-dark text-upp" %>
+      <%= form.text_field :categories, autofocus: true, class: "u-full-width placeholder"%>
+    </div>
+
+    <div class="field">
+      <%= form.label "description",  class:"text-dark text-upp"%>
+      <%= form.text_area :description, autofocus: true, class: "u-full-width placeholder"%>
+    </div>
+
+    <div class="field">
+      <%= form.label "lien vers l'image de couverture", class:"text-dark text-upp" %>
+      <%= form.text_field :image_link, placeholder: "Renseignez un URL", class:"u-full-width text-upp" %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit 'Modifier la fiche du livre',class:"u-full-width button-primary" %>
+    </div>
+  </div>
+</div>

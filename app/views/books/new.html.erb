@@ -1,35 +1,44 @@
+<h2 class="u-text-center text-info text-upp">Ajouter un bouquin</h2>
 <div class="row">
-         <div class="three column"></div>
-        <div class="six columns">
-          <h2 class="u-text-center text-info">Ajouter un Bouquin</h2>
+ <div class="three column"><%= link_to 'Retour vers ma bibliothèque', user_path(current_user.id) %></div>
+ <div class="six columns">
 
-<%= form_for :isbn_fill, url: books_path do |f| %>
+  <%= form_for :isbn_fill, url: books_path do |f| %>
   <% if @query_errors != nil and @query_errors.any? %>
-    <% @query_errors.each do |message| %>
-      <div class="alert alert-danger"><%= message %></div>
-    <% end %>
+  <% @query_errors.each do |message| %>
+  <div class="alert alert-danger"><%= message %></div>
   <% end %>
+  <% end %>
+
   <div class="field">
-  <p>
-    <%= f.label :isbn, 'ISBN' %>
-    <%= f.number_field :isbn, :class => 'form-control' %>
-  </p>
-  <p>
-    <%= f.submit 'Remplir le formulaire', :class => 'btn btn-primary' %>
-  </p>
+
+
+    <%= f.label :isbn, 'ISBN', class:"text-dark"%>
+    <%= f.number_field :isbn, :class => 'u-full-width', placeholder:"XXX-X-XXX-XXXXX-X" %>
   </div>
-<% end %>
-<h3>Vérifier les informations</h3>
-<%= form_for @book do |f| %>
-  <% @book.errors.full_messages.each do |message| %>
-    <div class="alert alert-danger"><%= message %></div>
+
+  <%= f.submit 'Remplir le formulaire', :class => "button-primary u-full-width" %>
+  <h5 class="text-succes u-text-center">Et hop, plus qu'à compléter !</h5>
+  <% end %>
+</div>
+</div>
+<%= form_with(model: @book, local: true) do |form| %>
+<% if @book.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(book.errors.count, "error") %> prohibited this book from being saved:</h2>
+
   <% end %>
   <% if params[:successful] == false %>
-    <fieldset disabled>
-      <%= render 'form', :f => f %>
-    </fieldset>
+  <fieldset disabled>
+    <%= render 'formnew', :form => form %>
+  </fieldset>
   <% else %>
-    <%= render 'form', :f => f %>
+  <%= render 'formnew', :form => form %>
   <% end %>
-<% end %>
-        </div>
+  <% end %>
+
+  <%= link_to 'Retour vers ma bibliothèque', user_path(current_user.id) %>
+</div>
+</div>
+
+

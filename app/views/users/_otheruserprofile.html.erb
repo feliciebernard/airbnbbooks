@@ -2,10 +2,16 @@
   <div class="row">
     <div class="three columns" >
       <div class="card user-profile">
+      <%if @user.avatar.attached?%>
+      <% image_tag @user.avatar, class:"avatar"%>
+      <%else%>
         <div class="avatar"></div>
+        <%end%>
         <div class="buttons">
-        <button class="first-button button-success u-full-width">Contacter</button></div>
-        <h6 class="username">Nom Prenom / Pseudo</h6>
-        <p class="user-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
+        <%= mail_to @user.email, "Contacter" ,class:"first-button button button-success u-full-width"%></div>
+        <h6 class="username"><%= @user.name%></h6>
+        <p class="user-description"><%= @user.biography %></p>
+        <%= @user.private_adress.street_name%>
+        <%= @user.private_adress.city.name%>
       </div>
-    </div>
+      </div>

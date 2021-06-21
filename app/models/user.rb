@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_many :lenders, foreign_key: 'lender_id', class_name: "Loan"
   has_many :borrowers, foreign_key: 'borrower_id', class_name: "Loan"
 
+  has_many :loans
   has_many :own_books
   has_many :books, through: :own_books
 

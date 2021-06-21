@@ -1,6 +1,22 @@
-<h1>Editing Book</h1>
+<h2 class="u-text-center text-info text-upp">Modifier un bouquin</h2>
+<div class="row">
+<%= form_with(model: @book, local: true) do |form| %>
+  <% if @book.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(book.errors.count, "error") %> prohibited this book from being saved:</h2>
 
-<%= render 'form', book: @book %>
+      <ul>
+      <% book.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<%= render 'formedit', :form => form, book: @book %>
 
-<%= link_to 'Show', @own_book %> |
-<%= link_to 'Back', own_books_path %>
+<% end %>
+
+<%= link_to 'Afficher le livre', @own_book %> |
+<%= link_to 'Retour vers la bibliothèque', own_books_path %>
+</div>
+</div>

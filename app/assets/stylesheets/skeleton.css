@@ -1353,28 +1353,22 @@ body {
   
 }
 .navbar {
-  float:left;
   max-width: 100%;
   background-color: #489FB5;
   height: 135px;
-  margin-top: -10px;
   margin-left: -8px;
-}
-
-.logo {
-  min-height: 38px;
-  width: 25%;
-  margin-top: 5%;
 }
 
 .hamburger {
   width: 25%;
-  margin-top: 45%;
+}
+
+.hamburger:hover {
+  background-color: transparent;
 }
 
 .polygon-navbar {
   position: absolute;
-  margin-top: 97px;
 }
 
 .dropdown {
@@ -1410,6 +1404,7 @@ a.link {
 h2 {
   font-family: Futura Now Headline;
   letter-spacing: 1px;
+  color:#16697A;
 }
 
 input.placeholder {
@@ -1437,14 +1432,14 @@ footer {
 }
 
 .text-dark {
-  color: #073131;
+color: #073131;
 }
 .text-light {
-  color: #EDE7E3;
+color: #EDE7E3;
 }
 
 .text-success {
-  color: #FFA62B;
+color: #FFA62B;
 }
 
 .text-info {
@@ -1455,14 +1450,19 @@ color: #16697A;
 .headtitle {
 width: fit-content;
 max-width: max-content;
-margin-left: auto;
-margin-right: auto;
+display: block;
+margin-top:10%;
+margin-left:auto;
+margin-right:auto;
 }
 
 .arrow {
+position: absolute;
+margin-top: 10%;
 display: inline-block;
 left:45%;
 }
+
 
 p.rights {
   text-align: center;
@@ -1512,8 +1512,8 @@ margin-bottom: 100px;
 }
 
 .avatar {
-  height: 150px;
-  max-width: 150px;
+  max-height: 300px;
+  max-width: 300px;
   background-color:#16697A;
   margin: auto;
 }

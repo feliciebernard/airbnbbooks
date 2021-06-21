@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<% empty = '-'%>
+
 <h3><%= @book.title %></h3>
 
 <p>
@@ -48,13 +50,16 @@
 <p>
   <strong>Appreciation:</strong>
   <%= @own_book.appreciation %>
+</p>
 
-  <%= @own_book.book.title%>
+<p>
+  <strong>Propriétaire du livre :</strong>
   <%= @own_book.user.name%>
 </p>
 
 
 <%= link_to 'Editer mon avis', edit_own_book_path(@own_book) %> |
 <%= link_to 'Editer les données du livres', edit_book_path(@own_book.book) %> |
-<%= mail_to @own_book.user.email, "Emprunter le livre #{@own_book.book.title}" %>
+<%= link_to 'Back', root_path %> | 
+<%= mail_to @own_book.user.email, "Emprunter le livre #{@own_book.book.title}" %> |
 <%= link_to 'Le supprimer de ma bibliothèque', @own_book, method: :delete, data: { confirm: 'Are you sure?' } %></td>

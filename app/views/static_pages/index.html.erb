@@ -1,12 +1,14 @@
+<!DOCTYPE html>
+<head><%= stylesheet_link_tag "application" %></head>
+   <%= stylesheet_link_tag "https://use.typekit.net/cdj6txt.css" %>
   <div class="u-full-width">
   <div class="row">
     <%=image_tag "HEADTITLE.png", class:"headtitle"%>
     </div>
     <div class="row">
     
-    <%=link_to image_tag("ARROW.png"), root_path(anchor: 'concept'),class:"arrow transformation" %>
+    <%=link_to image_tag("ARROW.png"), root_path(anchor: 'concept'), class:"arrow transformation" %>
     
-    </div>
     </div>
   <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 <%= render "layouts/navbar"%>
@@ -14,8 +16,8 @@
   <br /> <br /> <br /> <br /><br /> <br />
   <div class="row">
     <div class="five columns"></div>
-  <button class="button-primary about-btn"><%=link_to "s'identifier", new_user_session_path, style:"color:#073131;text-decoration:none;"%></button>
-  <button class="button-success"><%=link_to "s'inscrire",  new_user_registration_path, style:"color:#073131;text-decoration:none;"%></button>
+  <%=link_to "s'identifier", new_user_session_path, class:"button button-primary"%>
+  <%=link_to "s'inscrire",  new_user_registration_path, class:"button button-success"%>
   <div class="seven columns"></div>
 </div>
   <section>
@@ -24,25 +26,14 @@
       <div class="one column"><%=image_tag "man-reading.svg", class:"man-reading"%></div>
       <div class="one column"></div>
       <div class="five columns"><h4 class="text-success">Une nouvelle plateforme d’échange</h4>
-        <p class="about text-dark">Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-        Ut enim ad minim veniam, quis nostrud exercitation 
-        ullamco laboris nisi ut aliquip ex ea commodo consequat.
-         Duis aute irure dolor in reprehenderit in voluptate velit 
-        esse cillum dolore eu fugiat nulla pariatur.</p></div>
+        <p class="about text-dark">Nous pouvons observer que très souvent nous prêtons des livres ou en empruntons et, quelques mois après, nous ne savons plus à qui et où ils sont ! 😰 Ou alors, parfois nous cherchons un livre qui n'est plus en vente et n'avons aucune idée qu'un ami, une connaissance, l'a en sa possession, en train de prendre la poussière dans la bibliothèque. 🤓<br> Where is my book est la solution à ce genre de souci !</p></div>
         <div class="two columns"></div>
   </div>
 
   <div class="row">
     <div class="three columns"></div>
     <div class="five columns"><h4 class="text-info about2">Partagez et découvrez de nouvelles lectures</h4>
-      <p class="about2 text-dark">Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-      Ut enim ad minim veniam, quis nostrud exercitation 
-      ullamco laboris nisi ut aliquip ex ea commodo consequat.
-       Duis aute irure dolor in reprehenderit in voluptate velit 
-      esse cillum dolore eu fugiat nulla pariatur.</p></div>
+      <p class="about2 text-dark">Where is my book est bien plus qu'une plateforme de prêt de livres, c'est aussi l'occasion de découvrir de nombreux livres que vous n'auriez pas imaginé, d'ajouter un avis sur vos propres livres, et peut-être de faire de nouvelles rencontres...</p></div>
     <div class="two column"><%=image_tag "woman-reading.svg", class:"woman-reading"%></div>
 </div>  <br />  <br />  <br /></section>
-
-<%=render 'layouts/footer' %>
+<%= render "layouts/footer"%>

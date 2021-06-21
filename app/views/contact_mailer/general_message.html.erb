@@ -1,19 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head></head>
-<body class="bg-light">
+<body>
   <br>
-  <div class="container">
-    <div class="card border-primary mb-3" style="max-width: 60rem;">
-      <div class="card-body">
-        <h4 class="card-title">Vous avez un nouveau message</h4> <br>
-        <p class="card-text"><strong>Nom</strong> <%= @contact.name%></p>
-        <p class="card-text"><strong>Adresse mail</strong> <%= @contact.email%></p>
-        <p class="card-text"><strong>Objet</strong> <%= @contact.object%></p>
-        <p class="card-text"><strong>Message</strong> <%= @contact.message%></p>
-      </div>
-    </div>
+  <div class="card border-primary" style="max-width: 50rem; background-color: #489FB5;">
+    <h4>Vous avez un nouveau message</h4> <br>
+    <p><strong>Nom</strong> <%= @contact.name%></p>
+    <p><strong>Adresse mail</strong> <%= @contact.email%></p>
+    <p><strong>Objet</strong> <%= @contact.object%></p>
+    <p><strong>Message</strong> <%= @contact.message%></p>
+    <img src="https://res.cloudinary.com/dcmcouvju/image/upload/v1624268441/LOGO_dt3bob.png" alt="logo WhereIsMyBook" class="logo-mail">
   </div>
+</div>
 </body>
 </html>
 

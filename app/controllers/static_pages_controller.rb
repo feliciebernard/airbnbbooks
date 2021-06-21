@@ -1,5 +1,6 @@
 class StaticPagesController < ApplicationController
-  def about
+  def index
+    render layout: false
   end
 
   def team

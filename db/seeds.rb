@@ -33,7 +33,7 @@ def create_books(nb_books)
     language = Faker::Nation.language
     categories = Faker::Book.genre
     description = Faker::Lorem.sentences(number: rand(2..5))
-    image_link = ["https://res.cloudinary.com/dcmcouvju/image/upload/v1623320480/1_jxyqjl.jpg", "https://res.cloudinary.com/dcmcouvju/image/upload/v1623320482/22_xplnk1.jpg"]
+    image_link = "https://res.cloudinary.com/dcmcouvju/image/upload/v1624045770/nocover2_o33zpf.jpg"
 
     book = Book.create(isbn: isbn, title: title, authors: authors, publisher: publisher, published_date: published_date, language: language, categories:categories, description:description, image_link:image_link)
     puts "--------------- Book n°#{idx_book} ----------------\n\n"
@@ -46,7 +46,7 @@ def create_users(nb_users)
   nb_users.times do |idx_user|
 
     name = Faker::Name.female_first_name
-    email = Faker::Internet.free_email
+    email = Faker::Internet.email(domain: 'yopmail.com')
     password = Faker::Internet.password(min_length: 8, max_length: 15)
     biography = Faker::Lorem.sentences(number: rand(1..3))
 
