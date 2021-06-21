@@ -23,9 +23,6 @@ class OwnBooksController < ApplicationController
 
   # GET /own_books/1/edit
   def edit
-    @own_book.update()
-    @book = @own_book.update(own_book_params)
-
   end
 
   # POST /own_books or /own_books.json
