@@ -17,6 +17,119 @@
 
 
 
+
+/* STATIC TEAM PAGE PART */
+
+
+
+.body_team {
+  -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+  -moz-animation: fadein 2s; /* Firefox < 16 */
+  -ms-animation: fadein 2s; /* Internet Explorer */
+  -o-animation: fadein 2s; /* Opera < 12.1 */
+  animation: fadein 2s;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container_team {
+  display: flex;
+}
+
+.cardteam {
+  margin: 1rem;
+  width: 300px;
+  height: 640px;
+  padding: .5rem 1rem;
+  background-color: rgba(255, 0, 0, 0.1);
+  border-radius: 8px;
+  box-shadow: 0 12px 32px 4px rgba(black, .2);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: .2s;
+  
+  &:hover {
+    transform: translateY(-5px);
+  }
+
+
+  .desc {
+    text-align: center;
+  }
+  
+  .actions {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+      
+      &:hover {
+        color: white;
+        box-shadow: 0 0 24px rgba(black, .2);
+      }
+      
+      &:active {
+        transform: scale(0.95);
+        box-shadow: 0 0 16px rgba(black, .3);
+      }
+    }
+    
+  }
+}
+
+
+a:visited {
+  text-decoration: none;
+  color: #2574a9;
+}
+
+.card .round {
+  width: 250px;
+	border: 5px solid #03BFCB;
+	border-radius: 50%;
+	padding: 7px;
+}
+
+/* KEYFRAMES PART */
+
+
+@keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+
+/* END OF STATIC TEAM PAGE PART */
+
+
+
+
+
+
+
+
+
 html {
   font-size: 1em;
   box-sizing: border-box;
