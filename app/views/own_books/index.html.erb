@@ -16,7 +16,7 @@
       <p><%=own_book.book.authors%></p>
       Note : <%= own_book.appreciation %>/5<br />
       Critique :
-      <p><%=own_book.review%></p>
+      <p><%=own_book.review%></p> 
       <%= link_to "Fiche du Livre", own_book, class:"button"%>
       <%if current_user == own_book.user %>
         <%= link_to 'Editer mon livre', edit_own_book_path(own_book), class:"button button-primary" %>

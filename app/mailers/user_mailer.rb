@@ -31,6 +31,11 @@ class UserMailer < ApplicationMailer
 
   end
 
+  def request_accepted(own_book, current_user)
+    @book_to_loan = own_book
+    @owner = current_user
+  end
+
   def set_book_to_borrow
     @book_to_borrow = OwnBook.find(params[:id])
   end
