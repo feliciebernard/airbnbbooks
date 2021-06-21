@@ -1355,9 +1355,9 @@ html {
 
 body {
   background-color: #EDE7E3;
-  font-family: Futura, Futura Now Headline, Futura Now Script, sans-serif;
-  
+  font-family: Futura, Futura Now Headline, Futura Now Script, sans-serif;  
 }
+
 .navbar {
   max-width: 100%;
   background-color: #489FB5;
@@ -1408,7 +1408,7 @@ a.link {
 
 
 h2 {
-  font-family: Futura Now Headline;
+  font-family: Futura;
   letter-spacing: 1px;
   color:#16697A;
 }
@@ -1554,6 +1554,7 @@ p.rights {
 }
 .book-img-list {
   width:10%;
+  max-height: 150px;
   margin-right:5%;
 }
 .card-list {
@@ -1575,4 +1576,9 @@ i.icon-contact{
   font-size: 40px;
   padding-bottom: 5%;
 
+}
+
+.text-footer {
+  letter-spacing: 1px;
+  max-width: 100%;
 }
