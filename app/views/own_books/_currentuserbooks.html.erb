@@ -18,10 +18,10 @@
         <% else %>
           <%= link_to 'supprimer', own_book, method: :delete, data: { confirm: 'Are you sure?' }, class:"button button-danger" %>
           <% if own_book.available %>
-            <%= link_to "Rendre indisponible", own_book_set_available_path(own_book.id), class: "button button-danger" %>
+            <%= link_to "Rendre indisponible", switch_availability_path(own_book.id), class: "button button-danger" %>
           <% else %>
             <% if own_book.loan_request? %>
-              <%= link_to "Accepter la demande d'emprunt de #{own_book.loan_request.borrower.name}", own_book_loan_path(own_book_id: own_book.loan_request.id), method: :patch, class: "button button-success"%>
+              <%= link_to "Accepter la demande d'emprunt de #{own_book.loan_request.borrower.name}", loans_path(own_book_id: own_book.loan_request.id), method: :patch, class: "button button-success"%>
 
               <%= link_to "Rejeter la demande d'emprunt de #{own_book.loan_request.borrower.name}", own_book_loan_path(own_book_id: own_book.loan_request.id),:method => :destroy, class:"button button-primary"%>
             <% end %>
