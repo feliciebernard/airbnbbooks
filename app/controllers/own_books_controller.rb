@@ -75,7 +75,7 @@ class OwnBooksController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_own_book
-      @own_book = OwnBook.find(params[:id])
+      @own_book = OwnBook.find(params[:own_book_id])
     end
 
     # Only allow a list of trusted parameters through.

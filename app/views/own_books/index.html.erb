@@ -16,10 +16,10 @@
       Note : <%= own_book.appreciation %>/5<br />
       Critique :
       <p><%=own_book.review%></p>
-      <%= link_to "Fiche du Livre", own_book, class:"button"%>
+      <%= link_to "Fiche du Livre", own_book_path(own_book.id), class:"button"%>
       <%if current_user == own_book.user %>
         <%= link_to 'Editer mon livre', edit_own_book_path(own_book), class:"button button-primary" %>
-        <%= link_to "Rendre indisponible", switch_availability_path(own_book.id), class: "button button-danger" %>
+        <%= link_to "Rendre indisponible",  own_book_set_available_path(own_book.id), method: :patch, class: "button button-danger" %>
       <% else %>
         <%= link_to "Prêteur", user_path(own_book.user_id), class:"button button-primary"%>
         <%= link_to "Emprunter", own_book_loans_path(own_book.id), method: :create, class:"button button-success"%>

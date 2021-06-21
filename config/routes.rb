@@ -8,14 +8,13 @@ Rails.application.routes.draw do
 
   get 'static_pages/team'
   get 'static_pages/privacypolicy'
-  get '/own_books/:id', to: 'own_books#set_available', as: 'switch_availability'
   resources :private_adresses
   resources :cities
 
   resources :own_books do
-    resources :loans, only: [:create, :destroy]
+    patch :set_available
+    resources :loans
   end
-  resources :loans, except: [:create, :destroy]
 
   resources :books
   devise_for :users, controllers: { registrations: "users/registrations"  }
