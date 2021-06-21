@@ -3,19 +3,18 @@
     <div class="u-full-width hero navbar" id="concept">
       <div class="row">
         <div class="five columns"><%=image_tag "polygons.png", class:"polygon-navbar"%></div>
-        <div class="six columns logo"><%=link_to image_tag("LOGO.svg"), root_path, class:"logo a-footer", style:"height38px; "%></div>
+        <div class="six columns"><br /><%=link_to image_tag("https://res.cloudinary.com/dcmcouvju/image/upload/v1624268441/LOGO_dt3bob.png"), root_path, class:"logo a-footer"%></div>
         <div class="one column dropdown">
         <%if user_signed_in?%>
-          <a href="#"><%= image_tag "hamburger.svg", class:"hamburger"%></a>
+          <%= image_tag "hamburger.svg", class:"hamburger"%>
           
             <div class="dropdown-content">
-              <ul><li>
-              <li><%=link_to "Mes Livres", user_path(current_user.id), class:"link"%></li>
-               <li><%=link_to "Les Bibliothèques", root_path, class:"link"%></li>
-            
-            <li><%=link_to "Deconnexion", destroy_user_session_path, :method => :delete, class:"link"%></li>
+              <ul>
+                <li><%=link_to "Mes Livres", user_path(current_user.id), class:"link"%></li>
+                <li><%=link_to "Les Bibliothèques", root_path, class:"link"%></li>
+                <li><%=link_to "Deconnexion", destroy_user_session_path, :method => :delete, class:"link"%></li>
               </ul>
-          </div>
+            </div>
         </div>
          <%else%>
          <%end%>

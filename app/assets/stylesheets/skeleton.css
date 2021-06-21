@@ -1240,28 +1240,22 @@ body {
   
 }
 .navbar {
-  float:left;
   max-width: 100%;
   background-color: #489FB5;
   height: 135px;
-  margin-top: -10px;
   margin-left: -8px;
-}
-
-.logo {
-  min-height: 38px;
-  width: 25%;
-  margin-top: 5%;
 }
 
 .hamburger {
   width: 25%;
-  margin-top: 45%;
+}
+
+.hamburger:hover {
+  background-color: transparent;
 }
 
 .polygon-navbar {
   position: absolute;
-  margin-top: 97px;
 }
 
 .dropdown {
@@ -1349,7 +1343,7 @@ margin-right:auto;
 }
 
 .arrow {
-  position: absolute;
+position: absolute;
 margin-top: 10%;
 display: inline-block;
 left:45%;

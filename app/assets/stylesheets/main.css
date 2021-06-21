@@ -19,13 +19,6 @@ body {
   background-color: transparent;
 }
 
-
-.logo .a-footer {
-  min-height: 38px;
-  width: 5%;
-  margin-top: 5%;
-}
-
 .hamburger {
   width: 25%;
   margin-top: 45%;
@@ -64,7 +57,6 @@ a.link:hover {
 .dropdown:hover .dropdown-content {
   display: block;
 }
-
 
 h2 {
   font-family: Futura Now Headline;
