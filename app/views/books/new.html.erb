@@ -1,6 +1,6 @@
 <h2 class="u-text-center text-info text-upp">Ajouter un bouquin</h2>
 <div class="row">
- <div class="three column"><%= link_to 'Retour vers ma bibliothèque', user_path(current_user.id) %></div>
+ <div class="three column"><%= link_to 'Retour vers ma bibliothèque', user_path(current_user.id), class:"button" %></div>
  <div class="six columns">
 
   <%= form_for :isbn_fill, url: books_path do |f| %>
@@ -37,7 +37,7 @@
   <% end %>
   <% end %>
 
-  <%= link_to 'Retour vers ma bibliothèque', user_path(current_user.id) %>
+  <%= link_to 'Retour vers ma bibliothèque', user_path(current_user.id), class:"button" %>
 </div>
 </div>
 
