@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    <style>
+
+    a {
+      text-decoration-color: blue; 
+      opacity: 1;
+      text-decoration: underline;
+    }
+
+    h6 {
+      text-decoration: underline;
+    }
+
+    </style>
+  </head>
+  <body>
+    <h6>Salut <%= @receiver.name %> quelqu'un est intéréssé par l'un de tes bouquins...</h6>
+    <p> l'équipe de WhereIsMyBook t'informe que <%= @borrower.name %> serait intéressé pour emprunter ton livre "<%= link_to "#{@book_to_borrow.title}", @urls[:show_book]  %>". </p>
+    <p> N'hésite pas a le contacter via notre <%= link_to "messagerie", @urls[:messagerie] %>. </p>
+    <p> tu peux gérer l'envoie de tes livres depuis ton <%= link_to "espace de profile", @urls[:profile_page]  %>. </p>
+   
+    <p> À très vite sur <%= link_to "where-is-my-book.com", @urls[:home_page] %> !</p>
+
+  </body>
+</html>
