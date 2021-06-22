@@ -1,8 +1,12 @@
+<%= link_to 'Retour vers ma bibliothèque', user_path(current_user.id), class:"button" %>
 <h2 class="u-text-center text-info text-upp">Ajouter un bouquin</h2>
-<div class="row">
- <div class="three column"><%= link_to 'Retour vers ma bibliothèque', user_path(current_user.id), class:"button" %></div>
- <div class="six columns">
 
+
+<div class="row">
+
+ <div class="three column"></div>
+ <div class="six columns">
+<hr>
   <%= form_for :isbn_fill, url: books_path do |f| %>
   <% if @query_errors != nil and @query_errors.any? %>
   <% @query_errors.each do |message| %>
@@ -17,7 +21,7 @@
     <%= f.number_field :isbn, :class => 'u-full-width', placeholder:"XXX-X-XXX-XXXXX-X" %>
   </div>
 
-  <%= f.submit 'Remplir le formulaire', :class => "button-primary u-full-width" %>
+  <%= f.submit 'Remplir le formulaire', :class => "button-success u-full-width" %>
   <h5 class="text-succes u-text-center">Et hop, plus qu'à compléter !</h5>
   <% end %>
 </div>
