@@ -11,7 +11,13 @@
         <%= mail_to @user.email, "Contacter" ,class:"first-button button button-success u-full-width"%></div>
         <h6 class="username"><%= @user.name%></h6>
         <p class="user-description"><%= @user.biography %></p>
+
+        <%if @user.private_adress == nil %>
+
+        <%else%>
         <%= @user.private_adress.street_name%>
         <%= @user.private_adress.city.name%>
+        <%end%>
+
       </div>
       </div>
