@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Street name:</strong>
+  <%= @private_address.street_name %>
+</p>
+
+<p>
+  <strong>Other information:</strong>
+  <%= @private_address.other_information %>
+</p>
+
+<%= link_to 'Edit', edit_private_address_path(@private_address) %> |
+<%= link_to 'Back', private_addresses_path %>
