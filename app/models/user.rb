@@ -14,8 +14,9 @@ class User < ApplicationRecord
   has_many :own_books
   has_many :books, through: :own_books
 
-  has_one :private_adress
+  belongs_to :private_address, dependent: :destroy, optional: true
 
+  accepts_nested_attributes_for :private_address
 
 
   def welcome_send

@@ -50,6 +50,8 @@ class UsersController < ApplicationController
     if @city.nil?
       @city = City.create(name: user_params[:city], zip_code: user_params[:zip_code])
     end
+    puts "\n" * 50
+    puts "USER = #{user_params[:street_name]}   OTHER_INFO == #{user_params[:other_information]}"
     @private_address = PrivateAddress.create(street_name: user_params[:street_name], other_information: user_params[:other_information], city: @city, user: @user)
     @private_address.errors
       
@@ -98,6 +100,6 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.require(:user).permit(:name, :biography, :private_address)
+      params.require(:user).permit(:name, :biography, :city, :zip_code, :street_name, :other_information)
     end
 end

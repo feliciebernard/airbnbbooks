@@ -19,11 +19,11 @@
         <h6 class="username"><%=@user.name%></h6>
         <p class="user-description"><%= @user.biography %></p>
 
-        <%if @user.private_adress == nil %>
+        <%if @user.private_address == nil %>
 
         <%else%>
-        <%= @user.private_adress.street_name%>
-        <%= @user.private_adress.city.name%>
+        <%= @user.private_address.street_name%>
+        <%= @user.private_address.city.name%>
         <%end%>
 
       </div>
