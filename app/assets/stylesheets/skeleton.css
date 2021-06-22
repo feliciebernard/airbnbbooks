@@ -1591,3 +1591,22 @@ i.icon-contact{
 .profile-text {
   text-decoration: underline;
 }
+
+.bigger-anim {
+  
+  transform: scale(1);
+}
+
+.bigger-anim:hover {
+  background-color: #FFA62B;
+  /*  Making button bigger on hover  */
+  transition: all .5s ease;
+    transform: scale(1.5) perspective(1px);
+}
+
+.smaller-anim:hover {
+  background-color: #FFA62B;
+  /*  Making button bigger on hover  */
+  transition: all .5s ease;
+    transform: scale(.5) perspective(1px);
+}
