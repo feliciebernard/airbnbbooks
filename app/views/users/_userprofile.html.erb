@@ -14,8 +14,7 @@
           <%end%>
           <%=link_to "Ajouter un livre", new_book_path, class:"button button-primary u-full-width"%>
           <%=link_to "Editer le profil", edit_user_path, class:"button button-success u-full-width"%></div>
-
-
+         
         <h6 class="username"><%=@user.name%></h6>
         <p class="user-description"><%= @user.biography %></p>
 
@@ -26,7 +25,6 @@
         <%= @user.private_address.city.name%>
         <%end%>
 
-      </div>
     </div>
     </div>
 
