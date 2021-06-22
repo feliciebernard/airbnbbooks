@@ -29,7 +29,11 @@
         <% end %>
       <% else %>
         <%= link_to "Prêteur", user_path(own_book.user_id), class:"button button-primary"%>
-        <%= link_to "Emprunter", own_book_loans_path(own_book.id), method: :create, class:"button button-success"%>
+        <% if own_book.available == false %>
+          <div class="button button-info button-disable"> Déjà Emprunté :(</div>
+        <% else %>
+          <%= link_to "Emprunter", own_book_loans_path(own_book.id), method: :create, class:"button button-success buntton-danger"%>
+        <% end %>
       <% end %>
        
       </div>

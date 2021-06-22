@@ -5,7 +5,7 @@ class OwnBooksController < ApplicationController
 
   # GET /own_books or /own_books.json
   def index
-    @own_books = OwnBook.all.order('created_at DESC').filter { |own_book| own_book.available }
+    @own_books = OwnBook.all.order('created_at DESC')
     @user = current_user
   end
 
