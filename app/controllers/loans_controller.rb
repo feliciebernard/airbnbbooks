@@ -1,6 +1,6 @@
 class LoansController < ApplicationController
   before_action :set_loan, only: %i[ show edit update destroy ]
-  before_action :find_own_book, only: %i[create destroy]
+  before_action :find_own_book, only: %i[create destroy update]
   before_action :authenticate_user!
 
   # GET /loans or /loans.json
@@ -43,11 +43,11 @@ class LoansController < ApplicationController
   # PATCH/PUT /loans/1 or /loans/1.json
   def update
     @loan = Loan.find(params[:id])
-   #UserMailer.request_accepted(@loan, current_user).deliver_now
-    redirect_back(fallback_location: root_path)
+    UserMailer.request_accepted(@loan, current_user).deliver_now
+    #redirect_back(fallback_location: root_path)
     respond_to do |format|
       
-      if @loan.update(accepted: true)
+      if @loan.update(is_accepted: true)
         format.html { redirect_back(fallback_location: root_path) }
     
         format.json { render :show, status: :ok, location: @loan }
@@ -60,9 +60,7 @@ class LoansController < ApplicationController
 
   # DELETE /loans/1 or /loans/1.json
   def destroy
-    puts "\n" * 50
-    puts "HELLO BLABLA= #{params}"
-    @loan.own_book.update(available: true)
+    @own_book.update(available: true)
     @loan.destroy
 
     respond_to do |format|
@@ -75,13 +73,11 @@ class LoansController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_loan
       puts "\n" * 50
-      puts "HELLO = #{params}"
+      puts "PARAMS = #{params}"
       @loan = Loan.find(params[:id])
     end
 
     def find_own_book
-      puts "\n" * 50
-      puts "HELLO = #{params}"
       @own_book = OwnBook.find(params[:own_book_id])
     end
 

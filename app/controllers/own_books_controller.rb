@@ -5,15 +5,13 @@ class OwnBooksController < ApplicationController
 
   # GET /own_books or /own_books.json
   def index
-
     @own_books = OwnBook.all.order('created_at DESC').filter { |own_book| own_book.available }
     @user = current_user
   end
 
   # GET /own_books/1 or /own_books/1.json
   def show
-   @book = @own_book.book
-
+    @book = @own_book.book
   end
 
   # GET /own_books/new
@@ -43,7 +41,6 @@ class OwnBooksController < ApplicationController
 
   # PATCH/PUT /own_books/1 or /own_books/1.json
   def update
-    puts "\n" * 50
     respond_to do |format|
       if @own_book.update(own_book_params)
         format.html { redirect_to @own_book, notice: "Own book was successfully updated." }

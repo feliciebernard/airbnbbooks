@@ -613,7 +613,7 @@ h1 {
 }
 
 h2 {
-  font-family: Futura Now Headlines;
+  font-family: Futura Now Headline;
   font-size: 3.0rem;
   line-height: 1.25;
 }
@@ -1308,7 +1308,11 @@ hr {
   border-width: 0;
   border-top: 1px solid #16697A;
 }
-
+.hr-index {
+margin-bottom:2.5rem;
+border-width: 0;
+border-top: 1px solid #16697A;
+}
 /* Clearing */
 
 .container:after,
@@ -1355,9 +1359,9 @@ html {
 
 body {
   background-color: #EDE7E3;
-  font-family: Futura, Futura Now Headline, Futura Now Script, sans-serif;
-  
+  font-family: Futura, Futura Now Headline, Futura Now Script, sans-serif;  
 }
+
 .navbar {
   max-width: 100%;
   background-color: #489FB5;
@@ -1408,7 +1412,7 @@ a.link {
 
 
 h2 {
-  font-family: Futura Now Headline;
+  font-family: Futura;
   letter-spacing: 1px;
   color:#16697A;
 }
@@ -1554,6 +1558,7 @@ p.rights {
 }
 .book-img-list {
   width:10%;
+  max-height: 150px;
   margin-right:5%;
 }
 .card-list {
@@ -1575,4 +1580,9 @@ i.icon-contact{
   font-size: 40px;
   padding-bottom: 5%;
 
+}
+
+.text-footer {
+  letter-spacing: 1px;
+  max-width: 100%;
 }

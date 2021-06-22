@@ -8,50 +8,64 @@
       <%else%>
       <h2 class="text-upp u-text-center">Votre bibliothéque</h2>
       <%end%>
+      <hr>
        <% @own_books.each do |own_book| %>
             <% if own_book.book.image_link != nil %>
          <%= image_tag own_book.book.image_link, class:"book-img-list u-pull-left"%>
         <%else%>
+
         <%= image_tag "https://res.cloudinary.com/dcmcouvju/image/upload/v1624045770/nocover2_o33zpf.jpg", class:"book-img-list u-pull-left"%>
+
         <%end%>
+
         <h6><%=own_book.book.title %></h6>
         <p><%= own_book.book.authors%></p>
         <p><%= own_book.book.isbn%></p> 
         <p><%= own_book.book.description%></p>
+
         <%= link_to "Fiche du livre", own_book_path(own_book.id), class:"button" %>
         <% if current_user != @user %>
           <%= link_to "Emprunter", own_book_loans_path(own_book.id), method: :create, class:"button button-primary"%>
         <% else %>
-          <%= link_to 'supprimer', own_book, method: :delete, data: { confirm: 'Are you sure?' }, class:"button button-danger" %>
+
           <% if own_book.available %>
+
+            <%= link_to 'supprimer', own_book, method: :delete, data: { confirm: 'Are you sure?' }, class:"button button-success" %>
             <%= link_to "Rendre indisponible", own_book_set_available_path(own_book.id), method: :patch, class: "button button-danger" %>
+
           <% else %>
+
             <% if own_book.loan_request? %>
+
               <%= link_to "Accepter la demande d'emprunt de #{own_book.loan_request.borrower.name}",  own_book_loan_path(own_book_id: own_book.id, id: own_book.loan_request.id), method: :patch, class: "button button-success"%>
 
-              <%= link_to "Rejeter la demande d'emprunt de #{own_book.loan_request.borrower.name}", own_book_loan_path(own_book_id: own_book.loan_request.id),method: :delete, class:"button button-primary"%>
+              <%= link_to "Rejeter la demande d'emprunt de #{own_book.loan_request.borrower.name}", own_book_loan_path(own_book_id: own_book.id, id: own_book.loan_request.id),method: :delete, class:"button button-primary"%>
+
+            <% else if own_book.loaned? %>
+
+              <%= link_to "Prété à #{own_book.borrowed_by.name}", user_path(own_book.borrowed_by.id) , class: "button button-success"%>
             <% else %>
-              <%= link_to "Rendre disponible", own_book_set_available_path(own_book.id), method: :patch, class: "button button-danger" %>
+
+              <%= link_to "Rendre disponible", own_book_set_available_path(own_book.id), method: :patch, class: "button button-primary" %>
+
             <% end %>
-            <% if own_book.loaned? %>
-              <p> Préter à <%= link_to "#{own_book.borrowed_by}", user_path(own_book.user.id) %> </p> 
-            <% end %>
-            
+             
           <% end %>
- <hr>
+
         <% end %>
 
-  <br /><br /><br />
 
-      
 
-  
-  <%end%>
 
-  <!-- If Else ends here -->
 
-</div>
+      <%end%>
+      <hr class="hr-index">
+      <%end%>
 
-</div> <!-- Row end-->
+      <!-- If Else ends here -->
+
+    </div>
+
+  </div> <!-- Row end-->
 </div> <!-- Container end-->
 </div>
