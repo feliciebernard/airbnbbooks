@@ -31,11 +31,13 @@
         <%= link_to "Prêteur", user_path(own_book.user_id), class:"button button-primary"%>
         <%= link_to "Emprunter", own_book_loans_path(own_book.id), method: :create, class:"button button-success"%>
       <% end %>
-      <hr>
+       
       </div>
+       <hr class="hr-index">
     </div>
 
   <%end%>
+
   </div>
 </div>
 </div>
