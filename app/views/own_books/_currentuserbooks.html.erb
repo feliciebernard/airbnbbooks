@@ -8,6 +8,7 @@
       <%else%>
       <h2 class="text-upp u-text-center">Votre bibliothéque</h2>
       <%end%>
+      <hr>
        <% @own_books.each do |own_book| %>
             <% if own_book.book.image_link != nil %>
          <%= image_tag own_book.book.image_link, class:"book-img-list u-pull-left"%>
@@ -48,17 +49,17 @@
               <%= link_to "Rendre disponible", own_book_set_available_path(own_book.id), method: :patch, class: "button button-primary" %>
 
             <% end %>
-            
+             
           <% end %>
- <hr>
+
         <% end %>
 
-        <br /><br /><br />
 
 
 
 
       <%end%>
+      <hr class="hr-index">
       <%end%>
 
       <!-- If Else ends here -->
