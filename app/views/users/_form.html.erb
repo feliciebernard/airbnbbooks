@@ -10,37 +10,46 @@
       </ul>
     </div>
   <% end %>
+<div class="row">
 
+  <div class="three column"></div>
+  <div class="six columns">
+    <hr>
   <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.label "Identité", class:"text-dark text-upp" %>
+    <%= form.text_field :name, placeholder:"Ton doux prenom et ton nom de famille si tu le souhaite", class: "u-full-width placeholder" %>
   </div>
 
   <div class="field">
-    <%= form.label :biography %>
-    <%= form.text_area :biography %>
+    <%= form.label "Description", class:"text-dark text-upp" %>
+    <%= form.text_area :biography, placeholder:"Ecris ici une belle description de ta personne !", class: "u-full-width placeholder", rows:"5" %>
   </div>
 
   <div class="field">
-    <%= form.label :city %>
-    <%= form.text_field :city %>
+    <%= form.label "Adresse", class:"text-dark text-upp" %>
+    <%= form.text_field :street_name, placeholder:"Indique ton adresse" ,class: "u-full-width placeholder" %>
   </div>
 
   <div class="field">
-    <%= form.label :zip_code %>
-    <%= form.text_field :zip_code %>
+    <%= form.label "Code postal", class:"text-dark text-upp" %>
+    <%= form.text_field :zip_code, placeholder:"Indique ton code postal", class: "u-full-width placeholder" %>
   </div>
   <div class="field">
-    <%= form.label :street_name %>
-    <%= form.text_field :street_name %>
+    <%= form.label "Ville", class:"text-dark text-upp" %>
+    <%= form.text_field :city, placeholder:"Indique ta ville", class: "u-full-width placeholder" %>
   </div>
 
+  
   <div class="field">
-    <%= form.label :other_information %>
-    <%= form.text_field :other_information %>
+    <%= form.label "Information additionnelles", class:"text-dark text-upp" %>
+    <p class="text-dark">(lieu-dit, boite postale, etc...)</p>
+    <%= form.text_field :other_information, placeholder:"Une information concernant ton adresse ou un détail que les autres doivent connaitre ? C'est par ici.",class: "u-full-width placeholder" %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class:"u-full-width button-primary" %>
   </div>
 <% end %>
+   </div>
+  </div>
+</div>
