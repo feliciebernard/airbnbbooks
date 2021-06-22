@@ -11,8 +11,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     if @user != current_user
-      @own_books = @user.own_books.order('created_at DESC').filter { |own_book| own_book.available }
-
+      @own_books = @user.own_books.order('created_at DESC')
     else
       @own_books = @user.own_books
     end

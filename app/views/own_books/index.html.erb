@@ -29,10 +29,13 @@
         <% end %>
       <% else %>
         <%= link_to "Prêteur", user_path(own_book.user_id), class:"button button-primary"%>
-        <% if own_book.available == false %>
+        <% if own_book.loaned? %>
           <div class="button button-info button-disable"> Déjà Emprunté :(</div>
+        <% elsif own_book.available == false %>
+            <div class="button button-info button-disable"> Temporairement indisponible </div>
         <% else %>
-          <%= link_to "Emprunter", own_book_loans_path(own_book.id), method: :create, class:"button button-success buntton-danger"%>
+            <%= link_to "Emprunter", own_book_loans_path(own_book.id), method: :create, class:"button button-success" %>
+
         <% end %>
       <% end %>
        
