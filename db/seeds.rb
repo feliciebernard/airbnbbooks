@@ -110,7 +110,7 @@ def create_private_addresses(nb_private_address)
     city = City.all.sample
 
     private_address = PrivateAddress.create(street_name: street_name, other_information: other_information, user: user, city: city)
-    puts "--------------- PrivateAdress n°#{idx_private_address} ----------------\n\n"
+    puts "--------------- PrivateAddress n°#{idx_private_address} ----------------\n\n"
     status_creation(private_address, 'private_address', idx_private_address)
   end
 end

@@ -1,2 +1,2 @@
-module PrivateAdressesHelper
+module PrivateAddressesHelper
 end

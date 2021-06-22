@@ -1,10 +1,10 @@
-<%= form_with(model: private_adress, local: true) do |form| %>
-  <% if private_adress.errors.any? %>
+<%= form_with(model: private_address, local: true) do |form| %>
+  <% if private_address.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(private_adress.errors.count, "error") %> prohibited this private_adress from being saved:</h2>
+      <h2><%= pluralize(private_address.errors.count, "error") %> prohibited this private_address from being saved:</h2>
 
       <ul>
-      <% private_adress.errors.full_messages.each do |message| %>
+      <% private_address.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
