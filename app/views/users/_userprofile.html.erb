@@ -9,22 +9,25 @@
         <%end%>
         <div class="buttons">
           <%= form_tag user_avatars_path(@user), multipart: true do %>
-          <%= file_field_tag :avatar, class:"first-button u-full-width button" %>
-          <%= submit_tag "confirmer", class:"first-button button-danger u-full-width "%>
-          <%end%>
+          <%= file_field_tag :avatar, class:"u-full-width button" %>
+          <%= submit_tag "valider l'avatar", class:" first-button button-success u-full-width"%>
           <%=link_to "Ajouter un livre", new_book_path, class:"button button-primary u-full-width"%>
-          <%=link_to "Editer le profil", edit_user_path, class:"button button-success u-full-width"%></div>
-         
-        <h6 class="username"><%=@user.name%></h6>
-        <p class="user-description"><%= @user.biography %></p>
-
+          <%=link_to "Editer le profil", edit_user_path, class:"button button-danger u-full-width"%></div>
+          <%end%>
+          
+          <hr class="hr-index">
+                <h6 class="username text-dark"><%=@user.name%></h6>
+        <p class="user-description text-dark"><%= @user.biography %></p>
+        <hr class="hr-index">
         <%if @user.private_address == nil %>
 
         <%else%>
-        <%= @user.private_address.street_name%>
-        <%= @user.private_address.city.name%>
+        <p class="text-upp u-text-center text-dark"><%= @user.private_address.street_name%>,
+          <%= @user.private_address.city.name%></p>
         <%end%>
-
+        <hr>
+        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+        <%=link_to "Modifier le compte", edit_user_registration_path, class:"button button-danger u-full-width"%>
     </div>
     </div>
 
