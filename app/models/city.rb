@@ -1,3 +1,3 @@
 class City < ApplicationRecord
-  has_many :private_adress
+  has_many :private_address
 end

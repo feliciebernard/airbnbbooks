@@ -4,9 +4,9 @@
       <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
       <ul>
-      <% user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
@@ -19,6 +19,25 @@
   <div class="field">
     <%= form.label :biography %>
     <%= form.text_area :biography %>
+  </div>
+
+  <div class="field">
+    <%= form.label :city %>
+    <%= form.text_field :city %>
+  </div>
+
+  <div class="field">
+    <%= form.label :zip_code %>
+    <%= form.text_field :zip_code %>
+  </div>
+  <div class="field">
+    <%= form.label :street_name %>
+    <%= form.text_field :street_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :other_information %>
+    <%= form.text_field :other_information %>
   </div>
 
   <div class="actions">

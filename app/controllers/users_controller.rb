@@ -44,8 +44,18 @@ class UsersController < ApplicationController
 
   # PATCH/PUT /users/1 or /users/1.json
   def update
+    puts "\n" * 50
+    puts user_params
+    @city = City.find_by(name: user_params[:city])
+    if @city.nil?
+      @city = City.create(name: user_params[:city], zip_code: user_params[:zip_code])
+    end
+    @private_address = PrivateAddress.create(street_name: user_params[:street_name], other_information: user_params[:other_information], city: @city, user: @user)
+    @private_address.errors
+      
+
     respond_to do |format|
-      if @user.update(user_params)
+      if @user.update(name: user_params[:name], biography: user_params[:biography], private_address: @private_address)
         format.html { redirect_to @user, notice: "User was successfully updated." }
         format.json { render :show, status: :ok, location: @user }
       else
@@ -88,6 +98,6 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.require(:user).permit(:name, :biography)
+      params.require(:user).permit(:name, :biography, :private_address)
     end
 end
