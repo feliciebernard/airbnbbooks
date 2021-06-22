@@ -15,10 +15,9 @@
           <%= image_tag "https://res.cloudinary.com/dcmcouvju/image/upload/v1624045770/nocover2_o33zpf.jpg", class:"book-img-list"%>
         <%end%>
       <h6 class="text-upp text-dark"><%=own_book.book.title %></h6>
-      <p><%=own_book.book.authors%></p>
-      <p class="text-upp text-dark">Note : <%= own_book.appreciation %>/5</p>
-      <p>Critique :</p> 
-      <p><%=own_book.review%></p>
+      <p>Auteur : <%=own_book.book.authors%></p>
+<br>
+      <p>Propriétaire du livre : <%=own_book.user.name%></p>
       <%= link_to "Fiche du Livre", own_book, class:"button"%>
       <%if current_user == own_book.user %>
         <%= link_to 'Editer mon livre', edit_own_book_path(own_book), class:"button button-primary" %>
