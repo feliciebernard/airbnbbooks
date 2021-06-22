@@ -1,6 +1,6 @@
-class CreatePrivateAdresses < ActiveRecord::Migration[5.2]
+class CreatePrivateAddresses < ActiveRecord::Migration[5.2]
   def change
-    create_table :private_adresses do |t|
+    create_table :private_addresses do |t|
       t.string :street_name
       t.string :other_information
 
