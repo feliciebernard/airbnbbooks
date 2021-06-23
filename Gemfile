@@ -85,3 +85,7 @@ gem 'table_print'
 
 # beautiful mails
 gem 'premailer-rails'
+
+
+# Cookie Consent GRPD
+gem 'cookies_eu'
