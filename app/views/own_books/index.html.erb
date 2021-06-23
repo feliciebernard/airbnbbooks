@@ -25,14 +25,20 @@
         <% if own_book.available == true %> 
           <%= link_to "Rendre indisponible", own_book_set_available_path(own_book.id), method: :patch, class: "button button-danger" %>
         <% else %>
-          <%= link_to "Rendre disponible", own_book_set_available_path(own_book.id), method: :patch, class: "button button-danger" %>
+          <% if own_book.loan_request? == false && own_book.loaned? == false %>
+            <%= link_to "Rendre disponible", own_book_set_available_path(own_book.id), method: :patch, class: "button button-success" %>
+          <% end %>
         <% end %>
       <% else %>
         <%= link_to "Prêteur", user_path(own_book.user_id), class:"button button-primary"%>
         <% if own_book.loaned? %>
-          <div class="button button-info button-disable"> Déjà Emprunté :(</div>
+          <% if own_book.loaned.borrower == current_user%>
+            <%= link_to "Le rendre a son propriétaire", "", class: "button button-success" %> 
+          <% else %>
+            <div class="button button-success disable button-disable ">déjà emprunté :(</div>
+          <% end %>
         <% elsif own_book.available == false %>
-            <div class="button button-info button-disable"> Temporairement indisponible </div>
+            <div class="button button-success disable button-disable"> Temporairement indisponible </div>
         <% else %>
             <%= link_to "Emprunter", own_book_loans_path(own_book.id), method: :create, class:"button button-success" %>
 

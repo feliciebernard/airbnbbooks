@@ -54,7 +54,7 @@
 
 <p>
   <strong class="text-dark text-upp">Propriétaire du livre :</strong>
-  <%= @own_book.user.name%>
+  <%= link_to @own_book.user.name, user_path(@own_book.user_id) %>
 </p>
 
 </div>
@@ -64,10 +64,19 @@
 <div class="container">
 <%= link_to 'retour', own_books_path, class:"button" %>
 <% if current_user != @own_book.user %>
-  <%= link_to "Emprunter le livre", own_book_loans_path(@own_book.id), method: :create, class:"button button-primary"%>
+  <% if @own_book.loan_request? %>
+      <div class="button button-success disable button-disable"> Temporairement indisponible </div>
+  <% elsif @own_book.loaned.borrower == current_user%>
+    <%= link_to "Le rendre a son propriétaire", "", class: "button button-success" %> 
+  <% else %>
+    <%= link_to "Emprunter le livre", own_book_loans_path(@own_book.id), method: :create, class:"button button-primary"%>
+  <% end %>
 <% else %>
   <%= link_to 'donner mon avis', edit_own_book_path(@own_book), class:"button button-primary" %>
-  <%= link_to 'Editer les données du livre', edit_book_path(@own_book.book), class:"button button-success" %>
-  <%= link_to 'supprimer le livre', @own_book, method: :delete, data: { confirm: 'Are you sure?' }, class:"button button-danger" %>
+  <% if @own_book.loaned? == false && @own_book.loan_request? == false %>
+    <%= link_to 'Editer les données du livre', edit_book_path(@own_book.book), class:"button button-success" %>
+
+    <%= link_to 'supprimer le livre', @own_book, method: :delete, data: { confirm: 'Are you sure?' }, class:"button button-danger" %>
+  <% end %>
 <% end %>
 </div>

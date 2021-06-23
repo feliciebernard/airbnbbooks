@@ -43,7 +43,7 @@ class LoansController < ApplicationController
   # PATCH/PUT /loans/1 or /loans/1.json
   def update
     @loan = Loan.find(params[:id])
-    UserMailer.request_accepted(@loan, current_user).deliver_now
+    UserMailer.request_accepted(@loan).deliver_now
     #redirect_back(fallback_location: root_path)
     respond_to do |format|
       
@@ -62,6 +62,7 @@ class LoansController < ApplicationController
   def destroy
     @own_book.update(available: true)
     @loan.destroy
+    UserMailer.request_declined(@loan).deliver_now
 
     respond_to do |format|
       format.html { redirect_back fallback_location: root_path, notice: "Loan was successfully destroyed." }

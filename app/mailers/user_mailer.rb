@@ -26,14 +26,40 @@ class UserMailer < ApplicationMailer
               profile_page: "https://where-is-my-book.herokuapp.com/users/#{@receiver.id}",
             }
 
-    mail(to: @receiver.email, subject: 
-         "Demande d'emprunt du livre #{@book_to_borrow.title} sur WhereIsMyBook")
+    mail(to: @receiver.email, subject: "Demande d'emprunt du livre #{@book_to_borrow.title} sur WhereIsMyBook")
 
   end
 
-  def request_accepted(own_book, current_user)
-    @book_to_loan = own_book
-    @owner = current_user
+  def request_accepted(loan)
+    @book_to_borrow = loan.own_book
+    @owner = loan.lender
+    @borrower = loan.borrower
+
+
+    @urls = { home_page: 'https://where-is-my-book.herokuapp.com/', 
+              show_book: "https://where-is-my-book.herokuapp.com/own_books/#{@book_to_borrow.id}",
+              messagerie: "https://where-is-my-book.herokuapp.com/private_message/#{@borrower.id}",
+              profile_page: "https://where-is-my-book.herokuapp.com/users/#{@borrower.id}"
+    }
+
+    mail(to: @borrower.email, subject: "WhereIsMyBook emprunt du livre #{@book_to_borrow.book.title} de #{@owner.name} accépeter")
+  end
+
+  def request_declined(loan)
+
+    @book_to_borrow = loan.own_book
+    @owner = loan.lender
+    @borrower = loan.borrower
+
+
+    @urls = { home_page: 'https://where-is-my-book.herokuapp.com/', 
+              show_book: "https://where-is-my-book.herokuapp.com/own_books/#{@book_to_borrow.id}",
+              messagerie: "https://where-is-my-book.herokuapp.com/private_message/#{@borrower.id}",
+              profile_page: "https://where-is-my-book.herokuapp.com/users/#{@borrower.id}",
+    }
+
+    mail(to: @borrower.email, subject: 
+         "WhereIsMyBook emprunt du livre #{@book_to_borrow.book.title} de #{@owner.name}")
   end
 
   def set_book_to_borrow
