@@ -10,9 +10,9 @@
         <div class="buttons">
           <%= form_tag user_avatars_path(@user), multipart: true do %>
           <%= file_field_tag :avatar, class:"u-full-width button" %>
-          <%= submit_tag "valider l'avatar", class:" first-button button-success u-full-width"%>
+          <%= submit_tag "valider l'avatar", class:" first-button button button-info u-full-width"%>
           <%=link_to "Ajouter un livre", new_book_path, class:"button button-primary u-full-width"%>
-          <%=link_to "Editer le profil", edit_user_path, class:"button button-danger u-full-width"%></div>
+          <%=link_to "Editer le profil", edit_user_path, class:"button button-success u-full-width"%></div>
           <%end%>
           
           <hr class="hr-index">
@@ -26,8 +26,7 @@
           <%= @user.private_address.city.name%></p>
         <%end%>
         <hr>
-        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-        <%=link_to "Modifier le compte", edit_user_registration_path, class:"button button-danger u-full-width"%>
+         <%=link_to "Modifier le compte", edit_user_registration_path, class:"button button-danger u-full-width"%>
     </div>
     </div>
 
