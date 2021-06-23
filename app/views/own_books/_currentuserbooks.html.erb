@@ -23,9 +23,9 @@
         <%= link_to "Fiche du livre", own_book_path(own_book.id), class:"button" %>
         <% if current_user != @user %>
         <% if own_book.loaned? %>
-        <div class="button button-info button-disable"> Déjà Emprunté :(</div>
+        <button disabled class="button-info"> Déjà Emprunté 😫</button>
         <% elsif own_book.available == false %>
-        <div class="button button-info button-disable"> Temporairement indisponible </div>
+        <button disabled class="button-success"> Temporairement indisponible </button>
         <% else %>
         <%= link_to "Emprunter", own_book_loans_path(own_book.id), method: :create, class:"button button-primary"%>
         <% end %>
