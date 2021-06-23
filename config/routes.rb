@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+ get '/search' => 'own_books#search', :as => 'search_own_book'
+
   resources :contacts, only: [:create, :new]
   authenticated :user do
     root 'own_books#index', as: :authenticated_root
