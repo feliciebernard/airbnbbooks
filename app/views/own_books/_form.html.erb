@@ -21,6 +21,13 @@
     <%= form.text_area :review, autofocus: true, class: "u-full-width placeholder"%>
   </div>
 
+
+  <div class="field">
+  <%= form.label "Type", class:"text-dark text-upp" %>
+  <%= form.select :genre, ["", "Enfant","Fiction","Historique", "Bandes-Dessinées", "Philosophie", "Loisirs"]%>
+  </div>
+
+
 <fieldset>
   <div class="field inline">
     <%= form.label "Note", class:"text-dark text-upp u-full-width" %>
@@ -38,6 +45,8 @@
     <%= form.label :appreciaition, value:"5"%>
   </div>
 </fieldset>
+
+
   <div class="actions">
     <%= form.submit "soumettre mon avis", class:"button button-primary u-full-width" %>
   </div>

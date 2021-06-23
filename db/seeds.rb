@@ -7,6 +7,8 @@ LOANS_NUM = 10
 PRIVATE_ADDRESSES = 5
 CITIES_NUM = 5
 
+
+
 def reset_database(tables_name)
   tables_name.each do |table_name|
     ActiveRecord::Base.connection.execute("TRUNCATE TABLE #{table_name} RESTART IDENTITY CASCADE")
@@ -67,8 +69,9 @@ def create_own_books(nb_own_books)
     appreciation = rand(0..5)
     user = User.all.sample
     book = Book.all.sample
+    genre = "Fiction"
 
-    own_book = OwnBook.create(review: review, appreciation: appreciation, available: true, user: user, book: book)
+    own_book = OwnBook.create(review: review, appreciation: appreciation, available: true, user: user, book: book, genre: genre)
     puts "--------------- OwnBook n°#{idx_ownbook} ----------------\n\n"
     status_creation(own_book, 'own_book', idx_ownbook)
   end

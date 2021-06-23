@@ -33,10 +33,7 @@
   <%= (@book.language != '' ? @book.language : empty) %>
 </p>
 
-<p>
-  <strong class="text-dark text-upp">Catégorie.s :</strong>
-  <%= (@book.categories != '' ? @book.categories : empty) %>
-</p>
+
 
 <p>
   <strong class="text-dark text-upp">Résumé :</strong>
@@ -47,6 +44,13 @@
   <strong class="text-dark text-upp">Critique :</strong>
   <%= @own_book.review %>
 </p>
+  
+  <p>
+  <strong class="text-dark text-upp">Catégorie :</strong>
+  <%= @own_book.genre %>
+</p>
+
+
 
 <p>
   <strong class="text-dark text-upp">Note :</strong>
