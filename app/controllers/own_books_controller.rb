@@ -12,10 +12,10 @@ class OwnBooksController < ApplicationController
   def search  
     if params[:search].blank?  
       redirect_to(root_path, notice: "Il faut taper quelque chose dans la barre de recherche !") and return  
-    else  
-
-    end  
-  end
+    else
+      @own_books = OwnBook.joins(:book, :user).search(params[:search])
+   end  
+ end
 
   # GET /own_books/1 or /own_books/1.json
   def show
