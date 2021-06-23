@@ -15,17 +15,15 @@
           <%= image_tag "https://res.cloudinary.com/dcmcouvju/image/upload/v1624045770/nocover2_o33zpf.jpg", class:"book-img-list"%>
         <%end%>
       <h6 class="text-upp text-dark"><%=own_book.book.title %></h6>
-      <p><%=own_book.book.authors%></p>
-      <p class="text-upp text-dark">Note : <%= own_book.appreciation %>/5</p>
-      <p>Critique :</p> 
-      <p><%=own_book.review%></p>
+      <p>Auteur : <%=own_book.book.authors%></p>
+<br>
+      <p>Propriétaire du livre : <%=own_book.user.name%> <br> Ville : <%=own_book.user.private_address.try(:city).try(:name)%> </p>
       <%= link_to "Fiche du Livre", own_book, class:"button"%>
       <%if current_user == own_book.user %>
-        <%= link_to 'Editer mon livre', edit_own_book_path(own_book), class:"button button-primary" %>
         <% if own_book.available == true %> 
           <%= link_to "Rendre indisponible", own_book_set_available_path(own_book.id), method: :patch, class: "button button-danger" %>
         <% else %>
-          <%= link_to "Rendre disponible", own_book_set_available_path(own_book.id), method: :patch, class: "button button-danger" %>
+          <%= link_to "Rendre disponible", own_book_set_available_path(own_book.id), method: :patch, class: "button button-primary" %>
         <% end %>
       <% else %>
         <%= link_to "Prêteur", user_path(own_book.user_id), class:"button button-primary"%>
