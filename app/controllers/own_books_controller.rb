@@ -43,7 +43,7 @@ class OwnBooksController < ApplicationController
   def update
     respond_to do |format|
       if @own_book.update(own_book_params)
-        format.html { redirect_to @own_book, notice: "Own book was successfully updated." }
+        format.html { redirect_to @own_book, notice: "Votre avis a bien été mis à jour." }
         format.json { render :show, status: :ok, location: @own_book }
       else
         format.html { render :edit, status: :unprocessable_entity }
