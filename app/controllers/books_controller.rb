@@ -89,7 +89,7 @@ class BooksController < ApplicationController
     respond_to do |format|
       if @book.update(book_params)
         @own_book = @book.own_books.find_by(user: current_user)
-        format.html { redirect_to @own_book, notice: "Book was successfully updated." }
+        format.html { redirect_to @own_book, notice: "Les données du livre ont bien été mises à jour." }
         format.json { render :show, status: :ok, location: @book }
       else
         format.html { render :edit, status: :unprocessable_entity }
