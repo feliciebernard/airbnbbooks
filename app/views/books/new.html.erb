@@ -18,7 +18,7 @@
 
 
     <%= f.label :isbn, 'ISBN', class:"text-dark"%>
-    <%= f.number_field :isbn, :class => 'u-full-width', placeholder:"XXX-X-XXX-XXXXX-X" %>
+    <%= f.number_field :isbn,autofocus: true, :class => 'u-full-width', placeholder:"XXX-X-XXX-XXXXX-X" %>
   </div>
 
   <%= f.submit 'Remplir le formulaire', :class => "button-success u-full-width" %>
