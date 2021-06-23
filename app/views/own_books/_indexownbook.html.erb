@@ -1,8 +1,9 @@
-
-
-<p>Sélectionner le type :</p>
-<select id="GetChoice">
-  <option value=""></option>
+<div class="row">
+<div class="one-third columns">
+<div class="container card-search u-pull-left">
+<label for="genre-select" class="text-upp text-dark">Choisir un genre :</label>
+<select id="genre-select">
+  <option value="">Liste de genres</option>
   <option value="Enfant">Enfant</option>
   <option value="Fiction">Fiction</option>
   <option value="Historique">Historique</option>
@@ -10,8 +11,12 @@
   <option value="Philosophie">Philosophie</option>
   <option value="Loisirs">Loisirs</option>
 </select>
-<input type="button" value="Go !" onclick="GetSelectedTextValue()" />
+<input type="button" value="Go !" onclick="GetSelectedTextValue()"/>
+</div>
+</div>
 
+<div class="container"></div>
+<div class="book-container">
 <% @own_books.each do |own_book|%>
 <div id = "<%=own_book.genre%>" class="nine columns" >
   <div class="card card-list">
@@ -55,7 +60,8 @@
 </div>
 
 <%end%>
-
+</div>
+</div>
 <script type="text/javascript">
 
   function GetSelectedTextValue() {
