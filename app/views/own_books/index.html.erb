@@ -16,7 +16,7 @@
 
 
 
-Sélectionner le genre :
+Sélectionner le type :
 <select id="GetChoice">
     <option value=""></option>
     <option value="Enfant">Enfant</option>
@@ -77,7 +77,6 @@ Sélectionner le genre :
 
 
  
-
 <script type="text/javascript">
 
     function GetSelectedTextValue() {
@@ -86,13 +85,12 @@ Sélectionner le genre :
         var selectedValue = GetChoice.value;
         //console.log(selectedValue);
 
-        //var numberbook = document.getElementsByClassName("nine columns");
+        var numberbook = document.getElementsByClassName("nine columns");
         //console.log(numberbook.length);
 
        
 
-
-       for (let i = 0; i <= 1; i++) {
+       for (let i = 0; i <= numberbook.length - 1; i++) {
       
       
           if (document.getElementsByClassName('nine columns')[i].id == selectedValue) {
@@ -104,8 +102,6 @@ Sélectionner le genre :
 
 
               
-            
-
           } else if (document.getElementsByClassName('nine columns')[i].id != selectedValue) {
 
             var y = document.getElementsByClassName('nine columns')[i];
@@ -114,8 +110,7 @@ Sélectionner le genre :
             y.style.display = "none";
 
           }
-
-            
+  
 
         }
     }

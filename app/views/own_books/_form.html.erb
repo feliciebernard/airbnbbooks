@@ -23,8 +23,8 @@
 
 
   <div class="field">
-    <%= form.label "Genre", class:"text-dark text-upp" %>
-    <%= form.text_area :genre, autofocus: true, class: "u-full-width placeholder"%>
+  <%= form.label "Type", class:"text-dark text-upp" %>
+  <%= form.select :genre, ["", "Enfant","Fiction","Historique", "Bandes-Dessinées", "Philosophie", "Loisirs"]%>
   </div>
 
 
