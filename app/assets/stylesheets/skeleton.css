@@ -898,6 +898,54 @@ input[type="button"].button-danger:disabled {
   border-color: #ee8377;
 }
 
+.button.button-info,
+button.button-info,
+input[type="submit"].button-info,
+input[type="reset"].button-info,
+input[type="button"].button-info {
+  border: 1px solid #EDE7E3;
+  color: #073131;
+  background-color: #82C0CC;
+  -webkit-transition: background-color 0.2s;
+  transition: background-color 0.2s;
+}
+
+.button.button-info:hover,
+button.button-info:hover,
+input[type="submit"].button-info:hover,
+input[type="reset"].button-info:hover,
+input[type="button"].button-info:hover,
+.button.button-info:focus,
+button.button-info:focus,
+input[type="submit"].button-info:focus,
+input[type="reset"].button-info:focus,
+input[type="button"].button-info:focus {
+  color: #073131;
+  background-color: #EDE7E3;
+  border-color: #EDE7E3;
+}
+
+.button.button-info:active,
+button.button-info:active,
+input[type="submit"].button-info:active,
+input[type="reset"].button-info:active,
+input[type="button"].button-info:active {
+  color: #073131;
+  background-color: #cec8c4;
+  border-color: #cec8c4;
+}
+
+.button.button-info:disabled,
+button.button-info:disabled,
+input[type="submit"].button-info:disabled,
+input[type="reset"].button-info:disabled,
+input[type="button"].button-info:disabled {
+  color: #073131;
+  cursor: not-allowed;
+  background-color: #fffaf7;
+  border-color: #fffaf7;
+}
+
 input[type="email"],
 input[type="number"],
 input[type="date"],
