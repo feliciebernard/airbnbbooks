@@ -33,11 +33,10 @@ def create_books(nb_books)
     publisher = Faker::Book.publisher
     published_date = Faker::Date.between(from: 200.years.ago, to: Date.today)
     language = Faker::Nation.language
-    categories = Faker::Book.genre
     description = Faker::Lorem.sentences(number: rand(2..5))
     image_link = "https://res.cloudinary.com/dcmcouvju/image/upload/v1624045770/nocover2_o33zpf.jpg"
 
-    book = Book.create(isbn: isbn, title: title, authors: authors, publisher: publisher, published_date: published_date, language: language, categories:categories, description:description, image_link:image_link)
+    book = Book.create(isbn: isbn, title: title, authors: authors, publisher: publisher, published_date: published_date, language: language, description:description, image_link:image_link)
     puts "--------------- Book n°#{idx_book} ----------------\n\n"
 
     status_creation(book, 'book', idx_book)
