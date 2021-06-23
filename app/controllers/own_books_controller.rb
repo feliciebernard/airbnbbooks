@@ -68,8 +68,7 @@ class OwnBooksController < ApplicationController
     Loans.find_by()
   end
 
-
-
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_own_book
@@ -78,6 +77,6 @@ class OwnBooksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def own_book_params
-      params.require(:own_book).permit(:review, :appreciation)
+      params.require(:own_book).permit(:review, :appreciation, :genre)
     end
   end

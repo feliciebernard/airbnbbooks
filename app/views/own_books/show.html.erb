@@ -42,9 +42,15 @@
   <strong class="text-dark text-upp">Résumé :</strong>
   <%= (@book.description != '' ? @book.description : empty) %>
 </p>
+
 <p>
   <strong class="text-dark text-upp">Critique :</strong>
   <%= @own_book.review %>
+</p>
+
+<p>
+  <strong class="text-dark text-upp">Genre :</strong>
+  <%= @own_book.genre %>
 </p>
 
 <p>

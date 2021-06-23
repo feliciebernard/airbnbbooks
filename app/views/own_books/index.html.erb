@@ -5,9 +5,40 @@
 <div class="book-container">
 <h2 class="text-upp u-text-center">Tous les livres</h2>
 <hr>
+
+<div class="dropdown-content">
+              <ul>
+            <li><%= link_to "Contact", new_contact_path, class:"link"%></li>
+              </ul>
+</div>
+
+
+
+
+
+Sélectionner le genre :
+<select id="GetChoice">
+    <option value=""></option>
+    <option value="Enfant">Enfant</option>
+    <option value="Fiction">Fiction</option>
+    <option value="Historique">Historique</option>
+    <option value="Bandes-Dessinées">Bandes-Dessinées</option>
+    <option value="Philosophie">Philosophie</option>
+    <option value="Loisirs">Loisirs</option>
+</select>
+<input type="button" value="Go !" onclick="GetSelectedTextValue()" />
+
+
+
+
+
+
 <div class="row">
   <% @own_books.each do |own_book|%>
-    <div class="nine columns" >
+
+    
+
+    <div id = "<%=own_book.genre%>" class="nine columns" >
       <div class="card card-list">
         <% if own_book.book.image_link != nil %>
           <%= link_to image_tag(own_book.book.image_link), own_book, class:"book-img-list"%>
@@ -19,6 +50,8 @@
       <p class="text-upp text-dark">Note : <%= own_book.appreciation %>/5</p>
       <p>Critique :</p> 
       <p><%=own_book.review%></p>
+      <p>Type :</p> 
+      <p><%=own_book.genre%></p>
       <%= link_to "Fiche du Livre", own_book, class:"button"%>
       <%if current_user == own_book.user %>
         <%= link_to 'Editer mon livre', edit_own_book_path(own_book), class:"button button-primary" %>
@@ -31,13 +64,64 @@
         <%= link_to "Prêteur", user_path(own_book.user_id), class:"button button-primary"%>
         <%= link_to "Emprunter", own_book_loans_path(own_book.id), method: :create, class:"button button-success"%>
       <% end %>
-       
       </div>
        <hr class="hr-index">
     </div>
 
+    </div>
+
+
   <%end%>
 
-  </div>
 </div>
-</div>
+
+
+ 
+
+<script type="text/javascript">
+
+    function GetSelectedTextValue() {
+        var GetChoice = document.getElementById("GetChoice");
+        var selectedText = GetChoice.options[GetChoice.selectedIndex].innerHTML;
+        var selectedValue = GetChoice.value;
+        //console.log(selectedValue);
+
+        //var numberbook = document.getElementsByClassName("nine columns");
+        //console.log(numberbook.length);
+
+       
+
+
+       for (let i = 0; i <= 1; i++) {
+      
+      
+          if (document.getElementsByClassName('nine columns')[i].id == selectedValue) {
+
+              var x = document.getElementsByClassName('nine columns')[i];
+              //console.log("yes");
+              //console.log(x);
+              x.style.display = "block";
+
+
+              
+            
+
+          } else if (document.getElementsByClassName('nine columns')[i].id != selectedValue) {
+
+            var y = document.getElementsByClassName('nine columns')[i];
+            //console.log("no");
+            //console.log(y);
+            y.style.display = "none";
+
+          }
+
+            
+
+        }
+    }
+   
+    
+</script>
+
+
+
