@@ -31,7 +31,7 @@ class LoansController < ApplicationController
 
     respond_to do |format|
       if @loan.save
-        format.html { redirect_to root_path, notice: "La demande d'emprunt a été envoyé au propriétaire du livre." }
+        format.html { redirect_back(fallback_location: root_path, notice: "La demande d'emprunt a été envoyé au propriétaire du livre.") }
         format.json { render :show, status: :created, location: @loan }
       else
         format.html { render root_path, status: :unprocessable_entity }
@@ -43,7 +43,7 @@ class LoansController < ApplicationController
   # PATCH/PUT /loans/1 or /loans/1.json
   def update
     @loan = Loan.find(params[:id])
-    UserMailer.request_accepted(@loan, current_user).deliver_now
+    UserMailer.request_accepted(@loan).deliver_now
     #redirect_back(fallback_location: root_path)
     respond_to do |format|
       
@@ -62,6 +62,7 @@ class LoansController < ApplicationController
   def destroy
     @own_book.update(available: true)
     @loan.destroy
+    UserMailer.request_declined(@loan).deliver_now
 
     respond_to do |format|
       format.html { redirect_back fallback_location: root_path, notice: "Loan was successfully destroyed." }

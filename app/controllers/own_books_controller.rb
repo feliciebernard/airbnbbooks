@@ -5,9 +5,17 @@ class OwnBooksController < ApplicationController
 
   # GET /own_books or /own_books.json
   def index
-    @own_books = OwnBook.all.order('created_at DESC').filter { |own_book| own_book.available }
+    @own_books = OwnBook.all.order('created_at DESC')
     @user = current_user
   end
+
+  def search  
+    if params[:search].blank?  
+      redirect_to(root_path, notice: "Il faut taper quelque chose dans la barre de recherche !") and return  
+    else
+      @own_books = OwnBook.joins(:book, :user).search(params[:search])
+   end  
+ end
 
   # GET /own_books/1 or /own_books/1.json
   def show
@@ -43,7 +51,7 @@ class OwnBooksController < ApplicationController
   def update
     respond_to do |format|
       if @own_book.update(own_book_params)
-        format.html { redirect_to @own_book, notice: "Own book was successfully updated." }
+        format.html { redirect_to @own_book, notice: "Votre avis a bien été mis à jour." }
         format.json { render :show, status: :ok, location: @own_book }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -77,6 +85,6 @@ class OwnBooksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def own_book_params
-      params.require(:own_book).permit(:review, :appreciation, :genre)
+      params.require(:own_book).permit(:review, :appreciation, :genre, :search)
     end
   end

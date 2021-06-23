@@ -1,23 +1,13 @@
 <div class="row">
   <div class="three column"></div>
     <div class="six columns">
-      <h2 class="u-text-center text-info">Editer Votre Profil</h2>
+      <h2 class="u-text-center text-upp">Editer Votre Profil</h2>
+      <hr>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
 <%= render "devise/shared/error_messages", resource: resource %>
-
       <div class="field">
-        <%= f.label :name %>
-        <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
-      </div>
-
-      <div class="field">
-        <%= f.label :biography %>
-        <%= f.text_area :biography, autofocus: true, autocomplete: "description" %>
-      </div>
-
-      <div class="field">
-        <%= f.label :email %>
-        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        <%= f.label "Adresse Email", class:"text-dark text-upp" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"u-full-width" %>
       </div>
 
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -25,34 +15,36 @@
       <% end %>
 
       <div class="field">
-        <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-        <%= f.password_field :password, autocomplete: "new-password" %>
+        <%= f.label "Nouveau Mot de passe", class:"text-dark text-upp" %> <em><%= @minimum_password_length %> caractères minimum</em><i> (Laissez vide si vous ne souhaitez pas le changer)</i><br />
+        <%= f.password_field :password, autocomplete: "new-password", class:"u-full-width" %>
         <% if @minimum_password_length %>
-          <br />
-          <em><%= @minimum_password_length %> characters minimum</em>
-        <% end %>
+         
+        <% end %> 
+      </div>
+      <div class="field">
+        <%= f.label "Confirmation du nouveau mot de passe", class:"text-dark text-upp" %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"u-full-width" %>
       </div>
 
       <div class="field">
-        <%= f.label :password_confirmation %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-      </div>
-
-      <div class="field">
-        <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-        <%= f.password_field :current_password, autocomplete: "current-password" %>
+        <%= f.label "Mot de passe actuel", class:"text-dark text-upp" %> <i>(Confirmer les changements avec votre mot de passe actuel)</i><br />
+        <%= f.password_field :current_password, autocomplete: "current-password", class:"u-full-width" %>
       </div>
 
       <div class="actions">
-        <%= f.submit "Update" %>
+        <%= f.submit "Valider les informations", class:"button-primary u-full-width" %>
       </div>
     <% end %>
+    <hr>
+    <h4 class="text-danger u-text-center text-upp">Suppression de compte</h4>
+ 
+  <p class="u-text-center">Hop là ! 😰 Ne nous quittez pas comme ça, préférez peut-être nous contacter<br> pour savoir ce que l'on peut faire pour vous.</p>
+  <%= link_to "C'est par ici", new_contact_path, class:"button button-success u-full-width bigger-anim" %>
+  <p class="u-text-center">Si votre décision est irrévocable...😭<br>Au plaisir de vous retrouver un jour, avec toujours plus de livres !</p>
+  <%= link_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "Souhaitez-vous vraiment nous quitter ? 😱" }, method: :delete, class:"button button-danger u-full-width smaller-anim" %>
+  <%= link_to "Retour au profil", user_path(@user.id), class:"button u-full-width" %>
     </div>
   </div>
 </div>
 
-  <h3>Cancel my account</h3>
 
-  <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-  <%= link_to "Back", :back %>
