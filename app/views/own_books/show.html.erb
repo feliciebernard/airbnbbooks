@@ -24,7 +24,7 @@
 </p>
 </div>
 <p>
-  <strong class="text-dark text-upp">Date de publication:</strong>
+  <strong class="text-dark text-upp">Date de publication :</strong>
   <%= (@book.published_date != '' ? @book.published_date : empty) %>
 </p>
 
@@ -42,6 +42,7 @@
   <strong class="text-dark text-upp">Résumé :</strong>
   <%= (@book.description != '' ? @book.description : empty) %>
 </p>
+<hr>
 <p>
   <strong class="text-dark text-upp">Critique :</strong>
   <%= @own_book.review %>
