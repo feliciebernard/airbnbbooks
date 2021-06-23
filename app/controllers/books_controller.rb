@@ -21,7 +21,6 @@ class BooksController < ApplicationController
     @publisher = params[:publisher]
     @published_date = params[:published_date]
     @language = params[:language]
-    @categories = params[:categories]
     @description = params[:description]
     @image_link = params[:image_link]
     
@@ -61,7 +60,6 @@ class BooksController < ApplicationController
         publisher: book.publisher,
         published_date: book.published_date,
         language: book.language,
-        categories: book.categories,
         description: book.description,
         image_link: book.image_link
       end
@@ -116,6 +114,6 @@ class BooksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def book_params
-      params.require(:book).permit(:isbn, :title, :authors, :publisher, :published_date, :language, :categories, :description, :image_link, :own_book)
+      params.require(:book).permit(:isbn, :title, :authors, :publisher, :published_date, :language, :description, :image_link, :own_book)
     end
   end
