@@ -1,0 +1,98 @@
+
+
+<p>Sélectionner le type :</p>
+<select id="GetChoice">
+  <option value=""></option>
+  <option value="Enfant">Enfant</option>
+  <option value="Fiction">Fiction</option>
+  <option value="Historique">Historique</option>
+  <option value="Bandes-Dessinées">Bandes-Dessinées</option>
+  <option value="Philosophie">Philosophie</option>
+  <option value="Loisirs">Loisirs</option>
+</select>
+<input type="button" value="Go !" onclick="GetSelectedTextValue()" />
+
+<% @own_books.each do |own_book|%>
+<div id = "<%=own_book.genre%>" class="nine columns" >
+  <div class="card card-list">
+    <% if own_book.book.image_link != nil %>
+    <%= link_to image_tag(own_book.book.image_link), own_book, class:"book-img-list"%>
+    <%else%>
+    <%= image_tag "https://res.cloudinary.com/dcmcouvju/image/upload/v1624045770/nocover2_o33zpf.jpg", class:"book-img-list"%>
+    <%end%>
+    <h6 class="text-upp text-dark"><%=own_book.book.title %></h6>
+    <p>Auteur : <%=own_book.book.authors%></p>
+    <p>Catégorie : <%=own_book.genre%></p>
+    <br>
+    <p>Propriétaire du livre : <%=own_book.user.name%> <br> Ville : <%=own_book.user.private_address.try(:city).try(:name)%> </p>
+    <%= link_to "Fiche du Livre", own_book, class:"button"%>
+    <%if current_user == own_book.user %>
+    <% if own_book.available == true %> 
+    <%= link_to "Rendre indisponible", own_book_set_available_path(own_book.id), method: :patch, class: "button button-danger" %>
+    <% else %>
+    <% if own_book.loan_request? == false && own_book.loaned? == false %>
+    <%= link_to "Rendre disponible", own_book_set_available_path(own_book.id), method: :patch, class: "button button-success" %>
+    <% end %>
+    <% end %>
+    <% else %>
+    <%= link_to "Prêteur", user_path(own_book.user_id), class:"button button-primary"%>
+    <% if own_book.loaned? %>
+    <% if own_book.loaned.borrower == current_user%>
+    <%= link_to "Le rendre a son propriétaire", "", class: "button button-success" %> 
+    <% else %>
+    <button disabled class="button-success">déjà emprunté </button>
+    <% end %>
+    <% elsif own_book.available == false %>
+    <button disabled class="button-success"> Temporairement indisponible </button>
+    <% else %>
+    <%= link_to "Emprunter", own_book_loans_path(own_book.id), method: :create, class:"button button-success" %>
+
+    <% end %>
+    <% end %>
+
+  </div>
+  <hr class="hr-index">
+</div>
+
+<%end%>
+
+<script type="text/javascript">
+
+  function GetSelectedTextValue() {
+    var GetChoice = document.getElementById("GetChoice");
+    var selectedText = GetChoice.options[GetChoice.selectedIndex].innerHTML;
+    var selectedValue = GetChoice.value;
+        //console.log(selectedValue);
+
+        var numberbook = document.getElementsByClassName("nine columns");
+        //console.log(numberbook.length);
+
+        
+
+        for (let i = 0; i <= numberbook.length - 1; i++) {
+          
+          
+          if (document.getElementsByClassName('nine columns')[i].id == selectedValue) {
+
+            var x = document.getElementsByClassName('nine columns')[i];
+              //console.log("yes");
+              //console.log(x);
+              x.style.display = "block";
+
+
+              
+            } else if (document.getElementsByClassName('nine columns')[i].id != selectedValue) {
+
+              var y = document.getElementsByClassName('nine columns')[i];
+            //console.log("no");
+            //console.log(y);
+            y.style.display = "none";
+
+          }
+          
+
+        }
+      }
+      
+      
+    </script>

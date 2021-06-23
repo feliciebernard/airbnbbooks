@@ -10,7 +10,7 @@ RSpec.describe Book, type: :book do
       end
 
       it "should be valid without any argument except ISBN" do
-        valid_book = @book.update(title: nil, authors: nil, publisher: nil, published_date: nil, language: nil, categories: nil, description: nil)
+        valid_book = @book.update(title: nil, authors: nil, publisher: nil, published_date: nil, language: nil, description: nil)
         expect(valid_book).to be_a(Book)
         expect(valid_book).to be_valid
       end

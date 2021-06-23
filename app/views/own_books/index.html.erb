@@ -1,53 +1,32 @@
 <p id="notice"><%= notice %></p>
+<br>
 <div class="container">
-<%= link_to 'Ajouter un livre à ma bibliothèque', new_book_path, class:"button button-success" %>
+  <div class="row">
+    <div class="six columns">
+      <%= link_to 'Ajouter un livre à ma bibliothèque', new_book_path, class:"button button-success" %>
+    </div>
+    <div class="three columns">
+      <%= form_tag(search_own_book_path, :method => "get") do %>  
+      <div class="input-group">  
+        <%= search_field_tag :search, params[:search], placeholder: "Chercher un titre, un profil", class: "u-full-width" %>
+      </div>
+    </div>
+    <div class="three columns">
+      <div class="input-group-btn">  
+        <%= button_tag "rechercher", :class => 'button button-primary',:name => nil%>  
+      </div>  
+    </div>  
+    <% end %>
+  </div>
+</div>
+
 <br>
 <div class="book-container">
-<h2 class="text-upp u-text-center">Tous les livres</h2>
-<hr>
-<div class="row">
-  <% @own_books.each do |own_book|%>
-    <div class="nine columns" >
-      <div class="card card-list">
-        <% if own_book.book.image_link != nil %>
-          <%= link_to image_tag(own_book.book.image_link), own_book, class:"book-img-list"%>
-        <%else%>
-          <%= image_tag "https://res.cloudinary.com/dcmcouvju/image/upload/v1624045770/nocover2_o33zpf.jpg", class:"book-img-list"%>
-        <%end%>
-      <h6 class="text-upp text-dark"><%=own_book.book.title %></h6>
-      <p>Auteur : <%=own_book.book.authors%></p>
-<br>
-      <p>Propriétaire du livre : <%=own_book.user.name%> <br> Ville : <%=own_book.user.private_address.try(:city).try(:name)%> </p>
-      <%= link_to "Fiche du Livre", own_book, class:"button"%>
-      <%if current_user == own_book.user %>
-        <% if own_book.available == true %> 
-          <%= link_to "Rendre indisponible", own_book_set_available_path(own_book.id), method: :patch, class: "button button-danger" %>
-        <% else %>
-          <% if own_book.loan_request? == false && own_book.loaned? == false %>
-            <%= link_to "Rendre disponible", own_book_set_available_path(own_book.id), method: :patch, class: "button button-success" %>
-          <% end %>
-        <% end %>
-      <% else %>
-        <%= link_to "Prêteur", user_path(own_book.user_id), class:"button button-primary"%>
-        <% if own_book.loaned? %>
-          <% if own_book.loaned.borrower == current_user%>
-            <%= link_to "Le rendre a son propriétaire", "", class: "button button-success" %> 
-          <% else %>
-            <button disabled class="button-success">déjà emprunté </button>
-          <% end %>
-        <% elsif own_book.available == false %>
-            <button disabled class="button-success"> Temporairement indisponible </button>
-        <% else %>
-            <%= link_to "Emprunter", own_book_loans_path(own_book.id), method: :create, class:"button button-success" %>
+  <h2 class="text-upp u-text-center">Tous les livres</h2>
+  <hr>
+  <div class="row">
 
-        <% end %>
-      <% end %>
-       
-      </div>
-       <hr class="hr-index">
-    </div>
-
-  <%end%>
+    <%= render "indexownbook"%>
 
   </div>
 </div>

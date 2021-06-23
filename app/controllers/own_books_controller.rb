@@ -9,6 +9,14 @@ class OwnBooksController < ApplicationController
     @user = current_user
   end
 
+  def search  
+    if params[:search].blank?  
+      redirect_to(root_path, notice: "Il faut taper quelque chose dans la barre de recherche !") and return  
+    else
+      @own_books = OwnBook.joins(:book, :user).search(params[:search])
+   end  
+ end
+
   # GET /own_books/1 or /own_books/1.json
   def show
     @book = @own_book.book
@@ -68,8 +76,7 @@ class OwnBooksController < ApplicationController
     Loans.find_by()
   end
 
-
-
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_own_book
@@ -78,6 +85,6 @@ class OwnBooksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def own_book_params
-      params.require(:own_book).permit(:review, :appreciation)
+      params.require(:own_book).permit(:review, :appreciation, :genre, :search)
     end
   end
