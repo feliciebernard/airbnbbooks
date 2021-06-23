@@ -1453,6 +1453,10 @@ a.link {
   text-decoration: none;
   color: #EDE7E3;
 }
+a.link-index {
+  text-decoration: none;
+  color: #16697A;
+}
 
 .dropdown:hover .dropdown-content {
   display: block;
