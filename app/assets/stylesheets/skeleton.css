@@ -1610,3 +1610,34 @@ i.icon-contact{
   transition: all .5s ease;
     transform: scale(.5) perspective(1px);
 }
+
+/* Cookies Consent */
+
+
+/* main div */
+.cookies-eu {
+height: 200px;
+width: 400px;
+left:2.5rem;
+bottom: 25px;
+background-color: #EDE7E3;
+box-shadow: 0px 2px 5px #16697A;
+border-radius: 1rem;
+}
+
+/* Button Cookies */
+.cookies-eu .cookies-eu-button-holder .cookies-eu-ok {
+  background-color: #489FB5;
+  height: 2.5rem;
+  margin-top: 1rem;
+  padding: 1em 2em 2em;
+  -webkit-transition: background-color 0.2s;
+  transition: background-color 0.2s;
+}
+
+.cookies-img {
+ position: absolute;
+ left: 21rem;
+ bottom: 8rem;
+  height:150px;
+}
