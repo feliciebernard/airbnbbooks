@@ -17,7 +17,7 @@
       <h6 class="text-upp text-dark"><%=own_book.book.title %></h6>
       <p>Auteur : <%=own_book.book.authors%></p>
 <br>
-      <p>Propriétaire du livre : <%=own_book.user.name%></p>
+      <p>Propriétaire du livre : <%=own_book.user.name%> <br> Ville : <%=own_book.user.private_address.try(:city).try(:name)%> </p>
       <%= link_to "Fiche du Livre", own_book, class:"button"%>
       <%if current_user == own_book.user %>
         <% if own_book.available == true %> 
