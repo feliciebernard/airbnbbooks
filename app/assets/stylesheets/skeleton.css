@@ -846,8 +846,8 @@ input[type="reset"].button-success:disabled,
 input[type="button"].button-success:disabled {
   color: #073131;
   cursor: not-allowed;
-  background-color: #82e3aa;
-  border-color: #82e3aa;
+  background-color: #ffd599;
+  border-color: #ffd599;
 }
 
 .button.button-danger,
