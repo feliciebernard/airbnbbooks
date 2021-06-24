@@ -20,7 +20,9 @@ Rails.application.routes.draw do
   end
 
 
-  resources :books
+  resources :books do
+    resources :image_link, only: [:create, :update]
+  end
   devise_for :users, controllers: { registrations: "users/registrations"  }
   resources :users do
     resources :avatars, only: [:create]

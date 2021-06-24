@@ -40,10 +40,11 @@
     <div class="field">
       <%= form.label "lien vers l'image de couverture", class:"text-dark text-upp" %>
       <%= form.text_field :image_link, placeholder: "Renseignez un URL", class:"u-full-width text-upp", :value => @image_link %>
-      <%= form_tag @book.image_link, multipart: true do %>
-      <%= file_field_tag "Choisir une image", class:"button" %>
-      <%= submit_tag "confirmer", class:"button-danger"%>
-        <%end%>
+
+     <%= form_tag book_image_link_index_path(@book), multipart: true do %>
+     <%= file_field_tag :image_link, class:"u-full-width button" %>
+     <%= submit_tag "valider la couverture", class:" first-button button button-info u-full-width"%>
+     <%end%>
     </div>
 
     <div class="actions">
