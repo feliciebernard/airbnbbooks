@@ -1721,3 +1721,8 @@ border-radius: 1rem;
 .city-link:visited {
   color:#073131;
 }
+
+.card-loan {
+  border:none;
+  box-shadow: none;
+}

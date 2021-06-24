@@ -17,7 +17,7 @@
 
         <%else%>
         <p class="text-upp u-text-center text-dark"><%= @user.private_address.street_name%></p>
-<p class="text-upp u-text-center text-dark text-bold"><%= link_to @user.private_address.city.name ,"https://www.google.fr/maps/place/#{@user.private_address.street_name + "+" +@user.private_address.city.name}", class:"city-link"%></p>        <%end%>
+<p class="text-upp u-text-center text-dark text-bold"><%= link_to @user.private_address.city.name ,"https://www.google.fr/maps/place/#{@user.private_address.street_name + "+" +@user.private_address.city.name}", class:"city-link", :target => "_blank" %></p>        <%end%>
       <hr>
       </div>
       </div>

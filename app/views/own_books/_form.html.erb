@@ -51,5 +51,7 @@
     <%= form.submit "soumettre mon avis", class:"button button-primary u-full-width" %>
   </div>
 <% end %>
+<%= link_to 'Retour à la fiche du livre', @own_book, class:"button button-success" %>
+<%= link_to "Profil de l'utilisateur", user_path(current_user.id), class:"button u-pull-right" %>
       </div>
       </div>
