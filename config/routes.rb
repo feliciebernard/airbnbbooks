@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
- get '/search' => 'own_books#search', :as => 'search_own_book'
+ get '/search' => 'searches#search', :as => 'search'
 
   resources :contacts, only: [:create, :new]
   authenticated :user do

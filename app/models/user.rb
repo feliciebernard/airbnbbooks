@@ -13,6 +13,7 @@ class User < ApplicationRecord
   has_many :loans
   has_many :own_books
   has_many :books, through: :own_books
+  has_many :searches
 
   belongs_to :private_address, dependent: :destroy, optional: true
 

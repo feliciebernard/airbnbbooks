@@ -32,10 +32,4 @@ class OwnBook < ApplicationRecord
     loans.find_by(is_accepted: true, is_past: false).lender
   end
 
-  def self.search(search)  
-   where("lower(books.title) LIKE :search OR 
-          lower(books.authors) LIKE :search OR 
-          lower(users.name) LIKE :search", search: "%#{search.downcase}%").uniq  
-  end
-
 end
