@@ -42,7 +42,7 @@ class UserMailer < ApplicationMailer
               profile_page: "https://where-is-my-book.herokuapp.com/users/#{@borrower.id}"
     }
 
-    mail(to: @borrower.email, subject: "WhereIsMyBook emprunt du livre #{@book_to_borrow.book.title} de #{@owner.name} accépeter")
+    mail(to: @borrower.email, subject: "WhereIsMyBook emprunt du livre #{@book_to_borrow.book.title} de #{@owner.name} acceptée")
   end
 
   def request_declined(loan)

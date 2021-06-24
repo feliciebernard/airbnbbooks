@@ -1,28 +1,14 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
-    <style>
+<br>
+<div class="card border-primary" style="max-width: 50rem; background-color: #489FB5;">
+  <div class="card-item">
+    <h6>Salut <%= @receiver.name %> !</h6>
+    <p>L'équipe de WhereIsMyBook t'informe que <%= @borrower.name %> serait intéressé.e pour emprunter ton livre "<%= link_to "#{@book_to_borrow.title}", @urls[:show_book]  %>". </p>
+    <p>
+      Pour accéder à ton espace client et valider l'emprunt, connecte-toi via : <%= link_to @urls[:profile_page], @urls[:profile_page], class:"link"  %>.
+    </p>
 
-    a {
-      text-decoration-color: blue; 
-      opacity: 1;
-      text-decoration: underline;
-    }
-
-    h6 {
-      text-decoration: underline;
-    }
-
-    </style>
-  </head>
-  <body>
-    <h6>Salut <%= @receiver.name %> quelqu'un est intéréssé par l'un de tes bouquins...</h6>
-    <p>L'équipe de WhereIsMyBook t'informe que <%= @borrower.name %> serait intéressé pour emprunter ton livre "<%= link_to "#{@book_to_borrow.title}", @urls[:show_book]  %>". </p>
-    <p> N'hésite pas a le contacter via notre <%= link_to "messagerie", @urls[:messagerie] %>. </p>
-    <p> tu peux gérer l'envoie de tes livres depuis ton <%= link_to "espace de profile", @urls[:profile_page]  %>. </p>
-   
-    <p> À très vite sur <%= link_to "where-is-my-book.com", @urls[:home_page] %> !</p>
-
-  </body>
-</html>
+   <p> À très vite sur <%= link_to "where-is-my-book.com", @urls[:home_page], class:"link" %> !</p>
+      <img src="https://res.cloudinary.com/dcmcouvju/image/upload/v1624268441/LOGO_dt3bob.png" alt="logo WhereIsMyBook" class="logo-mail">
+    </div>
+  </div>
+</div>
