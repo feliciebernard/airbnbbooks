@@ -1411,10 +1411,9 @@ body {
 }
 
 .navbar {
-  max-width: 100%;
+  float:right;
   background-color: #489FB5;
   height: 135px;
-  margin-left: -8px;
 }
 
 .hamburger {
@@ -1618,12 +1617,15 @@ p.rights {
 .card-search {
   border:none;
   box-shadow: none;
-  padding-left:5em;
-
-  display: flex;
-  flex-direction: column;
 }
 
+.column-search {
+  max-width: 10rem;
+}
+
+.genre-search-text {
+  opacity: .7;
+}
 .book-description {
   padding-left: 15%;
 }
