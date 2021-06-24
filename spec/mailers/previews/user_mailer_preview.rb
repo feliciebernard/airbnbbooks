@@ -10,4 +10,18 @@ class UserMailerPreview < ActionMailer::Preview
 
     UserMailer.confirmation_email(Order.first)
   end
+
+    def request_accepted
+
+    UserMailer.confirmation_email(Order.first)
+  end
+
+  def request_declined
+
+    UserMailer.confirmation_email(Order.first)
+  end
+  def ask_owner_to_borrow_his_book
+
+    UserMailer.confirmation_email(Order.first)
+  end
 end
