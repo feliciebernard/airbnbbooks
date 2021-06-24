@@ -4,7 +4,7 @@ BOOKS_NUM = 10
 USERS_NUM = 5
 OWN_BOOKS_NUM = 10
 LOANS_NUM = 10
-PRIVATE_ADDRESSES = 5
+
 CITIES_NUM = 5
 
 
@@ -45,21 +45,28 @@ end
 
 
 
-def create_users(nb_users)
+def create_users_and_private_addresses(nb_users)
   nb_users.times do |idx_user|
 
     name = Faker::Name.female_first_name
     email = Faker::Internet.email(domain: 'yopmail.com')
     password = Faker::Internet.password(min_length: 8, max_length: 15)
     biography = Faker::Lorem.paragraph(sentence_count: rand(1..3))
-    private_address = PrivateAddress.all.sample
+    street_name = Faker::Address.street_address
+    other_information = Faker::Address.secondary_address
 
+    city = City.all.sample
+    private_address = PrivateAddress.create(street_name: street_name, other_information: other_information, city: city)
     user = User.create(name: name, email: email, password: password, biography: biography, private_address: private_address)
-    puts "--------------- User n°#{idx_user} ----------------\n\n"
+    private_address.update(user: user)
+    
+    puts "--------------- User & PrivateAddress n°#{idx_user} ----------------\n\n"
 
     status_creation(user, 'user', idx_user)
+    status_creation(private_address, 'private_address', idx_user)
   end
 end
+
 
 def create_own_books(nb_own_books)
   nb_own_books.times do |idx_ownbook|
@@ -105,31 +112,18 @@ def create_cities(nb_city)
   end
 end
 
-def create_private_addresses(nb_private_address)
-  nb_private_address.times do |idx_private_address|
 
-    street_name = Faker::Address.street_address
-    other_information = Faker::Address.secondary_address
-    user = User.all.sample
-    city = City.all.sample
-
-    private_address = PrivateAddress.create(street_name: street_name, other_information: other_information, user: user, city: city)
-    puts "--------------- PrivateAddress n°#{idx_private_address} ----------------\n\n"
-    status_creation(private_address, 'private_address', idx_private_address)
-  end
-end
 
 def create_database
+  create_cities(CITIES_NUM)
+  create_users_and_private_addresses(USERS_NUM)
   create_books(BOOKS_NUM)
-  create_users(USERS_NUM)
   create_own_books(OWN_BOOKS_NUM)
   create_loans(LOANS_NUM)
-  create_cities(CITIES_NUM)
-  create_private_addresses(PRIVATE_ADDRESSES)
 end
 
 def perform
-  tables = ['books', 'users', 'own_books', 'loans', 'cities', 'private_addresses']
+  tables = ['cities', 'private_addresses', 'users', 'books', 'own_books', 'loans']
   reset_database(tables)
   create_database
 end
