@@ -49,5 +49,7 @@
     <div class="actions">
       <%= form.submit 'Ajouter le livre à ma bibliothèque', class:"u-full-width button-primary" %>
     </div>
+    <%= link_to 'Retour vers ma bibliothèque', user_path(current_user.id), class:"button button-success" %>
+    <%= link_to "Retour vers l'index", own_books_path, class:"button u-pull-right" %>
   </div>
 </div>
