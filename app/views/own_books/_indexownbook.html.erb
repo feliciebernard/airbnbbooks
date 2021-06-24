@@ -1,86 +1,81 @@
- <h2 class="text-upp u-text-center">Tous les livres</h2>
-
-<div class="container">
- <hr class="hr-index">
 <div class="row">
-<div class="six columns"></div>
-<div class="three columns">
-<select id="GetChoice" class="select-text">
-  <option value="">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 
-  Trier par style de lecture &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-  </option>
-  <option value="Enfant">Enfant</option>
-  <option value="Fiction">Fiction</option>
-  <option value="Historique">Historique</option>
-  <option value="Bandes-Dessinées">Bandes-Dessinées</option>
-  <option value="Philosophie">Philosophie</option>
-  <option value="Loisirs">Loisirs</option>
-</select>
-</div>
-<div class="three columns">
-<input type="button" value="trier" onclick="GetSelectedTextValue()" class="button button-select-genre" />
-</div>
-</div>
+  <div class="six columns"></div>
+  <div class="three columns">
+    <select id="GetChoice" class="select-text">
+      <option value="">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 
+        Trier par style de lecture &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+      </option>
+      <option value="Enfant">Enfant</option>
+      <option value="Fiction">Fiction</option>
+      <option value="Historique">Historique</option>
+      <option value="Bandes-Dessinées">Bandes-Dessinées</option>
+      <option value="Philosophie">Philosophie</option>
+      <option value="Loisirs">Loisirs</option>
+    </select>
+  </div>
+  <div class="three columns">
+    <input type="button" value="trier" onclick="GetSelectedTextValue()" class="button button-select-genre" />
+  </div>
 </div>
 
 
 <div class="container">
-<% @own_books.each do |own_book|%>
+  <% @own_books.each do |own_book|%>
   <div id = "<%=own_book.genre%>" class="genre-select" >
     <div class="row">
       <div class="card card-list">
         <div class="five columns">
-  
-    <% if own_book.book.image_link != nil %>
-    <%= link_to image_tag(own_book.book.image_link), own_book, class:"book-img-list"%>
-    <%else%>
-    <%= image_tag "https://res.cloudinary.com/dcmcouvju/image/upload/v1624045770/nocover2_o33zpf.jpg", class:"book-img-list"%>
-    <%end%>
+
+          <% if own_book.book.image_link != nil %>
+          <%= link_to image_tag(own_book.book.image_link), own_book, class:"book-img-list"%>
+          <%else%>
+          <%= image_tag "https://res.cloudinary.com/dcmcouvju/image/upload/v1624045770/nocover2_o33zpf.jpg", class:"book-img-list"%>
+          <%end%>
         </div>
         <div class="seven columns">
-    <h6 class="text-upp text-dark"><%=own_book.book.title %></h6>
-    <p>Auteur : <%=own_book.book.authors%></p>
-    <p>Catégorie : <%=own_book.genre%></p>
-    <br>
-    <p>Propriétaire du livre : <%=own_book.user.name%> <br> Ville : <%=own_book.user.private_address.try(:city).try(:name)%> </p>
-    <%= link_to "Fiche du Livre", own_book, class:"button"%>
-    <%if current_user == own_book.user %>
-    <% if own_book.available == true %> 
-    <%= link_to "Rendre indisponible", own_book_set_available_path(own_book.id), method: :patch, class: "button button-danger" %>
-    <% else %>
-    <% if own_book.loan_request? == false && own_book.loaned? == false %>
-    <%= link_to "Rendre disponible", own_book_set_available_path(own_book.id), method: :patch, class: "button button-success" %>
-    <% end %>
-    <% end %>
-    <% else %>
-    <%= link_to "Prêteur", user_path(own_book.user_id), class:"button button-primary"%>
-    <% if own_book.loaned? %>
-    <% if own_book.loaned.borrower == current_user%>
-    <%= link_to "Le rendre a son propriétaire", "", class: "button button-success" %> 
-    <% else %>
-    <button disabled class="button-success">déjà emprunté </button>
-    <% end %>
-    <% elsif own_book.available == false %>
-    <button disabled class="button-success"> Temporairement indisponible </button>
-    <% else %>
-    <%= link_to "Emprunter", own_book_loans_path(own_book.id), method: :create, class:"button button-success" %>
-    <% end %>
-        
-    <% end %>
+          <h6 class="text-upp text-dark"><%=own_book.book.title %></h6>
+          <p>Auteur : <%=own_book.book.authors%></p>
+          <p>Catégorie : <%=own_book.genre%></p>
+          <br>
+          <p>Propriétaire du livre : <%=own_book.user.name%> <br> Ville : <%=own_book.user.private_address.try(:city).try(:name)%> </p>
+          <%= link_to "Fiche du Livre", own_book, class:"button"%>
+          <%if current_user == own_book.user %>
+          <% if own_book.available == true %> 
+          <%= link_to "Rendre indisponible", own_book_set_available_path(own_book.id), method: :patch, class: "button button-danger" %>
+          <% else %>
+          <% if own_book.loan_request? == false && own_book.loaned? == false %>
+          <%= link_to "Rendre disponible", own_book_set_available_path(own_book.id), method: :patch, class: "button button-success" %>
+          <% end %>
+          <% end %>
+          <% else %>
+          <%= link_to "Prêteur", user_path(own_book.user_id), class:"button button-primary"%>
+          <% if own_book.loaned? %>
+          <% if own_book.loaned.borrower == current_user%>
+          <%= link_to "Le rendre a son propriétaire", "", class: "button button-success" %> 
+          <% else %>
+          <button disabled class="button-success">déjà emprunté </button>
+          <% end %>
+          <% elsif own_book.available == false %>
+          <button disabled class="button-success"> Temporairement indisponible </button>
+          <% else %>
+          <%= link_to "Emprunter", own_book_loans_path(own_book.id), method: :create, class:"button button-success" %>
+          <% end %>
+
+          <% end %>
+        </div>
+      </div>
     </div>
-    </div>
-  </div>
-  <hr class="hr-index">
+    <hr class="hr-index">
   </div>
 
-<%end%>
+  <%end%>
 
-<script type="text/javascript">
+  <script type="text/javascript">
 
-  function GetSelectedTextValue() {
-    var GetChoice = document.getElementById("GetChoice");
-    var selectedText = GetChoice.options[GetChoice.selectedIndex].innerHTML;
-    var selectedValue = GetChoice.value;
+    function GetSelectedTextValue() {
+      var GetChoice = document.getElementById("GetChoice");
+      var selectedText = GetChoice.options[GetChoice.selectedIndex].innerHTML;
+      var selectedValue = GetChoice.value;
         //console.log(selectedValue);
 
         var numberbook = document.getElementsByClassName("genre-select");
@@ -89,8 +84,8 @@
         
 
         for (let i = 0; i <= numberbook.length - 1; i++) {
-          
-          
+
+
           if (document.getElementsByClassName('genre-select')[i].id == selectedValue) {
 
             var x = document.getElementsByClassName('genre-select')[i];

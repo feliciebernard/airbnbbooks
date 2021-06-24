@@ -6,8 +6,17 @@ class UserMailerPreview < ActionMailer::Preview
     UserMailer.welcome_email(User.first)
   end
 
-  def confirmation_email
+  def request_accepted
 
-    UserMailer.confirmation_email(Order.first)
+    UserMailer.request_accepted(Loan.first)
+  end
+
+  def request_declined
+
+    UserMailer.request_declined(User.first)
+  end
+  def ask_owner_to_borrow_his_book
+
+    UserMailer.ask_owner_to_borrow_his_book(User.first)
   end
 end
