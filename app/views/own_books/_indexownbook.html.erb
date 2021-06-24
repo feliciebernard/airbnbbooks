@@ -1,8 +1,14 @@
+ <h2 class="text-upp u-text-center">Tous les livres</h2>
 
-
-<p>Sélectionner le type :</p>
-<select id="GetChoice">
-  <option value=""></option>
+<div class="container">
+ <hr class="hr-index">
+<div class="row">
+<div class="six columns"></div>
+<div class="three columns">
+<select id="GetChoice" class="select-text">
+  <option value="">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 
+  Trier par style de lecture &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+  </option>
   <option value="Enfant">Enfant</option>
   <option value="Fiction">Fiction</option>
   <option value="Historique">Historique</option>
@@ -10,17 +16,28 @@
   <option value="Philosophie">Philosophie</option>
   <option value="Loisirs">Loisirs</option>
 </select>
-<input type="button" value="Go !" onclick="GetSelectedTextValue()" />
+</div>
+<div class="three columns">
+<input type="button" value="trier" onclick="GetSelectedTextValue()" class="button button-select-genre" />
+</div>
+</div>
+</div>
 
+
+<div class="container">
 <% @own_books.each do |own_book|%>
-<div id = "<%=own_book.genre%>" class="genre-select" >
-<div class="nine columns">
-  <div class="card card-list">
+  <div id = "<%=own_book.genre%>" class="genre-select" >
+    <div class="row">
+      <div class="card card-list">
+        <div class="five columns">
+  
     <% if own_book.book.image_link != nil %>
     <%= link_to image_tag(own_book.book.image_link), own_book, class:"book-img-list"%>
     <%else%>
     <%= image_tag "https://res.cloudinary.com/dcmcouvju/image/upload/v1624045770/nocover2_o33zpf.jpg", class:"book-img-list"%>
     <%end%>
+        </div>
+        <div class="seven columns">
     <h6 class="text-upp text-dark"><%=own_book.book.title %></h6>
     <p>Auteur : <%=own_book.book.authors%></p>
     <p>Catégorie : <%=own_book.genre%></p>
@@ -47,20 +64,16 @@
     <button disabled class="button-success"> Temporairement indisponible </button>
     <% else %>
     <%= link_to "Emprunter", own_book_loans_path(own_book.id), method: :create, class:"button button-success" %>
-
     <% end %>
+        
     <% end %>
-
+    </div>
+    </div>
   </div>
   <hr class="hr-index">
-</div>
-</div>
+  </div>
 
 <%end%>
-</div>
-
-
-
 
 <script type="text/javascript">
 

@@ -1623,13 +1623,13 @@ p.rights {
   box-shadow: none;
 }
 
-.column-search {
-  max-width: 10rem;
+.button-select-genre {
+min-width: 11rem;
 }
-
-.genre-search-text {
+.select-text {
   opacity: .7;
 }
+
 .book-description {
   padding-left: 15%;
 }
