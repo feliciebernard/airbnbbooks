@@ -1,3 +1,4 @@
+<h2 class="u-text-center text-info text-upp">Modifier un bouquin</h2>
 <div class="row">
 <%= form_with(model: @book, local: true) do |form| %>
   <% if @book.errors.any? %>
@@ -14,5 +15,8 @@
 <%= render 'formedit', :form => form, book: @book %>
 
 <% end %>
+
+<%= link_to 'Afficher le livre', @own_book, class:"button button-success" %>
+<%= link_to 'Retour vers la bibliothèque', own_books_path, class:"button u-pull-right" %>
 </div>
 </div>
