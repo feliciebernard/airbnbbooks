@@ -2,32 +2,37 @@
   <div class="row">
     <div class="three columns" >
       <div class="card user-profile">
-      <%if @user.avatar.attached?%>
-      <%= image_tag @user.avatar, class:"avatar"%>
-      <%else%>
-        <div class="avatar"></div>
+        <%if @user.avatar.attached?%>
+        <%= image_tag @user.avatar, class:"avatar"%>
+        <%else%>
+        <div class="avatar">
+          
+        </div>
         <%end%>
         <div class="buttons">
           <%= form_tag user_avatars_path(@user), multipart: true do %>
           <%= file_field_tag :avatar, class:"u-full-width button" %>
           <%= submit_tag "valider l'avatar", class:" first-button button button-info u-full-width"%>
           <%=link_to "Ajouter un livre", new_book_path, class:"button button-primary u-full-width"%>
-          <%=link_to "Editer le profil", edit_user_path, class:"button button-success u-full-width"%></div>
-          <%end%>
-          
-          <hr class="hr-index">
-                <h6 class="username text-dark"><%=@user.name%></h6>
+          <%=link_to "Editer le profil", edit_user_path, class:"button button-success u-full-width"%>
+        </div>
+        <%end%>
+        
+        <hr class="hr-index">
+        <h6 class="username text-dark"><%=@user.name%></h6>
         <p class="user-description text-dark"><%= @user.biography %></p>
         <hr class="hr-index">
         <%if @user.private_address == nil %>
 
         <%else%>
-        <p class="text-upp u-text-center text-dark"><%= @user.private_address.street_name%>,
+        <p class="text-upp u-text-center text-dark"><%= @user.private_address.street_name%><br>
           <%= @user.private_address.city.name%></p>
-        <%end%>
-        <hr>
-         <%=link_to "Modifier le compte", edit_user_registration_path, class:"button button-danger u-full-width"%>
+          <%end%>
+          <hr>
+          <%=link_to "Modifier le compte", edit_user_registration_path, class:"button button-danger u-full-width"%>
+        </div>
+      </div>
     </div>
-    </div>
+  </div>
 
-    
+

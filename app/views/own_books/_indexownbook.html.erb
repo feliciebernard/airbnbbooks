@@ -13,7 +13,8 @@
 <input type="button" value="Go !" onclick="GetSelectedTextValue()" />
 
 <% @own_books.each do |own_book|%>
-<div id = "<%=own_book.genre%>" class="nine columns" >
+<div id = "<%=own_book.genre%>" class="genre-select" >
+<div class="nine columns">
   <div class="card card-list">
     <% if own_book.book.image_link != nil %>
     <%= link_to image_tag(own_book.book.image_link), own_book, class:"book-img-list"%>
@@ -53,8 +54,13 @@
   </div>
   <hr class="hr-index">
 </div>
+</div>
 
 <%end%>
+</div>
+
+
+
 
 <script type="text/javascript">
 
@@ -64,7 +70,7 @@
     var selectedValue = GetChoice.value;
         //console.log(selectedValue);
 
-        var numberbook = document.getElementsByClassName("nine columns");
+        var numberbook = document.getElementsByClassName("genre-select");
         //console.log(numberbook.length);
 
         
@@ -72,18 +78,18 @@
         for (let i = 0; i <= numberbook.length - 1; i++) {
           
           
-          if (document.getElementsByClassName('nine columns')[i].id == selectedValue) {
+          if (document.getElementsByClassName('genre-select')[i].id == selectedValue) {
 
-            var x = document.getElementsByClassName('nine columns')[i];
+            var x = document.getElementsByClassName('genre-select')[i];
               //console.log("yes");
               //console.log(x);
               x.style.display = "block";
 
 
               
-            } else if (document.getElementsByClassName('nine columns')[i].id != selectedValue) {
+            } else if (document.getElementsByClassName('genre-select')[i].id != selectedValue) {
 
-              var y = document.getElementsByClassName('nine columns')[i];
+              var y = document.getElementsByClassName('genre-select')[i];
             //console.log("no");
             //console.log(y);
             y.style.display = "none";

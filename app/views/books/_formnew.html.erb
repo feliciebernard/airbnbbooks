@@ -8,33 +8,33 @@
 
     <div class="field">
       <%= form.label "titre", class:"text-dark text-upp" %>
-      <%= form.text_field :title, autofocus: true, class: "u-full-width placeholder",  :value => @title %>
+      <%= form.text_field :title, class: "u-full-width placeholder",  :value => @title %>
     </div>
 
     <div class="field">
       <%= form.label "auteur·e·s", class:"text-dark text-upp" %>
-      <%= form.text_field :authors, autofocus: true, class: "u-full-width placeholder", :value => @authors %>
+      <%= form.text_field :authors, class: "u-full-width placeholder", :value => @authors %>
     </div>
 
     <div class="field">
       <%= form.label "éditions", class:"text-dark text-upp" %>
-      <%= form.text_field :publisher, autofocus: true, class: "u-full-width placeholder", :value => @publisher %>
+      <%= form.text_field :publisher, class: "u-full-width placeholder", :value => @publisher %>
     </div>
 
     <div class="field">
       <%= form.label "date de publication", class:"text-dark text-upp" %>
-      <%= form.number_field :published_date, autofocus: true, class: "u-full-width placeholder", :value => @published_date %>
+      <%= form.number_field :published_date, class: "u-full-width placeholder", :value => @published_date %>
     </div>
 
     <div class="field">
       <%= form.label "langue", class:"text-dark text-upp" %>
-      <%= form.text_field :language, autofocus: true, class: "u-full-width placeholder", :value => @language %>
+      <%= form.text_field :language, class: "u-full-width placeholder", :value => @language %>
     </div>
 
 
     <div class="field">
       <%= form.label "résumé",  class:"text-dark text-upp"%>
-      <%= form.text_area :description, autofocus: true, class: "u-full-width placeholder", :value => @description %>
+      <%= form.text_area :description, class: "u-full-width placeholder", :value => @description %>
     </div>
 
     <div class="field">
