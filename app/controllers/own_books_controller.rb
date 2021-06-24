@@ -14,7 +14,6 @@ class OwnBooksController < ApplicationController
       redirect_to(root_path, notice: "Il faut taper quelque chose dans la barre de recherche !") and return  
     else
      @own_books = OwnBook.joins(:book, :user).search(params[:search])
-    # @cities = City.search(name: params[:search])
    end  
  end
 
