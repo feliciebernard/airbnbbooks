@@ -1704,3 +1704,20 @@ border-radius: 1rem;
  bottom: 8rem;
   height:150px;
 }
+
+.text-bold {
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.city-link {
+  color:#073131;
+  text-decoration: none;
+}
+.city-link:hover {
+  color:#073131;
+}
+
+.city-link:visited {
+  color:#073131;
+}

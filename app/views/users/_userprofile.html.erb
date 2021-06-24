@@ -6,7 +6,6 @@
         <%= image_tag @user.avatar, class:"avatar"%>
         <%else%>
         <div class="avatar">
-          
         </div>
         <%end%>
         <div class="buttons">
@@ -25,14 +24,12 @@
         <%if @user.private_address == nil %>
 
         <%else%>
-        <p class="text-upp u-text-center text-dark"><%= @user.private_address.street_name%><br>
-          <%= @user.private_address.city.name%></p>
+        <p class="text-upp u-text-center text-dark"><%= @user.private_address.street_name%></p>
+        <p class="text-upp u-text-center text-dark text-bold"><%= link_to @user.private_address.city.name ,"https://www.google.fr/maps/place/#{@user.private_address.street_name + "+" +@user.private_address.city.name}", class:"city-link"%></p>
           <%end%>
           <hr>
           <%=link_to "Modifier le compte", edit_user_registration_path, class:"button button-danger u-full-width"%>
         </div>
       </div>
-    </div>
-  </div>
 
 

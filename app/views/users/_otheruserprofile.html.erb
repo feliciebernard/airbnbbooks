@@ -9,15 +9,15 @@
         <%end%>
         <div class="buttons">
         <%= mail_to @user.email, "Contacter" ,class:"first-button button button-success u-full-width"%></div>
-        <h6 class="username"><%= @user.name%></h6>
-        <p class="user-description"><%= @user.biography %></p>
-
+        <hr class="hr-index">
+        <h6 class="username text-dark"><%= @user.name%></h6>
+        <p class="user-description text-dark"><%= @user.biography %></p>
+      <hr class="hr-index">
         <%if @user.private_address == nil %>
 
         <%else%>
-        <%= @user.private_address.street_name%>
-        <%= @user.private_address.city.name%>
-        <%end%>
-
+        <p class="text-upp u-text-center text-dark"><%= @user.private_address.street_name%></p>
+<p class="text-upp u-text-center text-dark text-bold"><%= link_to @user.private_address.city.name ,"https://www.google.fr/maps/place/#{@user.private_address.street_name + "+" +@user.private_address.city.name}", class:"city-link"%></p>        <%end%>
+      <hr>
       </div>
       </div>
