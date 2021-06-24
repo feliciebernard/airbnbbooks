@@ -5,11 +5,13 @@ class LoansController < ApplicationController
 
   # GET /loans or /loans.json
   def index
-    @loans = Loan.all
+    @borrowers = Loan.where(borrower: current_user)
+    @lenders = Loan.where(lender: current_user)
   end
 
   # GET /loans/1 or /loans/1.json
   def show
+    @loan = @own_book.book
   end
 
   # GET /loans/new

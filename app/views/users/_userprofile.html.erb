@@ -13,6 +13,7 @@
           <%= file_field_tag :avatar, class:"u-full-width button" %>
           <%= submit_tag "valider l'avatar", class:" first-button button button-info u-full-width"%>
           <%=link_to "Ajouter un livre", new_book_path, class:"button button-primary u-full-width"%>
+          <%=link_to "Les Prêts", own_book_loans_path(@current_user.id), class:"button button-primary u-full-width"%>
           <%=link_to "Editer le profil", edit_user_path, class:"button button-success u-full-width"%>
         </div>
         <%end%>
@@ -25,7 +26,7 @@
 
         <%else%>
         <p class="text-upp u-text-center text-dark"><%= @user.private_address.street_name%></p>
-        <p class="text-upp u-text-center text-dark text-bold"><%= link_to @user.private_address.city.name ,"https://www.google.fr/maps/place/#{@user.private_address.street_name + "+" +@user.private_address.city.name}", class:"city-link"%></p>
+        <p class="text-upp u-text-center text-dark text-bold"><%= link_to @user.private_address.city.name ,"https://www.google.fr/maps/place/#{@user.private_address.street_name + "+" +@user.private_address.city.name}", class:"city-link", :target => "_blank" %></p>
           <%end%>
           <hr>
           <%=link_to "Modifier le compte", edit_user_registration_path, class:"button button-danger u-full-width"%>
