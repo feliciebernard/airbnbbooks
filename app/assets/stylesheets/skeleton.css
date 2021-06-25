@@ -1596,10 +1596,10 @@ p.rights {
 }
 
 .avatar {
-  max-height: 300px;
   max-width: 300px;
   background-color:#16697A;
   margin: auto;
+  object-fit: cover;
 }
 .username {
   text-align: center;
