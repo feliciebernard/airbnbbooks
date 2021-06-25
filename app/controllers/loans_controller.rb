@@ -29,6 +29,7 @@ class LoansController < ApplicationController
     @loan = Loan.new(borrower: current_user, lender: @own_book.user, own_book: @own_book)
 
    UserMailer.ask_owner_to_borrow_his_book(@own_book, current_user).deliver_now
+   UserMailer.copy_ask_owner_to_borrow_his_book(@own_book, current_user).deliver_now
 
 
     respond_to do |format|
