@@ -6,7 +6,8 @@ class User < ApplicationRecord
   has_one_attached :avatar
   after_create :welcome_send
 
-
+  has_many :messages
+  has_many :conversations, foreign_key: :sender_id
   has_many :lenders, foreign_key: 'lender_id', class_name: "Loan"
   has_many :borrowers, foreign_key: 'borrower_id', class_name: "Loan"
 
