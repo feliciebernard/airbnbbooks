@@ -1,7 +1,16 @@
-<p>Hello <%= @resource.email %>!</p>
+br>
+<div class="card border-primary" style="max-width: 50rem; background-color: #489FB5;">
 
-<p>Your account has been locked due to an excessive number of unsuccessful sign in attempts.</p>
+  <div class="card-item">
+    <h4>Bonjour <%= @resource.email %> !</h4>
 
-<p>Click the link below to unlock your account:</p>
+    <p>Votre compte a été verrouillé en raison d'un nombre excessif de tentatives de connexion infructueuses.</p>
 
-<p><%= link_to 'Unlock my account', unlock_url(@resource, unlock_token: @token) %></p>
+    <p>Cliquez sur le lien ci-dessous pour déverrouiller votre compte :</p>
+
+    <p><%= link_to 'Débloquer mon compte', unlock_url(@resource, unlock_token: @token) %></p>
+
+    <p> À très vite sur <%= link_to "where-is-my-book.com", @url, class:"link" %> !</p>
+    <img src="https://res.cloudinary.com/dcmcouvju/image/upload/v1624268441/LOGO_dt3bob.png" alt="logo WhereIsMyBook" class="logo-mail">
+  </div>
+</div>
