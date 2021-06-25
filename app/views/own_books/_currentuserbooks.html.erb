@@ -1,6 +1,5 @@
 <div class="book-container">
   <div class="nine columns" >
-  <%= link_to image_tag("https://res.cloudinary.com/dcmcouvju/image/upload/v1624444048/INDEX_BUTTON_so6lg1.png") + " Afficher en grille", user_path, class:"link-index", id:"index-btn"%>
     <div class="card card-list">
       <%if current_user.id != @user.id%>
       <h2 class="text-upp u-text-center">La Bibliothéque de <%= @user.name%>
