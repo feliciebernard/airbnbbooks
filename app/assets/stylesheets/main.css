@@ -16,7 +16,7 @@ html {
 }
 
 .hamburger {
-  position:  absolute;
+  position:  relative;
   height: -25px;
   margin-top: 45px;
   color:  #16697A;
@@ -30,7 +30,7 @@ html {
 }
 
 .dropdown {
- position: relative;
+ position: absolute;
  margin-left: -10%;
 }
 
