@@ -2,9 +2,9 @@
 <div class="card border-primary" style="max-width: 50rem; background-color: #489FB5;">
   <div class="card-item">
     <h6>Salut <%= @receiver.name %> !</h6>
-    <p>L'équipe de WhereIsMyBook t'informe que <%= @borrower.name %> serait intéressé.e pour emprunter ton livre "<%= link_to "#{@book_to_borrow.title}", @urls[:show_book]  %>". </p>
+    <p>L'équipe de WhereIsMyBook t'informe que <%= @borrower.name %> serait intéressé.e pour emprunter ton livre "<%= link_to "where-is-my-book.com/book", "#{@book_to_borrow.title}", @urls[:show_book]  %>". </p>
     <p>
-      Pour accéder à ton espace client et valider l'emprunt, connecte-toi via : <%= link_to @urls[:profile_page], @urls[:profile_page], class:"link"  %>.
+      Pour accéder à ton espace client et valider l'emprunt, connecte-toi via : <%= link_to "where-is-my-book.com/sign_in", @urls[:sign_in], class:"link"  %>.
     </p>
 
    <p> À très vite sur <%= link_to "where-is-my-book.com", @urls[:home_page], class:"link" %> !</p>

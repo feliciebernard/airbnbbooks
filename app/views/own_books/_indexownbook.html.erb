@@ -2,22 +2,22 @@
   <div class="six columns"></div>
   <div class="three columns">
     <select id="GetChoice" class="select-text">
-      <option value="">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 
+      <option >&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 
         Trier par style de lecture &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
       </option>
-      <option value="Enfant">Enfant</option>
-      <option value="Fiction">Fiction</option>
-      <option value="Historique">Historique</option>
-      <option value="Bandes-Dessinées">Bandes-Dessinées</option>
-      <option value="Philosophie">Philosophie</option>
-      <option value="Loisirs">Loisirs</option>
+      <option >Enfant</option>
+      <option >Fiction</option>
+      <option >Historique</option>
+      <option >Bandes-Dessinées</option>
+      <option >Philosophie</option>
+      <option >Loisirs</option>
     </select>
   </div>
   <div class="three columns">
-    <input type="button" value="trier" onclick="GetSelectedTextValue()" class="button button-select-genre" />
+    <input type="button", value="trier" onclick="GetSelectedTextValue()" class="button button-select-genre" />
   </div>
 </div>
-
+<br>  
 
 <div class="container">
   <% @own_books.each do |own_book|%>
@@ -69,44 +69,4 @@
   </div>
 
   <%end%>
-
-  <script type="text/javascript">
-
-    function GetSelectedTextValue() {
-      var GetChoice = document.getElementById("GetChoice");
-      var selectedText = GetChoice.options[GetChoice.selectedIndex].innerHTML;
-      var selectedValue = GetChoice.value;
-        //console.log(selectedValue);
-
-        var numberbook = document.getElementsByClassName("genre-select");
-        //console.log(numberbook.length);
-
-        
-
-        for (let i = 0; i <= numberbook.length - 1; i++) {
-
-
-          if (document.getElementsByClassName('genre-select')[i].id == selectedValue) {
-
-            var x = document.getElementsByClassName('genre-select')[i];
-              //console.log("yes");
-              //console.log(x);
-              x.style.display = "block";
-
-
-              
-            } else if (document.getElementsByClassName('genre-select')[i].id != selectedValue) {
-
-              var y = document.getElementsByClassName('genre-select')[i];
-            //console.log("no");
-            //console.log(y);
-            y.style.display = "none";
-
-          }
-          
-
-        }
-      }
-      
-      
-    </script>
+</div>
