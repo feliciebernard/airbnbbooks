@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'home/index'
  get '/search' => 'own_books#search', :as => 'search_own_book'
 
   resources :contacts, only: [:create, :new]
@@ -13,7 +14,13 @@ Rails.application.routes.draw do
   #get '/own_books/:id', to: 'own_books#set_available', as: 'switch_availability'
   resources :private_addresses
   resources :cities
-
+  resources :conversations, only: [:create] do
+    member do
+      post :close
+    end
+    resources :messages, only: [:create]
+  end
+  
   resources :own_books do
       patch :set_available
       resources :loans
