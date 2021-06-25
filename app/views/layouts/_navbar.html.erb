@@ -4,12 +4,15 @@
       <div class="row">
         <div class="five columns"><%=image_tag "polygons.png", class:"polygon-navbar"%>
         </div>
-        <div class="six columns"><br /><%=link_to image_tag("https://res.cloudinary.com/dcmcouvju/image/upload/v1624268441/LOGO_dt3bob.png"), root_path, class:"logo a-footer"%>
+        <div class="one column"><br /><%=link_to image_tag("https://res.cloudinary.com/dcmcouvju/image/upload/v1624268441/LOGO_dt3bob.png"), root_path, class:"logo a-footer"%>
         </div>
+        <div class="five columns"></div>
         
         <%if user_signed_in?%>
         <div class="one column dropdown">
-          <%= image_tag "hamburger.svg", class:"hamburger"%>
+          <div class="hamburger">
+          <i class="fas fa-bars"></i>
+        </div>
           
           <div class="dropdown-content">
             <ul>

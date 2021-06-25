@@ -16,8 +16,12 @@ html {
 }
 
 .hamburger {
-  width: 25%;
-  margin-top: 45%;
+  position:  absolute;
+  height: -25px;
+  margin-top: 45px;
+  color:  #16697A;
+  font-size:  xx-large;
+  margin-left: 10px;
 }
 
 .polygon-navbar {
@@ -93,7 +97,7 @@ footer {
 }
 
 .text-info {
-color: #489FB5;
+  color: #489FB5;
 }
 
 .titlepage {
@@ -103,7 +107,7 @@ color: #489FB5;
 
 .headtitle {
   display: block;
- 
+
 }
 p.rights {
   text-align: center;
