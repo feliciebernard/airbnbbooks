@@ -1,7 +1,7 @@
 Salut <%= @borrower.name %> !
 ∙ ∙ ∙ ∙ ∙ ∙ ∙ ∙ ∙ ∙ ∙ ∙ ∙ ∙ ∙ ∙ ∙ ∙ ∙ ∙ ∙ ∙
 
-Nous avons bien reçu ta demande d'emprunt du livre "<%= link_to @urls[:show_book], class:"link" %>".
+Nous avons bien reçu ta demande d'emprunt du livre <%= link_to @book_to_borrow.title, @urls[:show_book]  %>.
 
 <%= @receiver.name %> devrait te répondre bientôt.
 
