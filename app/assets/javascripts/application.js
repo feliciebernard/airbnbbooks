@@ -15,3 +15,4 @@
 //= require turbolinks
 //= require_tree .
 //= require cookies_eu
+//= require types
