@@ -1,0 +1,32 @@
+<div class="container">
+<div class="row">
+  <div class="one columns" ></div>
+<div class="ten columns">
+    <div class="card card-loan">
+      <h4 class="text-upp text-info u-text-center">Livre en votre possession :</h4>
+      
+        <hr>
+        <%if !user_loan?(current_user) %>
+          <% borrowers.each do |borrower| %>
+         <%= link_to "Prêté par #{borrower.lender.name} le #{borrower.updated_at}", user_path(borrower.lender.id) , class: "button button-success u-pull-right"%>
+            <% if borrower.own_book.book.image_link.nil? %>
+                <%= image_tag "https://res.cloudinary.com/dcmcouvju/image/upload/v1624045770/nocover2_o33zpf.jpg", class:"u-pull-left"%>
+            <%else%>
+              
+              <%= image_tag borrower.own_book.book.image_link, class:"book-img-list u-pull-left"%>
+            <%end%>
+
+                <h6><%=borrower.own_book.book.title %></h6>
+                <p><%= borrower.own_book.book.authors%></p>
+                <p><%= borrower.own_book.book.isbn%></p> 
+                <p><%= borrower.own_book.book.description%></p>
+                <hr>
+          <%end%>
+           </div>
+</div>
+      <%else%>
+        <p>Pas d'emprunts</p>
+      <%end%>
+   <div class="one columns"></div>
+  </div>
+</div>
