@@ -4,7 +4,7 @@
     <h4>Salut <%= @borrower.name %> !</h4>
     <p> Ta demande d'emprunt auprès de <%= @owner.name %> pour son livre <%= link_to @book_to_borrow.book.title, @urls[:show_book], class: "link" %> a été refusée... </p>
     <p>Peut-être qu'une autre personne possède le même livre ?</p> 
-    <p>Pour accéder à ton espace client, connecte-toi via : <%= link_to @urls[:profile_page], @urls[:profile_page], class:"link"  %>.
+    <p>Pour accéder à ton espace client, connecte-toi via : <%= link_to "where-is-my-book.com/sign_in", @urls[:sign_in], class:"link"  %>.
     </p>
     <p> À très vite sur <%= link_to "where-is-my-book.com", @urls[:home_page], class:"link" %> !</p>
     <img src="https://res.cloudinary.com/dcmcouvju/image/upload/v1624268441/LOGO_dt3bob.png" alt="logo WhereIsMyBook" class="logo-mail">

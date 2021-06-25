@@ -23,11 +23,25 @@ class UserMailer < ApplicationMailer
     @urls = { home_page: 'https://where-is-my-book.herokuapp.com/', 
               show_book: "https://where-is-my-book.herokuapp.com/own_books/#{@book_to_borrow.id}",
               messagerie: "https://where-is-my-book.herokuapp.com/private_message/#{@receiver.id}",
-              profile_page: "https://where-is-my-book.herokuapp.com/users/#{@receiver.id}",
+              sign_in: "https://where-is-my-book.herokuapp.com/users/sign_in#{@receiver.id}",
             }
 
     mail(to: @receiver.email, subject: "Demande d'emprunt du livre #{@book_to_borrow.title} sur WhereIsMyBook")
+  end
 
+    def copy_ask_owner_to_borrow_his_book(own_book, current_user)
+
+    @book_to_borrow = own_book.book
+    @borrower = current_user
+    @receiver = own_book.user
+
+    @urls = { home_page: 'https://where-is-my-book.herokuapp.com/', 
+              show_book: "https://where-is-my-book.herokuapp.com/own_books/#{@book_to_borrow.id}",
+              messagerie: "https://where-is-my-book.herokuapp.com/private_message/#{@borrower.id}",
+              sign_in: "https://where-is-my-book.herokuapp.com/users/sign_in#{@borrower.id}",
+            }
+
+    mail(to: @borrower.email, subject: "Envoi de demande d'emprunt du livre #{@book_to_borrow.title} sur WhereIsMyBook")
   end
 
   def request_accepted(loan)

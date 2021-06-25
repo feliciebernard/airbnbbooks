@@ -5,7 +5,7 @@
       <p> Ta demande d'emprunt auprès de <%= @owner.name %> pour son livre <%= link_to @book_to_borrow.book.title, @urls[:show_book], class: "link" %> a été acceptée !</p>
       <p> Voici son adresse mail : <%= @owner.email %> afin de convenir de l'échange.</p> 
       <p>
-        Pour accéder à ton espace client et valider l'emprunt, connecte-toi via : <%= link_to "where-is-my-book.com/sign_in", @urls[:sign_in], class:"link"  %>.
+        Pour accéder à ton espace client et valider l'emprunt, connecte-toi via : <%= link_to "where-is-my-book.com_sign_in", @urls[:sign_in], class:"link"  %>.
       </p>
       <p> À très vite sur <%= link_to "where-is-my-book.com", @urls[:home_page], class:"link" %> !</p>
       <img src="https://res.cloudinary.com/dcmcouvju/image/upload/v1624268441/LOGO_dt3bob.png" alt="logo WhereIsMyBook" class="logo-mail">
