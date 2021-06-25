@@ -1,24 +1,28 @@
-<h2>Change your password</h2>
 
+<div class="row">
+<h2 class="u-text-center text-upp">Changer de Mot de passe</h2>
+  <div class="three column"></div>  
+        <div class="six columns">
+        <hr>
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
   <%= f.hidden_field :reset_password_token %>
 
   <div class="field">
-    <%= f.label :password, "New password" %><br />
+    <%= f.label :password, "Nouveau mot de passe", class:"text-upp text-dark u-full-width"%><br />
     <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em><br />
+      <em>(<%= @minimum_password_length %> caractères minimum)</em><br />
     <% end %>
-    <%= f.password_field :password, autofocus: true, autocomplete: "new-password" %>
+    <%= f.password_field :password, autofocus: true, autocomplete: "new-password", placeholder: "mot de passe"  %>
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation, "Confirm new password" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <%= f.label :password_confirmation, "Confirmation du Mot de Passe", class:"u-full-width text-dark text-upp" %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder:"mot de passe" %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Change my password" %>
+    <%= f.submit "Valider le changement", class:"u-full-width button button-primary" %>
   </div>
 <% end %>
 
