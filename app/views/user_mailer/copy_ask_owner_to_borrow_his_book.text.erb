@@ -1,12 +1,8 @@
-<br>
-<div class="card border-primary" style="max-width: 50rem; background-color: #489FB5;">
-  <div class="card-item">
-    <h6>Salut <%= @borrower.name %> !</h6>
-    <p> Nous avons bien reçu ta demande d'emprunt du livre "<%= link_to "#{@book_to_borrow.title}", @urls[:show_book], class:"link" %>".
-      <br> <%= @receiver.name %> devrait te répondre bientôt.</p>
+Salut <%= @borrower.name %> !
+∙ ∙ ∙ ∙ ∙ ∙ ∙ ∙ ∙ ∙ ∙ ∙ ∙ ∙ ∙ ∙ ∙ ∙ ∙ ∙ ∙ ∙
 
-      <p> À très vite sur <%= link_to "where-is-my-book.com", @urls[:home_page], class:"link" %> !</p>
-      <img src="https://res.cloudinary.com/dcmcouvju/image/upload/v1624268441/LOGO_dt3bob.png" alt="logo WhereIsMyBook" class="logo-mail">
-    </div>
-  </div>
-</div>
+Nous avons bien reçu ta demande d'emprunt du livre "<%= link_to @urls[:show_book], class:"link" %>".
+
+<%= @receiver.name %> devrait te répondre bientôt.
+
+À très vite sur where-is-my-book.herokuapp.com !
