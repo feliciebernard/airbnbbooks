@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Chat</title>
+    <title>WhereIsMyBook</title>
+    <%= favicon_link_tag 'https://res.cloudinary.com/dcmcouvju/image/upload/v1624345217/favicon-16x16_f0llal.png'%>  
     <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag    'application', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
+    <%= csp_meta_tag %>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+
   <body>
-    <div class="container">
-      <%= yield %>
-    </div>
+  <%= render "layouts/navbar"%>
+  
+    <%= yield %>
+    <%=render 'cookies_eu/consent_banner'%>
+    <%= render "layouts/footer" %>
   </body>
 </html>
-
-
