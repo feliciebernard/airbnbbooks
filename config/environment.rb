@@ -13,3 +13,8 @@ ActionMailer::Base.smtp_settings = {
   :authentication => :plain,
   :enable_starttls_auto => true
 }
+
+my_date_formats = { :default => '%d/%m/%Y' } 
+Time::DATE_FORMATS.merge!(my_date_formats) 
+Date::DATE_FORMATS.merge!(my_date_formats)
+
