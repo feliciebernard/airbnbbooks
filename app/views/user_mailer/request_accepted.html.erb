@@ -2,7 +2,7 @@
   <div class="card border-primary" style="max-width: 50rem; background-color: #489FB5;">
     <div class="card-item">
       <h4>Salut <%= @borrower.name %> !</h4>
-      <p> Ta demande d'emprunt auprès de <%= @owner.name %> pour son livre <%= link_to @book_to_borrow.book.title, @urls[:show_book], class: "link" %> a été acceptée !</p>
+      <p> Ta demande d'emprunt auprès de <%= @owner.name %> pour son livre <%= link_to "where-is-my-book.com/book", @book_to_borrow.book.title, @urls[:show_book], class: "link" %> a été acceptée !</p>
       <p> Voici son adresse mail : <%= @owner.email %> afin de convenir de l'échange.</p> 
       <p>
         Pour accéder à ton espace client et valider l'emprunt, connecte-toi via : <%= link_to "where-is-my-book.com/sign_in", @urls[:sign_in], class:"link"  %>.
