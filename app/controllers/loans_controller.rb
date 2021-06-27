@@ -40,7 +40,7 @@ class LoansController < ApplicationController
   def update
     @loan = Loan.find(params[:id])
     if @loan.update(is_accepted: true)
-      redirect_back(fallback_location: root_path, notice: "La demande d'emprunt a bien été accépter, un mail a été envoyer a #{@loan.borrower} pour l'informer")
+      redirect_back(fallback_location: root_path, notice: "La demande d'emprunt a bien été accépter, un mail a été envoyer a #{@loan.borrower.name} pour l'informer")
     else
       redirect_back(fallback_location: root_path, warning: @loan.errors.full_messages.to_s)
     end
