@@ -1,0 +1,6 @@
+<%= link_to 'donner mon avis', edit_own_book_path(own_book), class:"button button-primary" %>
+<% if own_book.loaned? == false && own_book.loan_request? == false %>
+  <%= link_to 'Editer les données du livre', edit_book_path(own_book.book), class:"button button-success" %>
+
+  <%= link_to 'supprimer le livre', own_book, method: :delete, data: { confirm: 'Are you sure?' }, class:"button button-danger" %>
+<% end %>

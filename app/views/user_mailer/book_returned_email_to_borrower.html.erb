@@ -1,0 +1,18 @@
+<br>
+<div class="card border-primary" style="max-width: 50rem; background-color: #489FB5;">
+  <div class="card-item">
+    <h6>Salut <%= @borrower.name %> ! </h6>
+    <p>tu as évoquer le souhait de retourner <%= link_to "#{@own_book.book.title}", @own_book, class:"link" %> a son propriétaire.</p>
+    <p> Merci de lui renvoyer a son addresse: <%= @lender.private_address.to_s %> </p>
+
+    <p>tu peux en discuter avec lui dans ta <%= link_to "messagerie", @urls[:messagerie], class: "link"%> ou directement lui demander par <%= mail_to @lender.email, "mail", class: "link" %></p>
+
+
+    <p> Pour accéder à ton espace client, va sur ta <%= link_to "page profile", @borrower, class:"link"  %>.</p>
+
+    <p> À très vite sur <%= link_to "where-is-my-book.com", @urls[:home_page], class:"link" %> !</p>
+
+    <img src="https://res.cloudinary.com/dcmcouvju/image/upload/v1624268441/LOGO_dt3bob.png" alt="logo WhereIsMyBook" class="logo-mail">
+
+  </div>
+</div>

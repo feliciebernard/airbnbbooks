@@ -1,0 +1,29 @@
+<% if own_book.available %>
+
+  <%= link_to "Emprunter", 
+               own_book_loans_path(own_book.id), 
+               method: :create, class:"button button-success" %>
+
+<% elsif own_book.loaned?%>
+
+  <% if own_book.borrowed_by == current_user %>
+
+    <%= link_to "Le rendre a son propriétaire", 
+        loan_make_it_past_path(loan_id: own_book.current_loan.id), 
+        method: 'patch', class: "first-button button button-success u-full-width" %>
+
+  <% else %>
+
+    <button disabled class="button-success"> déjà emprunté </button>
+
+  <% end %>
+
+<% elsif own_book.is_loan_past? %>
+
+  <button disabled class="button-success"> Bientôt disponible </button>
+
+<% else %>
+
+  <button disabled class="button-success"> Temporairement indisponible </button>
+
+<% end %>

@@ -1,0 +1,43 @@
+<div id = "<%=own_book.genre%>" class="genre-select" >
+  <div class="row">
+    <div class="card card-list">
+      <div class="five columns">
+
+        <% if own_book.book.image_link != nil %>
+
+          <%= link_to image_tag(own_book.book.image_link), 
+              own_book, class:"book-img-list"%>
+
+        <%else%>
+
+          <%= image_tag "https://res.cloudinary.com/dcmcouvju/image/upload/v1624045770/nocover2_o33zpf.jpg", class:"book-img-list"%>
+
+        <%end%>
+
+      </div>
+
+      <div class="seven columns">
+        <h6 class="text-upp text-dark"><%=own_book.book.title %></h6>
+
+        <p>Auteur : <%=own_book.book.authors%></p>
+        <p>Catégorie : <%=own_book.genre%></p> <br>
+        <p>Propriétaire du livre : <%=own_book.user.name%> <br> 
+           Ville : <%=own_book.user.private_address.try(:city).try(:name)%> </p>
+
+        <%= link_to "Fiche du Livre", own_book, class:"button"%>
+
+        <% if current_user_book?(own_book) %>
+
+          <%= render "current_user_book_buttons", own_book: own_book %>
+
+        <% else %>
+
+          <%= link_to "Prêteur", user_path(own_book.user_id), class:"button button-primary"%>
+          <%= render "other_user_book_buttons", own_book: own_book %>
+
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <hr class="hr-index">
+</div>
