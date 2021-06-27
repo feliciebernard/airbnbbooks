@@ -3,8 +3,9 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  has_one_attached :avatar
   after_create :welcome_send
+
+  has_one_attached :avatar
 
   has_many :messages
   has_many :conversations, foreign_key: :sender_id

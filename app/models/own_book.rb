@@ -4,32 +4,31 @@ class OwnBook < ApplicationRecord
 
   has_many :loans
 
-  def mine?
-    user == current_user
-  end
 
   def loan_request?
-    loans.find_by(is_accepted: false).nil? == false
+    loans.any? == true ? loans.last.is_accepted == false : false
   end
 
-  def loan_request
-    loans.order("created_at DESC").find_by(is_accepted: false)
+  def current_loan
+    loans.last
+  end
+
+  def is_loan_past?
+    loans.any? == true ? loans.last.is_past : false
   end
 
   def loaned?
-    loans.find_by(is_accepted: true, is_past: false).nil? == false
+    if loans.any?
+      last_loan = loans.last
+      last_loan.is_accepted == true && last_loan.is_past == false
+    else
+      false
+    end
   end
 
-  def loaned
-    loans.find_by(is_accepted: true, is_past: false)
-  end
 
   def borrowed_by
-    loans.find_by(is_accepted: true, is_past: false).borrower
-  end
-
-  def loaned_by
-    loans.find_by(is_accepted: true, is_past: false).lender
+    loans.last.borrower
   end
 
   def self.search(search)  

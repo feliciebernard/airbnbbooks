@@ -20,11 +20,18 @@ Rails.application.routes.draw do
     end
     resources :messages, only: [:create]
   end
-  
+
   resources :own_books do
-      patch :set_available
-      resources :loans
+    patch :set_available
+    resources :loans
   end
+
+  resources :loans, only: [:patch] do 
+    patch :make_it_past
+  end
+
+
+
 
 
   resources :books

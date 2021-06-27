@@ -5,75 +5,72 @@ class UserMailer < ApplicationMailer
   def welcome_email(user)
 
     @user = user
-
-
     @url  = 'https://where-is-my-book.herokuapp.com/' 
-    @url_login = 'https://where-is-my-book.herokuapp.com/users/sign_in'
-
 
     mail(to: @user.email, subject: 'Bienvenue dans ce nouveau monde qui s\'offre à vous...')
   end
 
-  def ask_owner_to_borrow_his_book(own_book, current_user)
+  def ask_owner_to_borrow_his_book(loan)
 
-    @book_to_borrow = own_book.book
-    @borrower = current_user
-    @receiver = own_book.user
+    set_mail_infos(loan)
+    @urls = set_urls(loan.lender)
 
-    @urls = { home_page: 'https://where-is-my-book.herokuapp.com/', 
-              show_book: "https://where-is-my-book.herokuapp.com/own_books/#{@book_to_borrow.id}",
-              messagerie: "https://where-is-my-book.herokuapp.com/private_message/#{@receiver.id}",
-              sign_in: "https://where-is-my-book.herokuapp.com/users/#{@receiver.id}",
-            }
-
-    mail(to: @receiver.email, subject: "Demande d'emprunt du livre #{@book_to_borrow.title} sur WhereIsMyBook")
+    mail(to: @lender.email, subject: "Demande d'emprunt du livre #{@own_book.book.title} sur WhereIsMyBook")
   end
 
-    def copy_ask_owner_to_borrow_his_book(own_book, current_user)
+  def copy_ask_owner_to_borrow_his_book(loan)
 
-    @book_to_borrow = own_book.book
-    @borrower = current_user
-    @receiver = own_book.user
+    set_mail_infos(loan)
+    @urls = set_urls(loan.borrower)
 
-    @urls = { home_page: 'https://where-is-my-book.herokuapp.com/', 
-              show_book: "https://where-is-my-book.herokuapp.com/own_books/#{@book_to_borrow.id}",
-              messagerie: "https://where-is-my-book.herokuapp.com/private_message/#{@borrower.id}",
-              sign_in: "https://where-is-my-book.herokuapp.com/users/#{@borrower.id}",
-            }
+    mail(to: @lender.email, subject: "Demande d'emprunt du livre #{@own_book.book.title} sur WhereIsMyBook")
 
-    mail(to: @borrower.email, subject: "Envoi de demande d'emprunt du livre #{@book_to_borrow.title} sur WhereIsMyBook")
   end
 
   def request_accepted(loan)
-    @book_to_borrow = loan.own_book
-    @owner = loan.lender
-    @borrower = loan.borrower
 
+    set_mail_infos(loan)
+    @urls = set_urls(loan.borrower)
 
-    @urls = { home_page: 'https://where-is-my-book.herokuapp.com/', 
-              show_book: "https://where-is-my-book.herokuapp.com/own_books/#{@book_to_borrow.id}",
-              messagerie: "https://where-is-my-book.herokuapp.com/private_message/#{@borrower.id}",
-              sign_in: "https://where-is-my-book.herokuapp.com/users/#{@borrower.id}"
-    }
-
-    mail(to: @borrower.email, subject: "WhereIsMyBook emprunt du livre #{@book_to_borrow.book.title} de #{@owner.name} acceptée")
+    mail(to: @borrower.email, subject: "WhereIsMyBook emprunt du livre #{@own_book.book.title} de #{@lender.name} acceptée")
   end
 
   def request_declined(loan)
 
-    @book_to_borrow = loan.own_book
-    @owner = loan.lender
+    set_mail_infos(loan)
+    @urls = set_urls(loan.borrower)
+
+    mail(to: @borrower.email, subject: "WhereIsMyBook emprunt du livre #{@own_book.book.title} de #{@lender.name}")
+  end
+
+  def book_returned_email_to_owner(loan)
+
+    set_mail_infos(loan)
+    @urls = set_urls(loan.lender)
+
+    mail(to: @lender.email, subject: "WhereIsMyBook retour du livre #{@own_book.book.title}")
+
+  end
+
+  def book_returned_email_to_borrower(loan)
+
+    set_mail_infos(loan)
+    @urls = set_urls(loan.borrower)
+
+    mail(to: @borrower.email, subject: "WhereIsMyBook souhait de retourner le livre #{@own_book.book.title}")
+  end
+
+  def set_mail_infos(loan)
+    @own_book = loan.own_book
+    @lender = loan.lender
     @borrower = loan.borrower
+  end
 
-
-    @urls = { home_page: 'https://where-is-my-book.herokuapp.com/', 
-              show_book: "https://where-is-my-book.herokuapp.com/own_books/#{@book_to_borrow.id}",
-              messagerie: "https://where-is-my-book.herokuapp.com/private_message/#{@borrower.id}",
-              sign_in: "https://where-is-my-book.herokuapp.com/users/#{@borrower.id}",
+  def set_urls(recipient)
+    {
+      home_page: 'https://where-is-my-book.herokuapp.com/',
+      messagerie: "https://where-is-my-book.herokuapp.com/private_message/#{recipient.id}"
     }
-
-    mail(to: @borrower.email, subject: 
-         "WhereIsMyBook emprunt du livre #{@book_to_borrow.book.title} de #{@owner.name}")
   end
 
   def set_book_to_borrow

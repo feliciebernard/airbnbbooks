@@ -1,6 +1,7 @@
 class OwnBooksController < ApplicationController
   before_action :set_own_book, only: %i[show edit update destroy ]
   before_action :authenticate_user!
+  helper :own_books
 
 
   # GET /own_books or /own_books.json
@@ -13,9 +14,9 @@ class OwnBooksController < ApplicationController
     if params[:search].blank?  
       redirect_to(root_path, notice: "Il faut taper quelque chose dans la barre de recherche !") and return  
     else
-     @own_books = OwnBook.joins(:book, :user).search(params[:search])
-   end  
- end
+      @own_books = OwnBook.joins(:book, :user).search(params[:search])
+    end  
+  end
 
   # GET /own_books/1 or /own_books/1.json
   def show
@@ -70,21 +71,17 @@ class OwnBooksController < ApplicationController
   def set_available
     @own_book = OwnBook.find(params[:own_book_id])
     @own_book.available == true ? @own_book.update(available: false) : @own_book.update(available: true)
-    redirect_back(fallback_location: root_path)
-  end
-  def own_books_in_loan_request
-    Loans.find_by()
+    redirect_back(fallback_location: root_path, notice: "super ! votre livre est bien entre vos mains et le livre est a nouveau disponible pour les autres utilisateurs du sites")
   end
 
-  
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_own_book
-      @own_book = OwnBook.find(params[:id])
-    end
-
-    # Only allow a list of trusted parameters through.
-    def own_book_params
-      params.require(:own_book).permit(:review, :appreciation, :genre, :search)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_own_book
+    @own_book = OwnBook.find(params[:id])
   end
+
+  # Only allow a list of trusted parameters through.
+  def own_book_params
+    params.require(:own_book).permit(:review, :appreciation, :genre, :search)
+  end
+end

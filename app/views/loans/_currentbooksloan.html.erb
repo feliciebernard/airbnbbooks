@@ -7,19 +7,19 @@
       
         <hr>
         <%if !user_loan?(current_user) %>
-          <% borrowers.each do |borrower| %>
-         <%= link_to "Prêté par #{borrower.lender.name} le #{borrower.updated_at}", user_path(borrower.lender.id) , class: "button button-success u-pull-right"%>
-            <% if borrower.own_book.book.image_link.nil? %>
+          <% @loans_to_current_user.each do |loan| %>
+         <%= link_to "Prêté par #{loan.lender.name} le #{loan.updated_at}", user_path(loan.lender.id) , class: "button button-success u-pull-right"%>
+          <%= mail_to loan.lender.email, "Le Rendre a son propriétaire" ,class:"first-button button button-primary u-full-width"%></div>
+            <% if loan.own_book.book.image_link.nil? %>
                 <%= image_tag "https://res.cloudinary.com/dcmcouvju/image/upload/v1624045770/nocover2_o33zpf.jpg", class:"u-pull-left"%>
             <%else%>
-              
-              <%= image_tag borrower.own_book.book.image_link, class:"book-img-list u-pull-left"%>
+              <%= image_tag loan.own_book.book.image_link, class:"book-img-list u-pull-left"%>
             <%end%>
 
-                <h6><%=borrower.own_book.book.title %></h6>
-                <p><%= borrower.own_book.book.authors%></p>
-                <p><%= borrower.own_book.book.isbn%></p> 
-                <p><%= borrower.own_book.book.description%></p>
+                <h6><%=loan.own_book.book.title %></h6>
+                <p><%= loan.own_book.book.authors%></p>
+                <p><%= loan.own_book.book.isbn%></p> 
+                <p><%= loan.own_book.book.description%></p>
                 <hr>
           <%end%>
            </div>

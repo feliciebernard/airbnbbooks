@@ -7,8 +7,10 @@
       
         <hr>
         <%if !user_borrow?(current_user) %>
-          <% lenders.each do |loan| %>
+          <% @loans_to_current_user.each do |loan| %>
           <%= link_to "Prêté à #{loan.borrower.name} le #{loan.updated_at}", user_path(loan.borrower.id) , class: "button button-success u-pull-right"%>
+
+          <%= link_to "Livre récupérer ?", "", class: "button button-success" %> 
             <% if loan.own_book.book.image_link.nil? %>
               <%= image_tag "https://res.cloudinary.com/dcmcouvju/image/upload/v1624045770/nocover2_o33zpf.jpg", class:"u-pull-left"%>
             <%else%>

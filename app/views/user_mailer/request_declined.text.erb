@@ -1,7 +1,7 @@
 Salut <%= @borrower.name %> !
 ∙ ∙ ∙ ∙ ∙ ∙ ∙ ∙ ∙ ∙ ∙ ∙ ∙ ∙ ∙ ∙ ∙ ∙ ∙ ∙ ∙ ∙
-Ta demande d'emprunt auprès de <%= @owner.name %> pour son livre <%= link_to @book_to_borrow.book.title, @urls[:show_book], class: "link" %> a été refusée... </p>
+Ta demande d'emprunt auprès de <%= @lender.name %> pour son livre <%= link_to @own_book.book.title, @own_book, class: "link" %> a été refusée... </p>
     <p>Peut-être qu'une autre personne possède le même livre ?</p> 
-    <p>Pour accéder à ton espace client, connecte-toi via : <%= link_to "where-is-my-book.herokuapp.com/sign_in", @urls[:sign_in], class:"link"  %>.
+    <p>Pour accéder à ton espace client, connecte-toi via : <%= link_to "where-is-my-book.herokuapp.com/sign_in", @borrower, class:"link"  %>.
     </p>
 À très vite sur where-is-my-book.herokuapp.com !
