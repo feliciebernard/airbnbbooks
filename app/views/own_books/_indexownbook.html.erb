@@ -124,7 +124,7 @@
                   
                   <p>
                     <strong class="text-dark text-upp">Propriétaire du livre :</strong>
-                    <%= link_to own_book.user.name, user_path(own_book.user_id) %>
+                    <%= link_to own_book.user.name, user_path(own_book.user_id), class:"text-info" %>
                   </p>
                   <%= link_to "Plus d'infos", own_book, class:"button button-primary u-pull-right"%>
                 </div>
