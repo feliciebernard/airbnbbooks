@@ -7,6 +7,7 @@ class OwnBooksController < ApplicationController
   def index
     @own_books = OwnBook.all.order('created_at DESC')
     @user = current_user
+    @book = Book.all
   end
 
   def search  
