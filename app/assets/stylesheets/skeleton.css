@@ -149,12 +149,12 @@ html {
 }
 
 body {
-  background-color: #fff;
+  background-color: #EDE7E3;
+  font-family: Futura, Futura Now Headline, Futura Now Script, sans-serif;
   font-size: 1rem;
   line-height: 1.6rem;
   font-weight: 400;
-  font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #222;
+  color: #073131;
 }
 
 .container {
@@ -670,25 +670,25 @@ h6 {
 /* Links */
 
 a {
-  color: #1EAEDB;
+  color: #EDE7E3;
 }
 
 a:hover {
-  color: #0FA0CE;
+  color: #EDE7E3;
 }
 
 /* Colors */
 
 .text-primary {
- color: #1EAEDB
+ color: #1EAEDB;
 }
 
 .text-success {
-  color: #2ecc71
+  color: #FFA62B;
 }
 
 .text-danger {
-  color: #e74c3c
+  color: #e74c3c;
 }
 
 .button,
@@ -947,26 +947,6 @@ input[type="button"].button-info:disabled {
   cursor: not-allowed;
   background-color: #fffaf7;
   border-color: #fffaf7;
-}
-
-@media (min-width: 400px) {
-
-}
-
-@media (min-width: 560px) {
-  /* Larger than phablet (also point when grid becomes active) */
-}
-
-@media (min-width: 720px) {
-  /* Larger than tablet */
-}
-
-@media (min-width: 960px) {
-  /* Larger than desktop */
-}
-
-@media (min-width: 1200px) {
-  /* Larger than Desktop HD */
 }
 
 input[type="email"],
@@ -1384,6 +1364,7 @@ margin-bottom:2.5rem;
 border-width: 0;
 border-top: 1px solid #16697A;
 }
+
 /* Clearing */
 
 .container:after,
@@ -1420,332 +1401,4 @@ border-top: 1px solid #16697A;
 
 @media (min-width: 1200px) {
   /* Larger than Desktop HD */
-}
-
-
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  background-color: #EDE7E3;
-  font-family: Futura, Futura Now Headline, Futura Now Script, sans-serif;  
-}
-
-.navbar {
-  float:right;
-  background-color: #489FB5;
-  height: 135px;
-}
-
-.hamburger {
-  width: 25%;
-}
-
-.hamburger:hover {
-  background-color: transparent;
-}
-
-.polygon-navbar {
-  position: absolute;
-}
-
-.dropdown {
- position: relative;
- margin-left: -10%;
-}
-
-.dropdown-content {
-  display: none;
-  background-color: #489FB5;
-  min-width: 160px;
-  z-index: 1;
-  padding: 12px 16px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  opacity: 85%;
-}
-
-li {
-  list-style: none;
-  text-align: center;
-
-}
-a.link {
-  text-decoration: none;
-  color: #EDE7E3;
-}
-a.link-index {
-  text-decoration: none;
-  color: #16697A;
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-
-h2 {
-  font-family: Futura;
-  letter-spacing: 1px;
-  color:#16697A;
-}
-
-input.placeholder {
-  font-family: Futura Now Headline;
-}
-
-input.u-full-width {
-  border: none;
-}
-
-footer {
-  background-color: #489FB5;
-  height: 135px;
-}
-
-.logo-footer {
-  width: 10%;
-  margin-top: 60px;
-  margin-left: -60px;
-}
-
-.polygon-footer {
-  margin-top: -1px;
-  margin-left: -45%;
-}
-
-.text-dark {
-  color: #073131;
-}
-.text-light {
-  color: #EDE7E3;
-}
-
-.text-success {
-  color: #FFA62B;
-}
-
-.text-info {
-  color: #16697A;
-}
-
-
-.headtitle {
-  width: fit-content;
-  max-width: max-content;
-  display: block;
-  margin-top:10%;
-  margin-left:auto;
-  margin-right:auto;
-}
-
-.arrow {
-  position: absolute;
-  margin-top: 10%;
-  display: inline-block;
-  left:45%;
-}
-
-
-p.rights {
-  text-align: center;
-}
-
-.man-reading {
-  display: block;
-  margin: auto;
-  width:100px;
-}
-
-.about-btn {
-  margin-top: 50px;
-  margin-bottom: 100px;
-}
-
-.about2 {
-  text-align: right;
-}
-
-.woman-reading {
-  display: block;
-  margin: auto;
-  width:100px;
-}
-
-.transformation {
-  position: relative;
-  animation-name: example;
-  animation-duration: 5s;
-  animation-iteration-count: infinite;
-}
-
-@keyframes example {
-  0%   {bottom:25px; top:0px;}
-  25%  {bottom:25px; top:0px;}
-  50%  {bottom:25px; top:25px;}
-  75%  {bottom:25px; top:25px;}
-  100% {bottom:0px; top:0px;}
-}
-
-.user-profile {
-  max-width: 300px;
-  min-height: 1500px;
-  background: #82C0CC;
-  margin-left: 20%;
-}
-
-.avatar {
-  max-width: 300px;
-  background-color:#16697A;
-  margin: auto;
-  object-fit: cover;
-}
-.username {
-  text-align: center;
-  font-size: 2rem;
-}
-
-.user-description {
-  text-align: justify;
-}
-
-.first-button {
-  margin-top: 10px;
-}
-
-.book-img {
-  width:20%;
-}
-
-.book-name {
-  text-align: center;
-}
-
-.book-container {
-  margin-top:50px;
-  width:100%;
-}
-
-
-.card-item {
- width: 500px;
-}
-.book-img-list {
-  width:10%;
-  max-height: 150px;
-  margin-right:5%;
-}
-.card-list {
-  border:none;
-  box-shadow: none;
-  padding-right:20%;
-}
-.card-search {
-  border:none;
-  box-shadow: none;
-}
-
-.button-select-genre {
-min-width: 11rem;
-}
-.select-text {
-  opacity: .7;
-}
-
-.book-description {
-  padding-left: 15%;
-}
-
-ul.contact-list {
-  display: flex;
-  justify-content: center;
-  justify-content: space-around;
-  color: #073131
-}
-i.icon-contact{
-  font-size: 40px;
-  padding-bottom: 5%;
-
-}
-
-.text-footer {
-  letter-spacing: 1px;
-  max-width: 100%;
-}
-
-.profile-text {
-  text-decoration: underline;
-}
-
-.bigger-anim {
-  
-  transform: scale(1);
-}
-
-.bigger-anim:hover {
-  background-color: #FFA62B;
-  /*  Making button bigger on hover  */
-  transition: all .5s ease;
-    transform: scale(1.5) perspective(1px);
-}
-
-.smaller-anim:hover {
-  background-color: #FFA62B;
-  /*  Making button bigger on hover  */
-  transition: all .5s ease;
-    transform: scale(.5) perspective(1px);
-}
-
-/* Cookies Consent */
-
-
-/* main div */
-.cookies-eu {
-height: 200px;
-width: 400px;
-left:2.5rem;
-bottom: 25px;
-background-color: #EDE7E3;
-box-shadow: 0px 2px 5px #16697A;
-border-radius: 1rem;
-}
-
-/* Button Cookies */
-.cookies-eu .cookies-eu-button-holder .cookies-eu-ok {
-  background-color: #489FB5;
-  height: 2.5rem;
-  margin-top: 1rem;
-  padding: 1em 2em 2em;
-  -webkit-transition: background-color 0.2s;
-  transition: background-color 0.2s;
-}
-
-.cookies-img {
- position: absolute;
- left: 21rem;
- bottom: 8rem;
-  height:150px;
-}
-
-.text-bold {
-  font-weight: 600;
-  letter-spacing: 1px;
-}
-
-.city-link {
-  color:#073131;
-  text-decoration: none;
-}
-.city-link:hover {
-  color:#073131;
-}
-
-.city-link:visited {
-  color:#073131;
-}
-
-.card-loan {
-  border:none;
-  box-shadow: none;
 }

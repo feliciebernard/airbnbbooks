@@ -1,22 +1,22 @@
-html {
-  scroll-behavior: smooth;
-}
-
-
 .navbar {
-  width: 100%;
   background-color: #489FB5;
   height: 135px;
-  margin-left: -8px;
-  margin-bottom: 5%;
+  margin-bottom:5%;
 }
 
+.arrow {
+  position: absolute;
+  margin-top: 10%;
+  display: inline-block;
+  left:45%;
+}
 .arrow:hover {
   background-color: transparent;
 }
 
 .hamburger {
-  position:  relative;
+  width: 25%;
+  position: absolute;
   height: -25px;
   margin-top: 45px;
   color:  #16697A;
@@ -30,7 +30,7 @@ html {
 }
 
 .dropdown {
- position: absolute;
+ position: relative;
  margin-left: -10%;
 }
 
@@ -49,42 +49,30 @@ li {
   text-align: center;
 
 }
+a.link {
+  text-decoration: none;
+  color: #EDE7E3;
+}
+
 a.link:hover {
   background-color: transparent;
   color: #EDE7E3;
 }
+a.link-index {
+  text-decoration: none;
+  color: #16697A;
+}
 
 .dropdown:hover .dropdown-content {
   display: block;
+  position: relative;
 }
 
-
-input.placeholder {
-  font-family: Futura Now Headline;
+h2 {
+  font-family: Futura;
+  letter-spacing: 1px;
+  color:#16697A;
 }
-
-input.u-full-width {
-  border: none;
-}
-
-footer {
-  background-color: #489FB5;
-  height: 135px;
-  width: 100%;
-  margin-top:5%;
-}
-
-.logo-footer {
-  width: 10%;
-  margin-top: 60px;
-  margin-left: -60px;
-}
-
-.polygon-footer {
-  margin-top: -1px;
-  margin-left: -45%;
-}
-
 .text-dark {
   color: #073131;
 }
@@ -100,15 +88,49 @@ footer {
   color: #489FB5;
 }
 
+.text-footer {
+  letter-spacing: 1px;
+  max-width: 100%;
+}
+
+input.placeholder {
+  font-family: Futura Now Headline;
+}
+
+input.u-full-width {
+  border: none;
+}
+
+footer {
+  background-color: #489FB5;
+  height: 135px;
+}
+
+.logo-footer {
+  width: 10%;
+  margin-top: 60px;
+  margin-left: -60px;
+}
+
+.polygon-footer {
+  margin-top: -1px;
+  margin-left: -45%;
+}
+
+
 .titlepage {
   max-width: 1920px;
   max-height: 1080px;
 }
 
 .headtitle {
+  width: fit-content;
+  max-width: max-content;
   display: block;
-
-}
+  margin-top:10%;
+  margin-left:auto;
+  margin-right:auto;
+ }
 p.rights {
   text-align: center;
 }
@@ -117,6 +139,11 @@ p.rights {
   display: block;
   margin: auto;
   width:100px;
+}
+
+.about-btn {
+  margin-top: 50px;
+  margin-bottom: 100px;
 }
 
 .about2 {
@@ -151,8 +178,21 @@ p.rights {
   margin-left: 20%;
   margin-top: 10%;
 }
+
+.profile-text {
+  text-decoration: underline;
+}
+
+.avatar {
+  max-width: 300px;
+  background-color:#16697A;
+  margin: auto;
+  object-fit: cover;
+}
+
 .username {
   text-align: center;
+  font-size: 2rem;
 }
 
 .user-description {
@@ -175,7 +215,11 @@ p.rights {
   margin-top:50px;
   width:100%;
 }
-
+.book-img-list {
+  width:10%;
+  max-height: 150px;
+  margin-right:5%;
+}
 
 .card-item {
  width: 500px;
@@ -186,6 +230,12 @@ p.rights {
   box-shadow: none;
   padding-right:20%;
 }
+
+.card-search {
+  border:none;
+  box-shadow: none;
+}
+
 .book-description {
   padding-left: 15%;
 }
@@ -220,7 +270,14 @@ p.rights {
   width:100px;
 }
 
+.button-select-genre {
+  min-width: 11rem;
+  }
 
+.select-text {
+    opacity: .7;
+  }
+  
 
 
 
@@ -259,4 +316,77 @@ p.rights {
     margin: 5px 20px;
     padding: 10px;
     float: left;
+  }
+
+  .bigger-anim {
+    transform: scale(1);
+  }
+  
+  .bigger-anim:hover {
+    background-color: #FFA62B;
+    /*  Making button bigger on hover  */
+    transition: all .5s ease;
+      transform: scale(1.5) perspective(1px);
+  }
+  
+  .smaller-anim:hover {
+    background-color: #FFA62B;
+    /*  Making button bigger on hover  */
+    transition: all .5s ease;
+      transform: scale(.5) perspective(1px);
+  }
+
+
+  /* Cookies Consent */
+
+
+/* main div */
+.cookies-eu {
+  height: 200px;
+  width: 400px;
+  left:2.5rem;
+  bottom: 25px;
+  background-color: #EDE7E3;
+  box-shadow: 0px 2px 5px #16697A;
+  border-radius: 1rem;
+  }
+  
+  /* Button Cookies */
+  .cookies-eu .cookies-eu-button-holder .cookies-eu-ok {
+    background-color: #489FB5;
+    height: 2.5rem;
+    margin-top: 1rem;
+    padding: 1em 2em 2em;
+    -webkit-transition: background-color 0.2s;
+    transition: background-color 0.2s;
+  }
+  
+  .cookies-img {
+   position: absolute;
+   left: 21rem;
+   bottom: 8rem;
+    height:150px;
+  }
+
+
+  .text-bold {
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+  
+  .city-link {
+    color:#073131;
+    text-decoration: none;
+  }
+  .city-link:hover {
+    color:#073131;
+  }
+  
+  .city-link:visited {
+    color:#073131;
+  }
+  
+  .card-loan {
+    border:none;
+    box-shadow: none;
   }
