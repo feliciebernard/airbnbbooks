@@ -34,7 +34,7 @@ class LoansController < ApplicationController
 
     respond_to do |format|
       if @loan.save
-        format.html { redirect_back(fallback_location: root_path, notice: "La demande d'emprunt a été envoyé au propriétaire du livre.") }
+        format.html { redirect_back(fallback_location: root_path, notice: "La demande d'emprunt a été envoyée au propriétaire du livre.") }
         format.json { render :show, status: :created, location: @loan }
       else
         format.html { render root_path, status: :unprocessable_entity }
