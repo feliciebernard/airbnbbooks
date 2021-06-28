@@ -281,6 +281,7 @@ p.rights {
   width:10%;
   max-height: 150px;
   margin-right:5%;
+  object-fit: cover;
 }
 
 .card-item {

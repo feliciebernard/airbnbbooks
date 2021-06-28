@@ -35,11 +35,12 @@
 
           <% if own_book.book.image_link != nil %>
           <%= link_to image_tag(own_book.book.image_link), own_book, class:"book-img-list"%>
+          <div class="one column"></div>
           <%else%>
           <%= image_tag "https://res.cloudinary.com/dcmcouvju/image/upload/v1624045770/nocover2_o33zpf.jpg", class:"book-img-list"%>
           <%end%>
         </div>
-        <div class="seven columns">
+        <div class="six columns">
           <h6 class="text-upp text-dark"><%=own_book.book.title %></h6>
           <p>Auteur : <%=own_book.book.authors%></p>
           <p>Catégorie : <%=own_book.genre %></p>
