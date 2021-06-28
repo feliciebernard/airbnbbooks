@@ -54,11 +54,11 @@
 
 
           <!-- Trigger/Open The Modal -->
-          <button id = <%=i%> class="btntrig button button-success" onclick="OpenModal()">Fiche du Livre</button>
+          <button id = "<%=i%>" class="btntrig button button-success" onclick="OpenModal()">Fiche du Livre</button>
           
           <!-- The Modal -->
-          <div id = <%=i%> class="modal">
-          
+          <div id = "<%=i%>" class="modal">
+            
             <!-- Modal content -->
             <div class="modal-content">
               <span id="<%=i%>" class="close">&times;</span>
@@ -71,72 +71,72 @@
               <h2 class="text-upp u-text-center"><%= own_book.book.title %></h2>
               
               <div class="row">
-              <div class="container">
-              <hr>
-              <div class="six columns">
-              <%= image_tag own_book.book.image_link%>
-              <p>
-                <strong class="text-dark text-upp">ISBN :</strong>
-                <%= (own_book.book.isbn != '' ? own_book.book.isbn : empty) %>
-              </p>
-              <p>
-                <strong class="text-dark text-upp">Auteur.e.s :</strong>
-                <%= (own_book.book.authors != '' ? own_book.book.authors : empty) %>
-              </p>
-              
-              <p>
-                <strong class="text-dark text-upp">Editions :</strong>
-                <%= (own_book.book.publisher != '' ? own_book.book.publisher : empty) %>
-              </p>
+                <div class="container">
+                  <hr>
+                  <div class="six columns">
+                    <%= image_tag own_book.book.image_link%>
+                    <p>
+                      <strong class="text-dark text-upp">ISBN :</strong>
+                      <%= (own_book.book.isbn != '' ? own_book.book.isbn : empty) %>
+                    </p>
+                    <p>
+                      <strong class="text-dark text-upp">Auteur.e.s :</strong>
+                      <%= (own_book.book.authors != '' ? own_book.book.authors : empty) %>
+                    </p>
+                    
+                    <p>
+                      <strong class="text-dark text-upp">Editions :</strong>
+                      <%= (own_book.book.publisher != '' ? own_book.book.publisher : empty) %>
+                    </p>
+                  </div>
+                  <p>
+                    <strong class="text-dark text-upp">Date de publication :</strong>
+                    <%= (own_book.book.published_date != '' ? own_book.book.published_date : empty) %>
+                  </p>
+                  
+                  <p>
+                    <strong class="text-dark text-upp">Langue :</strong>
+                    <%= (own_book.book.language != '' ? own_book.book.language : empty) %>
+                  </p>
+                  
+                  
+                  
+                  <p>
+                    <strong class="text-dark text-upp">Résumé :</strong>
+                    <%= (own_book.book.description != '' ? own_book.book.description : empty) %>
+                  </p>
+                  <p>
+                    <strong class="text-dark text-upp">Critique :</strong>
+                    <%= own_book.review %>
+                  </p>
+                  <hr>
+                  <p>
+                    <strong class="text-dark text-upp">Catégorie :</strong>
+                    <%= own_book.genre %>
+                  </p>
+                  
+                  
+                  
+                  <p>
+                    <strong class="text-dark text-upp">Note :</strong>
+                    <%= own_book.appreciation %>/5
+                  </p>
+                  
+                  <p>
+                    <strong class="text-dark text-upp">Propriétaire du livre :</strong>
+                    <%= link_to own_book.user.name, user_path(own_book.user_id) %>
+                  </p>
+                  <%= link_to "Plus d'infos", own_book, class:"button button-primary u-pull-right"%>
+                </div>
+                
               </div>
-              <p>
-                <strong class="text-dark text-upp">Date de publication :</strong>
-                <%= (own_book.book.published_date != '' ? own_book.book.published_date : empty) %>
-              </p>
               
-              <p>
-                <strong class="text-dark text-upp">Langue :</strong>
-                <%= (own_book.book.language != '' ? own_book.book.language : empty) %>
-              </p>
-              
-              
-              
-              <p>
-                <strong class="text-dark text-upp">Résumé :</strong>
-                <%= (own_book.book.description != '' ? own_book.book.description : empty) %>
-              </p>
-              <p>
-                <strong class="text-dark text-upp">Critique :</strong>
-                <%= own_book.review %>
-              </p>
-                <hr>
-                <p>
-                <strong class="text-dark text-upp">Catégorie :</strong>
-                <%= own_book.genre %>
-              </p>
-              
-              
-              
-              <p>
-                <strong class="text-dark text-upp">Note :</strong>
-                <%= own_book.appreciation %>/5
-              </p>
-              
-              <p>
-                <strong class="text-dark text-upp">Propriétaire du livre :</strong>
-                <%= link_to own_book.user.name, user_path(own_book.user_id) %>
-              </p>
-              <%= link_to "Plus d'infos", own_book, class:"button button-primary u-pull-right"%>
-              </div>
-              
-              </div>
-              
+            </div>
+          </div>
+          <hr class="hr-index">
         </div>
       </div>
-    <hr class="hr-index">
     </div>
-    </div>
-  </div>
   </div>
   <%i+=1%>
   <%end%>
