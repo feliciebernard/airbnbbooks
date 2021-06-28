@@ -68,7 +68,7 @@ class LoansController < ApplicationController
     UserMailer.request_declined(@loan).deliver_now
 
     respond_to do |format|
-      format.html { redirect_back fallback_location: root_path, notice: "Loan was successfully destroyed." }
+      format.html { redirect_back fallback_location: root_path, notice: "La réservation a bien été supprimée." }
       format.json { head :no_content }
     end
   end

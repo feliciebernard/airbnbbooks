@@ -1,37 +1,46 @@
 <!DOCTYPE html>
 <head><%= stylesheet_link_tag "application" %></head>
-   <%= stylesheet_link_tag "https://use.typekit.net/cdj6txt.css" %>
-  <div class="u-full-width">
+<%= stylesheet_link_tag "https://use.typekit.net/cdj6txt.css" %>
+<div class="u-full-width">
   <div class="row">
     <%=image_tag "HEADTITLE.png", class:"headtitle"%>
-    </div>
-    <div class="row">
-    
-    <%=link_to image_tag("ARROW.png"), root_path(anchor: 'concept'), class:"arrow transformation" %>
-    
-    </div>
+  </div>
+  <div class="row">
+    <%=link_to image_tag("ARROW.png"), root_path(anchor: 'concept'), class:"arrow transformation" %> 
+  </div>
   <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-<%= render "layouts/navbar"%>
+  <%= render "layouts/navbar"%>
   <div class="row">
     <div class="five columns"></div>
-  <%=link_to "s'identifier", new_user_session_path, class:"button button-primary"%>
-  <%=link_to "s'inscrire",  new_user_registration_path, class:"button button-success"%>
-  <div class="seven columns"></div>
-</div>
+    <%=link_to "s'identifier", new_user_session_path, class:"button button-primary"%>
+    <%=link_to "s'inscrire",  new_user_registration_path, class:"button button-success"%>
+    <div class="seven columns"></div>
+  </div>
   <section>
     <div class="row">
       <div class="three columns"></div>
       <div class="one column"><%=image_tag "man-reading.svg", class:"man-reading"%></div>
       <div class="one column"></div>
-      <div class="five columns"><h4 class="text-success">Une nouvelle plateforme d’échange</h4>
-        <p class="about text-dark">Nous pouvons observer que très souvent nous prêtons des livres ou en empruntons et, quelques mois après, nous ne savons plus à qui et où ils sont ! 😰 Ou alors, parfois nous cherchons un livre qui n'est plus en vente et n'avons aucune idée qu'un ami, une connaissance, l'a en sa possession, en train de prendre la poussière dans la bibliothèque. 🤓<br> Where is my book est la solution à ce genre de souci !</p></div>
-        <div class="two columns"></div>
-  </div>
+      <div class="five columns">
+        <h4 class="text-success">Une nouvelle plateforme d’échange</h4>
+        <p class="about text-dark">Nous avons observé qu'il arrive très souvent qu'on ne se souvienne plus à qui l'on prête ou à qui l'on emprunte des livres.<br>
+          Where is my book sera votre mémoire en ligne.<br>
+          D'autre fois, nous cherchons un livre précis mais il n'est plus en vente. Or, il est tout à fait possible qu'un.e ami.e ou une connaissance l'ait dans sa bibliothèque et qu'il soit en train de prendre la poussière !<br>
+        Avec Where is my book, vous saurez immédiatement si une personne de votre communauté le possède.</p>
+      </div>
+      <div class="two columns"></div>
+    </div>
 
-  <div class="row">
-    <div class="three columns"></div>
-    <div class="five columns"><h4 class="text-info about2">Partagez et découvrez de nouvelles lectures</h4>
-      <p class="about2 text-dark">Where is my book est bien plus qu'une plateforme de prêt de livres, c'est aussi l'occasion de découvrir de nombreux livres que vous n'auriez pas imaginé, d'ajouter un avis sur vos propres livres, et peut-être de faire de nouvelles rencontres...</p></div>
-    <div class="two column"><%=image_tag "woman-reading.svg", class:"woman-reading"%></div>
-</div>  <br />  <br />  <br /></section>
+    <div class="row">
+      <div class="three columns"></div>
+      <div class="five columns">
+        <h4 class="text-info about2">Partagez et découvrez de nouvelles lectures</h4>
+        <p class="about2 text-dark">Where is my book est plus qu'une simple plateforme de prêt de livres. Ici vous allez pouvoir vous constituer un réseau de lecteur.ices avec lesquel.les partager vos intérêts ou vos coups de cœur. Vous allez faire des découvertes de lectures inattendues et, pourquoi pas, faire de nouvelles rencontres !</p>
+      </div>
+      <div class="two column">
+        <%=image_tag "woman-reading.svg", class:"woman-reading"%>
+      </div>
+    </div>  <br />  <br />  <br />
+  </section>
+</div>
 <%= render "layouts/footer"%>
