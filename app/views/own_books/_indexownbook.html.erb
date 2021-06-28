@@ -42,27 +42,22 @@
         <div class="seven columns">
           <h6 class="text-upp text-dark"><%=own_book.book.title %></h6>
           <p>Auteur : <%=own_book.book.authors%></p>
-          <p>Catégomldwfslkdrie : </p>
+          <p>Catégorie : <%=own_book.genre %></p>
           <br>
           <p>Propriétaire du livre : <%=own_book.user.name%> <br> Ville : <%=own_book.user.private_address.try(:city).try(:name)%> </p>
 
 
 
-
-          <%= link_to "Fiche du Livre", own_book, class:"button"%>
-
-
-
+          <%= link_to "Plus d'infos", own_book, class:"button button-primary"%>
 
 
 
           <!-- Trigger/Open The Modal -->
-          <button id = <%=i%> class="btntrig">Open Modal</button>
-          <%=i%>
+          <button id = "<%=i%>" class="btntrig button button-success" onclick="OpenModal()">Fiche du Livre</button>
           
           <!-- The Modal -->
-          <div id = <%=i%> class="modal">
-          
+          <div id = "<%=i%>" class="modal">
+            
             <!-- Modal content -->
             <div class="modal-content">
               <span id="<%=i%>" class="close">&times;</span>
@@ -75,157 +70,75 @@
               <h2 class="text-upp u-text-center"><%= own_book.book.title %></h2>
               
               <div class="row">
-              <div class="container">
-              <hr>
-              <div class="six columns">
-              <%= image_tag own_book.book.image_link%>
-              <p>
-                <strong class="text-dark text-upp">ISBN :</strong>
-                <%= (own_book.book.isbn != '' ? own_book.book.isbn : empty) %>
-              </p>
-              <p>
-                <strong class="text-dark text-upp">Auteur.e.s :</strong>
-                <%= (own_book.book.authors != '' ? own_book.book.authors : empty) %>
-              </p>
-              
-              <p>
-                <strong class="text-dark text-upp">Editions :</strong>
-                <%= (own_book.book.publisher != '' ? own_book.book.publisher : empty) %>
-              </p>
-              </div>
-              <p>
-                <strong class="text-dark text-upp">Date de publication :</strong>
-                <%= (own_book.book.published_date != '' ? own_book.book.published_date : empty) %>
-              </p>
-              
-              <p>
-                <strong class="text-dark text-upp">Langue :</strong>
-                <%= (own_book.book.language != '' ? own_book.book.language : empty) %>
-              </p>
-              
-              
-              
-              <p>
-                <strong class="text-dark text-upp">Résumé :</strong>
-                <%= (own_book.book.description != '' ? own_book.book.description : empty) %>
-              </p>
-              <hr>
-              <p>
-                <strong class="text-dark text-upp">Critique :</strong>
-                <%= own_book.review %>
-              </p>
-                
-                <p>
-                <strong class="text-dark text-upp">Catégorie :</strong>
-                <%= own_book.genre %>
-              </p>
-              
-              
-              
-              <p>
-                <strong class="text-dark text-upp">Note :</strong>
-                <%= own_book.appreciation %>/5
-              </p>
-              
-              <p>
-                <strong class="text-dark text-upp">Propriétaire du livre :</strong>
-                <%= link_to own_book.user.name, user_path(own_book.user_id) %>
-              </p>
-              
-              </div>
-              
-              </div>
-              
-              <div class="container">
-              <%= link_to 'retour', own_books_path, class:"button" %>
-              <% if current_user != own_book.user %>
-                <% if own_book.loan_request? %>
-                    <button disabled class="button-success"> Temporairement indisponible </button>
-                <% elsif !own_book.loaned.nil? && own_book.loaned.borrower == current_user%>
+                <div class="container">
+                  <hr>
+                  <div class="six columns">
+                    <%= image_tag own_book.book.image_link%>
+                    <p>
+                      <strong class="text-dark text-upp">ISBN :</strong>
+                      <%= (own_book.book.isbn != '' ? own_book.book.isbn : empty) %>
+                    </p>
+                    <p>
+                      <strong class="text-dark text-upp">Auteur.e.s :</strong>
+                      <%= (own_book.book.authors != '' ? own_book.book.authors : empty) %>
+                    </p>
+                    
+                    <p>
+                      <strong class="text-dark text-upp">Editions :</strong>
+                      <%= (own_book.book.publisher != '' ? own_book.book.publisher : empty) %>
+                    </p>
+                  </div>
+                  <p>
+                    <strong class="text-dark text-upp">Date de publication :</strong>
+                    <%= (own_book.book.published_date != '' ? own_book.book.published_date : empty) %>
+                  </p>
                   
-                <% else %>
-                  <%= link_to "Emprunter le livre", own_book_loans_path(own_book.id), method: :create, class:"button button-primary"%>
-                <% end %>
-              <% else %>
-                <%= link_to 'donner mon avis', edit_own_book_path(@own_book), class:"button button-primary" %>
-                <% if own_book.loaned? == false && own_book.loan_request? == false %>
-                  <%= link_to 'Editer les données du livre', edit_book_path(own_book.book), class:"button button-success" %>
-              
-                  <%= link_to 'supprimer le livre', own_book, method: :delete, data: { confirm: 'Are you sure?' }, class:"button button-danger" %>
-                <% end %>
-              <% end %>
+                  <p>
+                    <strong class="text-dark text-upp">Langue :</strong>
+                    <%= (own_book.book.language != '' ? own_book.book.language : empty) %>
+                  </p>
+                  
+                  
+                  
+                  <p>
+                    <strong class="text-dark text-upp">Résumé :</strong>
+                    <%= (own_book.book.description != '' ? own_book.book.description : empty) %>
+                  </p>
+                  <p>
+                    <strong class="text-dark text-upp">Critique :</strong>
+                    <%= own_book.review %>
+                  </p>
+                  <hr>
+                  <p>
+                    <strong class="text-dark text-upp">Catégorie :</strong>
+                    <%= own_book.genre %>
+                  </p>
+                  
+                  
+                  
+                  <p>
+                    <strong class="text-dark text-upp">Note :</strong>
+                    <%= own_book.appreciation %>/5
+                  </p>
+                  
+                  <p>
+                    <strong class="text-dark text-upp">Propriétaire du livre :</strong>
+                    <%= link_to own_book.user.name, user_path(own_book.user_id) %>
+                  </p>
+                  <%= link_to "Plus d'infos", own_book, class:"button button-primary u-pull-right"%>
+                </div>
+                
               </div>
               
-
-
-
-
-
-
-
-
-          <%if current_user == own_book.user %>
-          <% if own_book.available == true %> 
-          <%= link_to "Rendre indisponible", own_book_set_available_path(own_book.id), method: :patch, class: "button button-danger" %>
-          <% else %>
-          <% if own_book.loan_request? == false && own_book.loaned? == false %>
-          <%= link_to "Rendre disponible", own_book_set_available_path(own_book.id), method: :patch, class: "button button-success" %>
-          <% end %>
-          <% end %>
-          <% else %>
-          <%= link_to "Prêteur", user_path(own_book.user_id), class:"button button-primary"%>
-          <% if own_book.loaned? %>
-          <% if own_book.loaned.borrower == current_user%>
-
-          <% else %>
-          <button disabled class="button-success">déjà emprunté </button>
-          <% end %>
-          <% elsif own_book.available == false %>
-          <button disabled class="button-success"> Temporairement indisponible </button>
-          <% else %>
-          <%= link_to "Emprunter", own_book_loans_path(own_book.id), method: :create, class:"button button-success" %>
-          <% end %>
-
-          <% end %>
+            </div>
+          </div>
+          <hr class="hr-index">
         </div>
       </div>
     </div>
-    <hr class="hr-index">
   </div>
   <%i+=1%>
   <%end%>
 </div>
-
-
-<script>
-
-
-var buttons = document.getElementsByClassName("btntrig");
-var modals = document.getElementsByClassName("modal");
-var closes = document.getElementsByClassName("close");
-
-
-let numberbook = document.getElementsByClassName("genre-select");
-
-
-for (var t = 0; t <= numberbook.length - 1; t++) {
-
-  var button = buttons[t];
-  var modal = modals[t];
-  var close = closes[t];
-
-  
-
-  button.onclick = function() {
-    modals[this.id].style.display = "block";
-  }
-
-  close.onclick = function() {
-    modals[this.id].style.display = "none";
-  }
-
-
-}
-
-
-</script>
+</div>
+</div>
