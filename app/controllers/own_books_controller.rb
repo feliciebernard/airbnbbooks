@@ -38,7 +38,7 @@ class OwnBooksController < ApplicationController
 
     respond_to do |format|
       if @own_book.save
-        format.html { redirect_to @own_book, notice: "Own book was successfully created." }
+        format.html { redirect_to @own_book, notice: "Votre avis a bien été enregistré." }
         format.json { render :show, status: :created, location: @own_book }
       else
         format.html { render :new, status: :unprocessable_entity }

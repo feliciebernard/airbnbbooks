@@ -5,7 +5,7 @@ class BooksController < ApplicationController
 
   # GET /books or /books.json
   def index
-    @books = Book.all.reverse
+    @books = Book.all
   end
 
   # GET /books/1 or /books/1.json
@@ -76,8 +76,6 @@ class BooksController < ApplicationController
         @own_book = OwnBook.create(user: current_user, book: @book, available: true)
         redirect_to edit_own_book_path(@own_book.id)
       else
-        puts "\n" * 50 
-        puts "HELLO LELELEL"
         render 'new', no_reset: true
       end
     end
@@ -101,7 +99,7 @@ class BooksController < ApplicationController
   def destroy
     @book.destroy
     respond_to do |format|
-      format.html { redirect_to books_url, notice: "Book was successfully destroyed." }
+      format.html { redirect_to own_books_path, notice: "Le livre a bien été supprimé." }
       format.json { head :no_content }
     end
   end
