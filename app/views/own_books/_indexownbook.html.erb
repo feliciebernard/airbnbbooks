@@ -42,7 +42,7 @@
         <div class="seven columns">
           <h6 class="text-upp text-dark"><%=own_book.book.title %></h6>
           <p>Auteur : <%=own_book.book.authors%></p>
-          <p>Catégorie : </p>
+          <p>Catégomldwfslkdrie : </p>
           <br>
           <p>Propriétaire du livre : <%=own_book.user.name%> <br> Ville : <%=own_book.user.private_address.try(:city).try(:name)%> </p>
 
@@ -142,7 +142,7 @@
                 <% if own_book.loan_request? %>
                     <button disabled class="button-success"> Temporairement indisponible </button>
                 <% elsif !own_book.loaned.nil? && own_book.loaned.borrower == current_user%>
-                  <%= link_to "Le rendre a son propriétaire", "", class: "button button-success" %> 
+                  
                 <% else %>
                   <%= link_to "Emprunter le livre", own_book_loans_path(own_book.id), method: :create, class:"button button-primary"%>
                 <% end %>

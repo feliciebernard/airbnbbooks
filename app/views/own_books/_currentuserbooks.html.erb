@@ -48,10 +48,13 @@
         <% elsif own_book.loaned? %>
 
         <%= link_to "Prêté à #{own_book.borrowed_by.name}", user_path(own_book.borrowed_by.id) , class: "button button-success"%>
+
         <%= link_to "#{own_book.borrowed_by.name} m'a bien rendu.e mon livre", own_book_loan_path(own_book_id: own_book.id, id: own_book.loaned.id),method: :delete, class:"button button-primary"%>
+       
         <% else %>
         
         <%= link_to 'supprimer', own_book, method: :delete, data: { confirm: "En êtes-vous sûr.e ? Celui-ci n'apparaîtra plus dans votre bibliothèque." }, class:"button button-success" %>
+
         <%= link_to "Rendre disponible", own_book_set_available_path(own_book.id), method: :patch, class: "button button-primary" %>
         <% end %>
 

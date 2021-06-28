@@ -28,8 +28,8 @@ class LoansController < ApplicationController
     @own_book.update(available: false)
     @loan = Loan.new(borrower: current_user, lender: @own_book.user, own_book: @own_book)
 
-   UserMailer.ask_owner_to_borrow_his_book(@own_book, current_user).deliver_now
-   UserMailer.copy_ask_owner_to_borrow_his_book(@own_book, current_user).deliver_now
+    UserMailer.ask_owner_to_borrow_his_book(@own_book, current_user).deliver_now
+    UserMailer.copy_ask_owner_to_borrow_his_book(@own_book, current_user).deliver_now
 
 
     respond_to do |format|
@@ -49,10 +49,10 @@ class LoansController < ApplicationController
     UserMailer.request_accepted(@loan).deliver_now
     #redirect_back(fallback_location: root_path)
     respond_to do |format|
-      
+
       if @loan.update(is_accepted: true)
         format.html { redirect_back(fallback_location: root_path) }
-    
+
         format.json { render :show, status: :ok, location: @loan }
       else
         format.html { redirect_back(fallback_location: root_path) }
@@ -76,7 +76,6 @@ class LoansController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_loan
-      puts "\n" * 50
       puts "PARAMS = #{params}"
       @loan = Loan.find(params[:id])
     end
@@ -89,4 +88,4 @@ class LoansController < ApplicationController
     def loan_params
       params.require(:loan, :own_book_id)
     end
-end
+  end
