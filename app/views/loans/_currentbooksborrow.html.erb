@@ -1,32 +1,32 @@
-<div class="container">
 <div class="row">
   <div class="one columns" ></div>
-<div class="ten columns">
+  <div class="ten columns">
     <div class="card card-loan">
       <h4 class="text-upp text-info u-text-center">Livres qu'on vous emprunte :</h4>
       
-        <hr>
-        <%if !user_borrow?(current_user) %>
-          <% lenders.each do |loan| %>
-          <%= link_to "Prêté à #{loan.borrower.name} le #{loan.updated_at}", user_path(loan.borrower.id) , class: "button button-success u-pull-right"%>
-            <% if loan.own_book.book.image_link.nil? %>
-              <%= image_tag "https://res.cloudinary.com/dcmcouvju/image/upload/v1624045770/nocover2_o33zpf.jpg", class:"u-pull-left"%>
-            <%else%>
-              
-              <%= image_tag loan.own_book.book.image_link, class:"book-img-list u-pull-left"%>
-            <%end%>
+      <hr>
+      <%if !user_borrow?(current_user) %>
+      <% lenders.each do |loan| %>
+      <%= link_to "Prêté à #{loan.borrower.name} le #{loan.updated_at}", user_path(loan.borrower.id) , class: "button button-success u-pull-right"%>
 
-                <h6><%=loan.own_book.book.title %></h6>
-                <p><%= loan.own_book.book.authors%></p>
-                <p><%= loan.own_book.book.isbn%></p> 
-                <p><%= loan.own_book.book.description%></p>
-                <hr>
-          <%end%>
-           </div>
-</div>
+      <%= link_to "#{loan.own_book.borrowed_by.name} m'a bien rendu.e mon livre", own_book_loan_path(own_book_id: loan.own_book.id, id: loan.own_book.loaned.id),method: :delete, class:"button button-primary"%>
+      <% if loan.own_book.book.image_link.nil? %>
+      <%= image_tag "https://res.cloudinary.com/dcmcouvju/image/upload/v1624045770/nocover2_o33zpf.jpg", class:"u-pull-left"%>
       <%else%>
-        <p>Pas d'emprunts</p>
+
+      <%= image_tag loan.own_book.book.image_link, class:"book-img-list u-pull-left"%>
       <%end%>
-   <div class="one columns"></div>
+
+      <h6><%=loan.own_book.book.title %></h6>
+      <p><%= loan.own_book.book.authors%></p>
+      <p><%= loan.own_book.book.isbn%></p> 
+      <p><%= loan.own_book.book.description%></p>
+      <hr>
+      <%end%>
+    </div>
   </div>
+  <%else%>
+  <p>Pas d'emprunts</p>
+  <%end%>
+  <div class="one columns"></div>
 </div>
