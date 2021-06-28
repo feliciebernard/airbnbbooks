@@ -103,6 +103,9 @@ input.placeholder {
 input.u-full-width {
   border: none;
 }
+.button-info-full {
+  background-color: #EDE7E3;
+}
 
 
 /* Footer Styling */
