@@ -3,17 +3,6 @@
   height: 135px;
   margin-bottom:5%;
 }
-
-.arrow {
-  position: absolute;
-  margin-top: 10%;
-  display: inline-block;
-  left:45%;
-}
-.arrow:hover {
-  background-color: transparent;
-}
-
 .hamburger {
   width: 25%;
   position: absolute;
@@ -68,6 +57,8 @@ a.link-index {
   position: relative;
 }
 
+/* Text-Decoration and Formatting Fonts */
+
 h2 {
   font-family: Futura;
   letter-spacing: 1px;
@@ -93,6 +84,18 @@ h2 {
   max-width: 100%;
 }
 
+.text-bold {
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+.text-upp {
+  text-transform: uppercase;
+}
+
+.subtitle {
+  margin-top: 200px;
+}
+
 input.placeholder {
   font-family: Futura Now Headline;
 }
@@ -100,6 +103,9 @@ input.placeholder {
 input.u-full-width {
   border: none;
 }
+
+
+/* Footer Styling */
 
 footer {
   background-color: #489FB5;
@@ -117,6 +123,26 @@ footer {
   margin-left: -45%;
 }
 
+.a-footer {
+  text-decoration: none;
+  
+}
+
+.a-footer:hover {
+  background-color: transparent;
+  color: #EDE7E3;
+}
+
+.a-footer:active {
+  color: #EDE7E3;
+}
+.a-footer:visited {
+  color: #EDE7E3;
+}
+
+/* ---- */
+
+/* Titlepage and Homepage Positionning and Style */
 
 .titlepage {
   max-width: 1920px;
@@ -156,6 +182,16 @@ p.rights {
   width:100px;
 }
 
+.arrow {
+  position: absolute;
+  margin-top: 10%;
+  display: inline-block;
+  left:45%;
+}
+.arrow:hover {
+  background-color: transparent;
+}
+
 .transformation {
   position: relative;
   animation-name: example;
@@ -170,6 +206,10 @@ p.rights {
   75%  {bottom:25px; top:25px;}
   100% {bottom:0px; top:0px;}
 }
+
+/* ----- */
+
+/* UserProfile Styling and Positionning */
 
 .user-profile {
   max-width: 300px;
@@ -202,7 +242,22 @@ p.rights {
 .first-button {
   margin-top: 10px;
 }
+/* Link to Google Maps in user profile */
+.city-link {
+  color:#073131;
+  text-decoration: none;
+}
+.city-link:hover {
+  color:#073131;
+}
 
+.city-link:visited {
+  color:#073131;
+}
+
+/* --------- */
+
+/* Current User Books  Styling */
 .book-img {
   width:20%;
 }
@@ -240,36 +295,17 @@ p.rights {
   padding-left: 15%;
 }
 
-.text-upp {
-  text-transform: uppercase;
-}
+/* ------ */
 
-.subtitle {
-  margin-top: 200px;
-}
-
-.a-footer {
-  text-decoration: none;
-  
-}
-
-.a-footer:hover {
-  background-color: transparent;
-  color: #EDE7E3;
-}
-
-.a-footer:active {
-  color: #EDE7E3;
-}
-.a-footer:visited {
-  color: #EDE7E3;
-}
+/* Styling Logo in Mail */
 
 .logo-mail {
   display: block;
   width:100px;
 }
+/* ------------ */
 
+/* Select Genre Button Js */
 .button-select-genre {
   min-width: 11rem;
   }
@@ -278,46 +314,9 @@ p.rights {
     opacity: .7;
   }
   
+ /* ----- */
 
-
-
-
-/* PrivateMessage 
-
-
-
- .ul {
-    padding-left: 0px;
-    list-style: none;
-  }
-
-  */ 
-
-  .messages-list {
-    max-height: 200px;
-    overflow-y: auto;
-    overflow-x: hidden;
-  }
-  
-  
-  .message-sent {
-    position: relative;
-    background-color: #D9EDF7;
-    border-color: #BCE8F1;
-    margin: 5px 20px;
-    padding: 10px;
-    float: right;
-  }
-  
-  
-  .message-received {
-    background-color: #F1F0F0;
-    border-color: #EEEEEE;
-    margin: 5px 20px;
-    padding: 10px;
-    float: left;
-  }
-
+/* Delete Profile Button */
   .bigger-anim {
     transform: scale(1);
   }
@@ -335,9 +334,10 @@ p.rights {
     transition: all .5s ease;
       transform: scale(.5) perspective(1px);
   }
+/* ------- */
 
 
-  /* Cookies Consent */
+/* Cookies Consent */
 
 
 /* main div */
@@ -368,25 +368,11 @@ p.rights {
     height:150px;
   }
 
+  /* ------ */
 
-  .text-bold {
-    font-weight: 600;
-    letter-spacing: 1px;
-  }
-  
-  .city-link {
-    color:#073131;
-    text-decoration: none;
-  }
-  .city-link:hover {
-    color:#073131;
-  }
-  
-  .city-link:visited {
-    color:#073131;
-  }
-  
-  .card-loan {
+/* Styling Button Book loaned page */
+
+.card-loan {
     border:none;
     box-shadow: none;
   }
