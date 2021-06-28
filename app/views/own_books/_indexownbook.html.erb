@@ -52,7 +52,6 @@
           <%= link_to "Prêteur", user_path(own_book.user_id), class:"button button-primary"%>
           <% if own_book.loaned? %>
           <% if own_book.loaned.borrower == current_user%>
-          <%= link_to "Le rendre a son propriétaire", "", class: "button button-success" %> 
           <% else %>
           <button disabled class="button-success">déjà emprunté </button>
           <% end %>

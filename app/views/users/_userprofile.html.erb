@@ -10,7 +10,7 @@
         <%end%>
         <div class="buttons">
           <%= form_tag user_avatars_path(@user), multipart: true do %>
-          <%= file_field_tag :avatar, class:"u-full-width button" %>
+          <%= file_field_tag :avatar, class:"u-full-width button custom-file-input" %>
           <%= submit_tag "valider l'avatar", class:" first-button button button-info u-full-width"%>
           <%=link_to "Ajouter un livre", new_book_path, class:"button button-primary u-full-width"%>
           <%=link_to "Les Prêts", own_book_loans_path(@current_user.id), class:"button button-info-full u-full-width"%>
