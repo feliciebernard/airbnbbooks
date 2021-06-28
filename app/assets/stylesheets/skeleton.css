@@ -15,131 +15,11 @@
 - Media Queries
 */
 
-
-
-
-/* STATIC TEAM PAGE PART */
-
-
-
-.body_team {
-  -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
-  -moz-animation: fadein 2s; /* Firefox < 16 */
-  -ms-animation: fadein 2s; /* Internet Explorer */
-  -o-animation: fadein 2s; /* Opera < 12.1 */
-  animation: fadein 2s;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.container_team {
-  display: flex;
-}
-
-.cardteam {
-  margin: 1rem;
-  width: 300px;
-  height: 640px;
-  padding: .5rem 1rem;
-  background-color: #82C0CC;
-  border-radius: 5rem;
-  box-shadow: 0 12px 32px 4px rgba(black, .2);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  transition: .2s;
-}
-
-.cardteam:hover {
-  transform: translateY(-5px);
-}
-
-
-.desc {
-  text-align: center;
-}
-
-fieldset {
-  overflow: hidden
-}
-
-.inline {
-  float: left;
-  clear: none;
-}
-
-label {
-  float: left;
-  clear: none;
-  display: block;
-  padding: 0px 1em 0px 8px;
-}
-
-input[type=radio],
-input.radio {
-  float: left;
-  clear: none;
-  margin: 2px 0 0 2px;
-}
-
-a:visited {
-  text-decoration: none;
-  color: #2574a9;
-}
-
-.imageround {
-  width: 250px;
-  height: 300px;
-  border: 1px solid #16697A;
-  border-radius: .5rem;
-  padding: 7px;
-  object-fit: cover;
-}
-
-/* KEYFRAMES PART */
-
-
-@keyframes fadein {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-
-/* Firefox < 16 */
-@-moz-keyframes fadein {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-
-/* Safari, Chrome and Opera > 12.1 */
-@-webkit-keyframes fadein {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-
-/* Internet Explorer */
-@-ms-keyframes fadein {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-
-
-/* END OF STATIC TEAM PAGE PART */
-
-
-
-
-
-
-
-
-
 html {
   font-size: 1em;
   box-sizing: border-box;
   scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
 }
 
 *,
@@ -701,7 +581,7 @@ input[type="button"] {
   padding: 0 1.9rem;
   color: #555;
   text-align: center;
-  font-family: Futura;
+  font-family: Futura, sans-serif;
   font-size: 0.8rem;
   font-weight: 600;
   line-height: 2.5rem;
@@ -962,6 +842,7 @@ select {
   padding: 0.4rem 0.6rem;
   background-color: #FFF;
   border: 1px solid #D1D1D1;
+  font-family: Futura, sans-serif;
   border-radius: 4px;
   box-shadow: none;
   -webkit-transition: border 0.2s;
@@ -999,7 +880,7 @@ textarea {
 }
 
 textarea {
-  min-height: 4rem;
+  min-height: 6rem;
   padding-top: 0.4rem;
   padding-bottom: 0.4rem;
   resize: vertical;
@@ -1015,6 +896,7 @@ input[type="url"]:focus,
 input[type="password"]:focus,
 textarea:focus,
 select:focus {
+  font-family: Futura, sans-serif;
   border: 1px solid #33C3F0;
   outline: 0;
 }
@@ -1041,6 +923,7 @@ legend {
 fieldset {
   padding: 0;
   border-width: 0;
+  font-family: Futura, sans-serif;
 }
 
 input[type="checkbox"],
@@ -1051,6 +934,7 @@ input[type="radio"] {
 label > .label-body {
   display: inline-block;
   margin-left: 0.5rem;
+  font-family: Futura, sans-serif;
   font-weight: normal;
 }
 
